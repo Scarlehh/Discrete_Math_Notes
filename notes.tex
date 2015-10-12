@@ -3,6 +3,7 @@
 \usepackage{multirow}
 \usepackage{amsfonts}
 \usepackage{subcaption}
+\usepackage{amsmath}
 
 \usepackage{tikz}
 \usetikzlibrary{shapes, backgrounds, calc}
@@ -397,5 +398,63 @@
 	\section{Cartesian Products}
 	\begin{description}
 		\item[Task:] Understand sets like $\mathbb{R}^1$ in a more theoretical way.
+		\item[Recall from Calculus:]
+		\item $\mathbb{R} = \mathbb{R}^1 \ni x$
+		\item $\mathbb{R} \times \mathbb{R} = \mathbb{R}^2 \ni (x_1, x_1)$ \\ \vdots
+		\item $\underbrace{\mathbb{R} \times \mathbb{R}}_{\text{n times}} = \mathbb{R}^2 \ni (x_1, x_2, ..., x_n)$
+		\item These are examples of Cartesian products.
+		\item[Definition:] Let $A, B$ be sets. The Cartesian product denoted by $A ]times B$ consists of all ordered pairs $(x, y) st x \in A \land y \in B$, \textbf{i.e.} $A \times B = \{(x, y) \mid x \in A \land y \in B \}$
+		\item[Further Examples:]
+		\begin{enumerate}
+			\item[]
+			\item $A = \{1, 3, 7\}$ \\
+			$B = \{1, 5\}$ \\
+			$A \times B = \{(1, 1), (1, 5), (3, 1), (3, 5), (7, 1), (7, 5)\}$ \\
+			\textbf{NB:} The order in which elements in a pair matters: $(7, 1)$ is different from $(1, 7)$. This is why we call $(x, y)$ an \underline{ordered} pair.
+			\item $A = \{(x, y) \in \mathbb{R}^ \mid x^2 + y^2 = 1 \} \leftarrow$ circle of radius 1 \\
+			$B = \{z \in \mathbb{R} \mid -2 \leq z \leq 2 \} = \{-2, 2\} \leftarrow$ closed interval \\
+			$A \times B \leftarrow$ cylinder of radius 1 and height 4
+		\end{enumerate}
+	\end{description}
+	
+	\subsection{Cardinality (number of elements) in a Cartesian product}
+	If $A$ has $n$ elements and $B$ has $p$ elements, $A \times B$ has $np$ elements.
+	\pagebreak
+	\begin{description}
+		\item[Example:]
+		\begin{enumerate}
+			\item[]
+			\item $ \#(A) = 3 \hspace{10mm} A = \{1, 3, 7\}$ \\
+			$\#(B) = 2 \hspace{10mm} B = \{1, 5\}$ \\
+			$\#(A) \times B) = 3 \times 2 = 6$
+			\item Both $A$ and $B$ are infinite sets, so $A \times B$ is infinite as well.
+		\end{enumerate}
+		\item[Remark:] We can define Cartesian products of any length, \textbf{e.g.} $A \times A \times B \times A$, $B \times A \times B \times A \times B$, etc. If all sets are finite, the number of elements is the product of the numbers of elements of each factor. If $\#(A) = 3$ and $\#(B) = 2$ as above, $\#(A \times B ]times A) = 3 \times 3 \times 3 = 18$ and $\#(B \times A \times B) = 2 \times 3 \times 2 = 12$.
+	\end{description}
+	
+	\section{Relations}
+	\begin{description}
+		\item[Task:] Define subsets of Cartesian products with certain properties. Understand the predicates $"="$ (equality) and other predicates in predicate logic in a more abstract light.
+		\item Start with $x=y$. The elements $x$ is some notation $R$ to $y$ (equality in this case). We can also denote it as $xRy$ or $(x, y) \in E)$
+		\item Let $x, y$ in $\mathbb{R}$, then $E = \{(x, x) \mid x \in \mathbb{R} \} \subset \mathbb{R} \times \mathbb{R}$.
+		\item The "diagonal" in $\mathbb{R} \times \mathbb{R}$ gives exactly the elements equal to each other.
+		\item More generally:
+		\item[Definition:] Let $A, B$ be sets. A subset of the Cartesian product $A \times B$ is called a relations between $A$ and $B$. A subset of the Cartesian product $A \times A$ is called a relations on $A$.
+		\item[Remark:] Note how general this definition is. To make it useful for understanding predicates, we will need to introduce key properties relations can satisfy.
+		\item[Example:] $A = \{1, 3, 7\} \hspace{10mm} B = \{1, 2, 5\}$
+		\item We can define a relation $S$ on $A \times B$ by $S = \{(1, 1), (1, 5), (3, 2)\}$. This means $1S1$, $1S5$ and $3S2$ and no other ordered pairs in $A \times B$ satisfy $S$.
+		\item[Remark:] The relations we defined involve 2 elements, so they are often called \underline{binary relations} in the literature.
+	\end{description}
+	
+	\section{Equivalence Relations}
+	\begin{description}
+		\item[Task:] Define the most useful kind of relation.
+		\item[Definition:] A relation $R$ on a set $A$ is called
+		\begin{enumerate}
+			\item \underline{reflexive} iff (if and only if) $\forall x ]in A, xRx$
+			\item \underline{symmetric} iff $\forall x, y \in A, xRy \rightarrow yRx$
+			\item \underline{transitive} iff $\forall x, y, z \in A, xRy \land yRz \rightarrow xRz$
+		\end{enumerate}
+		\item An equivalence relation on $A$ is a relation that is reflexive, symmetric and transitive.
 	\end{description}
 \end{document}
