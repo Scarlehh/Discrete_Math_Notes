@@ -2,11 +2,13 @@
 \usepackage{caption}
 \usepackage{multirow}
 \usepackage{amsfonts}
-\usepackage{subcaption}
 \usepackage{amsmath}
+\usepackage{amssymb}
 
 \usepackage{tikz}
+\usepackage{tkz-euclide}
 \usetikzlibrary{shapes, backgrounds, calc}
+\usetkzobj{all}
 
 \usepackage{hyperref}
 \hypersetup{
@@ -249,11 +251,11 @@
 	\subsection{Venn Diagrams}
 	Schematic representation of set operations. \\
 
-	\def \setu{(0, 0)rectangle(4.5, 3)}
-	\def \seta{(1.5, 1.5)circle(1)}
-	\def \setb{(3, 1.5)circle(1)}
 	\begin{figure}[h]
 		\centering
+		\def \setu{(0, 0)rectangle(4.5, 3)}
+		\def \seta{(1.5, 1.5)circle(1)}
+		\def \setb{(3, 1.5)circle(1)}
 		\begin{tikzpicture}
 			
 			\begin{scope}
@@ -456,5 +458,114 @@
 			\item \underline{transitive} iff $\forall x, y, z \in A, xRy \land yRz \rightarrow xRz$
 		\end{enumerate}
 		\item An equivalence relation on $A$ is a relation that is reflexive, symmetric and transitive.
+		\item[Notation:] Instead of $xRy$, an equivalence relation is often denoted by $x \equiv y$ or $x \sim y$.
+		\item[Examples:]
+		\begin{enumerate}
+			\item[]
+			\item "=" equality is an equivalence relation.
+			\begin{enumerate}
+				\item $x=x$ reflexive
+				\item $x=y \Rightarrow y=x$ symmetric
+				\item $x=y \land y=z \Rightarrow x=z$ transitive 
+			\end{enumerate}
+			\item $A = \mathbb{N} \\
+			x \equiv y$ mod $3$ is an equivalence relation. $x \equiv y$ mod 3 means $x-y = 3m$ for some $m \in \mathbb{Z}$, \textbf{i.e.} $x$ and $y$ have the same remainder when divided by 3. The set of all possible remainders is $\{0, 1, 2\}$ \\
+			\textbf{NB:} In correct logic notation, $x \equiv y$ mod 23 if $\exists m \in \mathbb{Z} s.t. x-y=3m$
+			\begin{enumerate}
+				\item $x \equiv x$ mod 3 since $x-x=0=3 \times 0 \rightarrow$ reflexive
+				\item $x \equiv y$ mod 3 $\Rightarrow y \equiv x$ mod 3 because $x \equiv y$ mod 3 means $x-y=3m$ for some $m \in \mathbb{Z} \Rightarrow y-x=-3m=3 \times (-m) \Rightarrow y \equiv x$ mod 3 $\rightarrow$ symmetric
+				\item Assume $x \equiv y$ mod 3 and $y \equiv z$ mod 3 \\
+				$x \equiv y$ mod 3 $\Rightarrow \exists m \in \mathbb{Z}$ s.t. $x-y=3m \Rightarrow y=x-3m$ \\
+				$y \equiv z$ mod 3 $\Rightarrow \exists p \in \mathbb{Z}$ s.t. $y-z=3p \Rightarrow y=z+3p$ \\
+				Therefore, $x-3m=z+3p \Leftrightarrow x-z=3p+3m = 3(p+m)$ \\
+				Since $p, m \in \mathbb{Z}, p+m \in \mathbb{Z} \Rightarrow x \equiv z$ mod 3 $\rightarrow$ transitive.
+			\end{enumerate}
+			\item Let $f:A \rightarrow A$ be any function on a non empty set A. We define the relation $R = \{(x, y) \mid f(x)=f(y) \}$
+			\begin{enumerate}
+				\item $\forall x \in A, f(x)=f(x) \Rightarrow (x, x) \in R \rightarrow reflexive$
+				\item If $(x, y) \in R$, then $f(x)=f(y) \Rightarrow f(y)=f(x)$, \textbf{i.e.} $(y, x) \in R \rightarrow$ symmetric
+				\item If $(x, y) \in R$ and $(y, z) \in R$, then $f(x)=f(y)$ and $f(y)=f(z)$, which by the transitivity of equality implies $f(x)=f(z)$, \textbf{i.e.} $(x, z) \in R$ as needed, so $R$ is transitive as well.\\
+				$f(x)$ can be $e^x, sin\:x, (x)$, etc.
+			\end{enumerate}
+			\pagebreak
+			\item Let $\lambda$ be the set of all triangles in the plane. $ABC \sim A'B'C'$ if $ABC$ and $A'B'C'$ are similar triangles, \textbf{i.e.} have equal angles.
+			
+			\begin{figure}[t!]
+				\centering
+				\begin{tikzpicture}
+					\coordinate (A) at (0, 0);
+					\coordinate (B) at (1, 1);
+					\coordinate (C) at (2, 0);
+					\draw (A)--(B)--(C)--cycle;
+
+					\tkzLabelAngle[pos = 0.4](B,A,C){A}
+					\tkzLabelAngle[pos = 0.4](A,B,C){B}
+					\tkzLabelAngle[pos = 0.4](A,C,B){C}
+					
+					\coordinate (A') at (3, 0);
+					\coordinate (B') at (5, 2);
+					\coordinate (C') at (7, 0);
+					
+					\draw (A')--(B')--(C')--cycle;
+					
+					\tkzLabelAngle[pos = 0.5](B',A',C'){A'}
+					\tkzLabelAngle[pos = 0.5](A',B',C'){B'}
+					\tkzLabelAngle[pos = 0.5](A',C',B'){C'}
+				\end{tikzpicture}
+			\end{figure}
+			
+			\begin{enumerate}
+				\item $\forall ABC \in \lambda, ABC \sim ABC$ so $\sim$ is reflexive
+				\item $ABC \sim A'B'C' \Rightarrow A'B'C' \sim ABC$ so $\sim$ is symmetric
+				\item $ABC \sim A'B'C'$ and $A'B'C' \sim A"B"C" \Rightarrow ABC \sim A"B"C"$, so $\sim$ is transitive
+				\item[Clearly] (a), (b), (c) use the fact that equality of angles is an equivalence relation.
+			\end{enumerate}
+		\end{enumerate}
+		\item[Exercise:] For various predicates you've encountered, check whether reflexive, symmetric or transitive. Examples of predicates include $\neq, <, >, \leq, \geq, \subseteq$
+	\end{description}
+	
+	\section{Equivalence Relations and Partitions}
+	\begin{description}
+		\item[Task:] Understand how equivalence relations divide sets.
+		\item[Definition:] Let $A$ be a set. A \underline{partition} of $A$ is a collection of non empty sets, any two of which are disjoint such that their union is $A$, \textbf{i.e.} $\lambda = \{A_\alpha \mid \alpha \in I \}$ s.t. $\forall \alpha , \alpha ' \in I$ satisfy $\alpha \neq \alpha ', A_\alpha \cap A_{\alpha '} \neq \emptyset$ and $\underset{\alpha \in I}{\cup} A_\alpha = A$
+		\item Here $I$ is an indexing act (may be infinite). $\underset{\alpha \in I}{A_\alpha}$ is the union of all the $A_\alpha$'s (possibly an infinite union)
+		\item[Example] $\{(n, n+1) \mid m \in \mathbb{Z} \}$ is a partition of $\mathbb{R}$
+		\begin{figure}[h]
+			\centering
+			\begin{tikzpicture}
+				\draw[latex-] (-2, 0) -- (4, 0);
+				\draw[-latex] (-2, 0) -- (4, 0);
+				
+				% lines on numberline
+				\foreach \x in {-1, 0, 1, 2, 3}
+				\draw[shift={(\x, 0)}, color=black] (0pt, 3pt) -- (0pt, -3pt);
+				
+				%numbers on numberline
+				\foreach \x in {-1, 0, 1, 2, 3}
+				\draw[shift={(\x, 0)}, color=black] (0pt, 0pt) -- (0pt, -3pt) node[below] {$\x$};
+				
+				\foreach \x in {-0.9, 0.1, 1.1, 2.1, 3.1}
+				\draw[shift={(\x, 0)}, color=black] (0pt, 4pt) -- (0pt, 0pt) node {{}(};
+				\foreach \x in {-1, 0, 1, 2, 3}
+				\draw[shift={(\x, 0)}, color=black] (0pt, 4pt) -- (0pt, 0pt) node {{}]};
+			\end{tikzpicture}
+		\end{figure}
+		\item $\underset{n \in \mathbb{Z}}{\cup} (n, n+1 ] = \mathbb{R}$
+		\item $(n, n+1 ] \cap (m, m+1 ] = \emptyset$ if $n \neq m$
+		\item[Definition:] If $R$ is an equivalence relations on a set $A$ and $x \in A$, the equivalence class of $x$ denoted $[x]_R$ is the set $\{y \mid xRy \}.$ The collection of all equivalence classes is called $A$ modulo $R$ and denoted $A/R$.
+		\item[Examples:]
+		\begin{enumerate}
+			\item[]
+			\item $A = \mathbb{N} \hspace{10mm} x \equiv y$ mod 3 \\
+			We have the equivalence classes $[0]_R, [1]_R$ and $[2]_R$ given by the then possible remainders under division by 3. \\
+			${[0]}_R = \{0, 3, 6, 9, ...\}$ \\
+			${[1]}_R = \{1, 4, 7, 10, ...\}$ \\
+			${[2]}_R = \{2, 5, 8, 11, ...\}$ \\
+			Clearly ${[0]}_R \cup {[1]}_R \cup {[2]}_R = \mathbb{N}$ and they are mutually disjoint $\Rightarrow R$ gives a partition of $\mathbb{N}$.
+			\item $ABC \sim A'B'C'$ \\
+			$[ABC] = \{$The set of all triangles with angles of magnitude $\measuredangle{ABC}, \measuredangle{BAC}, \measuredangle{ACB} \}$ \\
+			The union over the set of all $[ABC]$ is the set of all triangles and $[ABC] \cap [A'B'Ç'] = \emptyset$ if $ABC \neq ^* A'B'C'$ since it means these triangles have at least one angle that if difference.
+			\item [$^*$] In the original notes, not $\sim$ is used (a tilde with a slash going through it) but I couldn't find this symbol in latex.
+		\end{enumerate}
 	\end{description}
 \end{document}
