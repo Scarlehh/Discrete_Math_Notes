@@ -100,7 +100,7 @@
 	
 	\begin{description}
 		\item[Less obvious:] One connective called the sheffer stroke P$\mid$Q (which stands for "not both P and Q" or "P nand Q") can be used to represent all of $\lnot$, $\land$, $\lor$, $\rightarrow$, $\leftrightarrow$ since $\lnot$P $\leftrightarrow$ P$\mid$P and P $\lor$ Q $\leftrightarrow$ (P$\mid$P) $\mid$ (Q$\mid$Q).
-		\item[Recall] is P$\rightarrow$Q is a given implication, Q$\rightarrow$P is called the \underline{converse} or P$\rightarrow$Q. $\lnot$Q $\rightarrow$ $\lnot$P.
+		\item[Recall] if P$\rightarrow$Q is a given implication, Q$\rightarrow$P is called the \underline{converse} or P$\rightarrow$Q. $\lnot$Q $\rightarrow$ $\lnot$P.
 	\end{description}
 	
 	\subsection{Indirect Arguments/Proofs by Contradiction/Reductio as absurdum}
@@ -113,7 +113,7 @@
 		\item Then, \[\sqrt{2}=\frac{a}{b}\]
 		\item Squaring both sides, we have \[2=\frac{a^2}{b^2}\]
 		\item Multiplying both sides by $B^2$ yields \[2b^2=a^2\]
-		\item Since $a^2b^2$, we can conclude that $a^2$ is even because whatever the value of $b^2$ has to be multiplied by 2. Is $a^2$ is even, then $a$ is also even. Since $a$ is even, no matter what the value of $a$ is, we can always find an integer that if we divide $a$ by 2, it is equal to that integer. If we let that integer be $k$, then $\frac{a}{b}=k$ which means that $a=2k$.
+		\item Since $a^2b^2$, we can conclude that $a^2$ is even because whatever the value of $b^2$ has to be multiplied by 2. If $a^2$ is even, then $a$ is also even. Since $a$ is even, no matter what the value of $a$ is, we can always find an integer that if we divide $a$ by 2, it is equal to that integer. If we let that integer be $k$, then $\frac{a}{b}=k$ which means that $a=2k$.
 		\item Substituting the value of $2k$ to $a$, we have $2b^2=(2k)^2$ which means that $2b^2=4k^2$. dividing both sides by 2 we have $b^2=2k^2$. That means that the value $b^2$ is even, since whatever the value of $k$ you have to multiply it by 2. Again, is $b^2$ is even, then $b$ is even.
 		\item This implies that both $a$ and $b$ are even, which means that both the numerator and the denominator of our fraction are divisible by 2. This contradicts our \textbf{assumption} that $\frac{a}{b}$ has no common divisor except 1. Since we found a contradiction, our assumption is, therefore, false. Hence the theorem is true.
 		\item \textbf{qed}
@@ -122,7 +122,7 @@
 	\section{Predicate logic and Quantifiers}
 	\begin{description}
 		\item[Task:] Understand enough predicate logic to make sense of quantified statements.
-		\item In predicate logic, propositions depend on variable x, y, x, so their truth value may chance depending on which values these variables assume: $P(x), Q(x, y), R(x, y, z)$
+		\item In predicate logic, propositions depend on variable x, y, z, so their truth value may change depending on which values these variables assume: $P(x), Q(x, y), R(x, y, z)$
 	\end{description}
 	
 	\subsection{Introduce quantifiers}
@@ -201,7 +201,7 @@
 	\subsection{Two Ways to Describe Sets}
 	\begin{enumerate}
 		\item The enumeration/roster method: list all elements of the set.\\ \textbf{NB:} order is \underline{irrelevant}.\\ $A=\{0, 1, 2, 3, 4, 5\}=\{5, 0, 2, 3, 1, 4\}$
-		\item The formulaic/set builder method: give a formula that generates all elements of the set.\\ $A=\{x \in \mathbb{N} \mid 0 \leq 5 \land x \leq 5\} = \{0, 1, 2, 3, 4, 5\} = \{x \in \mathbb{N} : 0 \leq x \land x \leq 5 \}$
+		\item The formulaic/set builder method: give a formula that generates all elements of the set.\\ $A=\{x \in \mathbb{N} \mid 0 \leq x \land x \leq 5\} = \{0, 1, 2, 3, 4, 5\} = \{x \in \mathbb{N} : 0 \leq x \land x \leq 5 \}$
 	\end{enumerate}
 	Using $\mathbb{N}$ and the set-builder method, we can define:
 		
