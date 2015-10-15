@@ -773,4 +773,72 @@
 		$g \circ f(x) = g(f(x)) = g(2x = cos(2x))$ \\
 		$f \circ g(x) = f(g(x)) = f(cos \: x) = 2(cos \: x) = 2 cos \: x$
 	\end{description}
+	
+	\section{Inverting Functions}
+	\begin{description}
+		\item[Task:] Figure out which properties a function has to satisfy so that its action can be undone, \textbf{i.e.} when we can define an inverse to the original function.
+	\end{description}
+	Given $f: A \rightarrow B$, want $f^{-1}: B \rightarrow A$ s.t. $f^{-1} \circ f: A \rightarrow A$ is the identity $f^{-1} \circ f(x) = f^{-1}(f(x)) = x$ \\
+	$A \overset{f}{\rightarrow} B \overset{f^{-1}}{\rightarrow} A$ \\
+	It turns out $f$ has to satisfy two properties for $f^{-1}$ to exist.
+	\begin{enumerate}
+		\item Injective
+		\item Surjective
+	\end{enumerate}
+	\begin{description}
+		\item[Definition:] A function $f: A \rightarrow B$ is called \underline{injective} or an injection (sometimes called one to one) if $f(x)=f(y) \Rightarrow x=y$
+		\item[Examples:] ~\\
+		$\sin{x}: [0, \frac{\pi}{2}] \rightarrow \mathbb{R}$ is injective \\
+		$\sin{x}: \mathbb{R} \rightarrow \mathbb{R}$ is not injective because $\sin{x} = \sin{\pi} = 0$
+		\item[Definition:] A function $f: A \rightarrow B$ is called \underline{surjective} or a surjection (sometimes called onto) if $\forall z \in B \exists x \in A$ s.t. $f(x) = z$.
+		\item[Remark:] $f$ assigns a value to each element of $A$ by its definition as a function, but it is not required to cover all of $B$. $f$ is surjective if its range is all of $B$.
+		\item[Examples:] ~\\
+		$\sin{x}: \mathbb{R} \rightarrow [-1, 1]$ is surjective \\
+		$\sin{x}: \mathbb{R} \rightarrow \mathbb{R}$ is not surjective since $\nexists x \in \mathbb{R}$ s.t. $\sin{x} = 2$. We know $| \sin{x} | \leq 1 \forall x \in \mathbb{R}$
+		\item[Definition:] A function $f:A \rightarrow B$ is called \underline{bijective} or a bijection if $f$ is \underline{both} injective and surjective.
+		\item[Example:] $f: \mathbb{R} \rightarrow \mathbb{R} \hspace{10mm} f(x) = 2x+1$ is bijective.
+		\begin{itemize}
+			\item Check injectivity $f(x_1) = f(x_2) \Rightarrow 2x_1 + 1 = 2x_2 + 1 \Leftrightarrow 2x_1 = 2x_2 \Leftrightarrow x_1 = x_2$ as needed.
+			\item Check surjectivity $\forall z \in \mathbb{R}. f(x) = z$ means $2x+1=z$. \\
+			Solve for $x$: $2x=z-1 \Rightarrow x = \frac{z-1}{2} \in \mathbb{R} \Rightarrow f$ is surjective.
+		\end{itemize}
+		\item[Remark:] All bijective functions have inverses because we can define the inverse of a bijection and it will be a function:
+		\begin{itemize}
+			\item Surjectivity ensures $f_{-1}$ assigns an element to every element of $B$ (its domain).
+			\item Injectivity ensures $f_{-1}$ assigns to each elements of $B$ \underline{one and only one} elements of $A$.
+		\end{itemize}
+		\item[Conclusion:] $f:A \rightarrow B$ bijective $\Rightarrow f_{-1}$ exists, \textbf{i.e.} $f_{-1} $ is a function. It turns out (reverse the arguments above) that $f_{-1}$ exists $\Rightarrow f:A \rightarrow B$ is bijective. \\
+		Altogether we get the following theorem:
+		\item[Theorem:] Let $f:A \rightarrow B$ be a function. $f_{-1}$ exists $\Leftrightarrow f:A \rightarrow B$ is bijective.
+		\item[Q:] How do we find the inverse function $f_{-1}$ given $f: A \rightarrow B$?
+		\item[A:] If $f(x)=y$, solve for $x$ as a function of $y$ since $f_{-1}(f(x))=f_{-1}(y)=x$ s $f_{-1} \circ f$ is the identity.
+		\item[Example:] $f(x)=2x+1=y$. Solce for $x$ in terms of $y$. \\
+		$f: \mathbb{R} \rightarrow \mathbb{R}$ \\
+		$2x = y-1 \hspace{10mm} x = \frac{y-1}{2}$
+	\end{description}
+	
+	\section{Functions Defined on Finite Sets}
+	\begin{description}
+		\item[Task:] Derive conclusions about a function given the number of elements of the domain and codomain if finite; understand the pigeonhole principle.
+		\item[Proposition:] Let $A, B$ be sets and let $f:A \rightarrow B$ be a function. Assume $A$ is finite. Then $f$ is injective $\Leftrightarrow f(A)$ has the same number of elements as $A$.
+		\item[Proof:]
+		\item $A$ is finite so we can write it as $A = \{a_1, a_2, ..., a_p\}$ for some $p$. Then $f(A) = \{f(a_1), f(a_2), ..., f(a_p)\} \subseteq B$. A priori, some $f(a_i)$ might be the same as some $f(a_j)$. However, $f$ injective $\Leftrightarrow f(a_i) \neq f(a_j)$ whenever $i \neq j \Leftrightarrow f(A)$ has example $p$ elements just like $A$.
+		\item[qed]
+		\item[Corollary 1] Let $A, B$ be finite sets such that $\#(A) = \#(B)$. Let $f: A \rightarrow B$ be a function. $f$ is injective $\Leftrightarrow f$ is bijective.
+		\item[Proof:]
+		\item $\Rightarrow$ Suppose $f:A \rightarrow B$ is injective. Since $A$ is finite, by the previous proposition, $f(A)$ has the same number of elements as $A$, but $f(A) \subseteq B$ and $B$ has the same number of elements as $A \Rightarrow \#(A) = \#(f(A)) = \#(B)$, which means $f(A) - B$, \textbf{i.e.} $f$ is also surjective $\Rightarrow f$ is bijective.
+		\item $\Leftarrow f$ is bijective $\Leftarrow f$ is injective.
+		\item[qed]
+		\item[Corollary 2 (The Pigeonhole Principle)] Let $A, B$ be finite sets. If $\#(B) < \#(A)$, and let $f:A \rightarrow B$ be a function. $\exists a, a' \in A$ where $ a \neq a'. f(a) = f(a')$
+		\item[Remark:] The name pigeonhole principle is due to Paul Erd\"{o}s and Richard Rado. Before is was known as the principle of the drawers of Dirichlet. It has a simple statement, but it's a very powerful result in both mathematics and computer science.
+		\item[Proof:] Since $f(A) \subseteq B$ and $\#(B) < \#(A), f(A)$ cannot hve as many elements as $A$, so by the proposition, $f$ cannot be injective, \textbf{i.e.} $\exists a, a' \in A$ where $a \neq a'$ (\textbf{i.e.} distinct elements) s.t. $f(a) = f(a')$
+		\item[qed]
+		\item[Examples:]
+		\begin{enumerate}
+			\item[]
+			\item You have 8 friends. At least two of them were born the same day of the week. \#(days of the week) $= 7 < 8$.
+			\item A family of five fives each other presents for Christmas. There are 12 presents under the tree. We conclude at least one person for three presents or more.
+			\item In a list of 30 words in English, at least two will begin with the same letter. \#(Letter in the English alphabet) = 26 < 30.
+		\end{enumerate}
+	\end{description}
 \end{document}
