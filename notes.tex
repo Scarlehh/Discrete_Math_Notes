@@ -904,6 +904,7 @@
 		\end{enumerate}
 		\item[Examples:]
 		\begin{enumerate}
+			\item[]
 			\item Prove $1+3+5+...+(2n-1) = n^2$ by induction.
 			\begin{description}
 				\item[Base Case:] Verify statement for $n=1$
@@ -911,6 +912,201 @@
 				\item[Inductive Step:] Assume $P(n)$, \textbf{i.e.} $1+3+5+...+(2n-1)=n^2$ and seek to prove $P(n+1)$, \textbf{i.e.} the statement $1+3+5...+(2n-1+2(n+1)-1) = (n+1)^2$
 				\item We start with LHS: $1+ \underset{n^2}{\underbrace{3+5+...+(2n-1)}}+(2(n+1)-1)=n^2+2n+2-1=n^2+2n+1=(n+1)^2$
 			\end{description}
+			\item Prove $1+2+3+ +n= \frac{n(n+1)}{2}$ by induction.
+			\begin{description}
+				\item [Base Case:] Verify statement for $n=1$
+				\item When $n=1, 1= \frac{1\times (1+1)}{2}=\frac{1 \times 2}{2} = 1$
+				\item[Inductive Step:] Assume $P(n)$, \textbf{i.e.} $1+2+3+...+n=\frac{n\times (n+1)}{2}$ and seek to prove $1+2+3+...+n= \frac{(n+1)(n+2)}{2}$
+				\item $\underset{\frac{n(n+1)}{2}}{\underbrace{1+2+3+...+n}}+n+1 = \frac{n(n+1)}{2} + n + 1 = (n+1)(\frac{n}{2} + 1)=(n+1)\frac{n+2}{2} = \frac{(n+1)(n+2)}{2}$ as needed.
+			\end{description}
+		\end{enumerate}
+		\item[Remarks:]
+		\begin{enumerate}
+			\item[]
+			\item For some argument by induction, it might be necessary to assume not just $P(n)$ at the inductive step but also $P(1), P(2)P, ...m P(n-1)$. This is called \underline{strong induction}.
+			\begin{description}
+				\item[Base Case:] Prove $P(1)$
+				\item[Inductive Step:] Assume $P(a), P(2), ..., P(n)$ and prove $P(n+1)$.
+			\end{description}
+			\item[] An example of result requiring the use of strong induction is the \underline{Fundamental Theorem of Arithmetic}: $\forall n \in \mathbb{N}, n \geq 2, n$ can be expressed as a product of one or more prime numbers.
+			\item One has to be careful with argument involving induction. Here is an illustration why:
+			\item[] \underline{Polya's argument that all horses are the same colour:}
+			\begin{description}
+				\item[Base Case:] $P(1)$ There is only one horse, sot hat has a colour.\item[Inductive Step] Assume any $n$ horses are the same colour.
+				\item Consider a group of $n+1$ horses. Exclude the first horse and look at the other $n$. All of these are the same colour by our assumption. Now exclude the last horse. The remaining $n$ horses are the same colour by our assumption. Therefore, the first horse, the horses in the middle, and the last horse are all of the same colour. We have established the inductive step.
+				\item[Q:] Where does the argument fail?
+				\item[A:] For $n=2, P(2)$ is false because there are no middle horses to compare to.
+			\end{description}
+			item[] \underline{The Grand Hotel Cigar Mystery}
+			\begin{description}
+				\item[] Recall Hilbert's hotel - the grand Hotel. Suppose that the Grand Hotel does not allow smoking and no cigars may be taken into the hotel. In spite of the rules, the guest in Room 1 goes to Room 2 to get a cigar. The guest in Room 2 goes to Room 3 to get 2 cigars (one for him and one for the person in room 1), etc. In other words, guest in Room N goes to Room N+1 to get N cigars. They will each get back to their rooms, smoke one cigar, and give the result to the person in Room N-2.
+				\item[Q:] Where is the fallacy?
+				\item[A:] This is an induction argument without a base case. No cigars are allowed in the hotel so no guests have cigars. An induction cannot get off the ground without a base case.
+			\end{description}
 		\end{enumerate}
 	\end{description}
+	
+	\section{Abstract Algebra}
+	\begin{description}
+		\item[Task:] Understand binary operators, semigroups, monoids, and groups as well as their properties.
+	\end{description}
+	
+	\subsection{Binary Operations}
+	\begin{description}
+		\item[Definition:] Let $A$ be a set. A \underline{binary operation} $*$ on $A$ is an operation applied to any two elements $x, y \in A$ that yields on elements $x*y$ in $A$. In other words, $*$ us a binary operation on $A$ if $\forall x, y \in A, x*y \in A$.
+		\item[Examples:]
+		\begin{enumerate}
+			\item[]
+			\item $\mathbb{R}, +$ addition on $\mathbb{R}: \forall x, y \in \mathbb{R}, x+y \in \mathbb{R}$
+			\item $\mathbb{R}, -$ subtraction on $\mathbb{R}: \forall x, y \in \mathbb{R}, x-y \in \mathbb{R}$
+			\item $\mathbb{R}, \times$ multiplication on $\mathbb{R}: \forall x, y \in \mathbb{R}, x \times y \in \mathbb{R}$
+			\item $\mathbb{R}, /$, division on $\mathbb{R}$ is \underline{NOT} a binary operation because $\forall x \in \mathbb{R} \exists o \in \mathbb{R}$ s.t. $\frac{x}{o}$ is undefined (not an element of $\mathbb{R}$)
+		\end{enumerate}
+		\item[Definition:] A binary operation $*$ on a set $A$ is called \underline{commutative} if $\forall x, y \in A, x*y=y*x$
+		\item[Examples:]
+		\begin{enumerate}
+			\item[]
+			\item $\mathbb{R}, +$ is commutative since $\forall x, y \in \mathbb{R}, x+y=y+x$
+			\item $\mathbb{R}, \times$ is commutative since $\forall x, y \in \mathbb{R}, x \times y = y \times x$
+			\item $\mathbb{R}, -$ is not commutative since $\forall x, y \in \mathbb{R}, x-y \neq y-x$ in general. $x-y=y-x$ only if $x=y$
+			\item Let $Mn$ be the set of $n$ by $n$ matrices with entries in $\mathbb{R}$ and let $*$ be matrix multiplication. $\forall A, B \in Mn, A*B \in Mn$, so $*$ is a binary operation, but $AB \neq BA$ in general. Therefore $*$ is not commutative.
+		\end{enumerate}
+		\item[Definition:] A binary operation $*$ on a set $A$ is called \underline{associative} if $\forall x, y z (x*y)*z = x*(y*z)$
+		\item[Examples:]
+		\begin{enumerate}
+			\item[]
+			\item $\mathbb{R}, +$ is associative since $\forall x, y, z \in \mathbb{R}, (x+y)+z=x+(y+z)$
+			\item $\mathbb{R}, \times$ is associative since $\forall x, y, z \in \mathbb{R}, (x \times y) \times z = x \times (y \times z)$
+			\item Intersection $\cap$ on sets is associative since $\forall A, B, C$ sets $(A \cap B) \cap C = A \cap (B \cap C)$.
+			\item Union $\cup$ on sets is associative since $\forall A, B, C$ sets $(A \cup B) \cup C = A \cup (B \cup C)$
+			\item $\mathbb{R}, -$ is not associative since $(1-3)-5 = -2-5 =-7$ but $1-(3-5)=1-(-2)=1+2=3$
+		\end{enumerate}
+		\item[Remark:] When we are dealing with associative binary operations we can drop the parentheses, \textbf{i.e.} $(x*y)*z$ can be written $x*y*z$.
+	\end{description}
+	
+	\subsection{Semigroups}
+	\begin{description}
+		\item[Definition:] A \underline{semigroup} is a set endowed with an associative binary operation. We denote the semigroup $(A, *)$
+		\item[Examples:]
+		\begin{enumerate}
+			\item[]
+			\item $(\mathbb{R}, +)$ and $(\mathbb{R}, -)$ are semigroups.
+			\item Let $A$ be a set and let $P(A)$ be its power set. $(P(A), \cap)$ and $(P(A), \cup)$ are both semigorups.
+			\item $(Mn, *)$, the set of $n\times n$ matrices with entries in $\mathbb{R}$ with the operation of matrix multiplication (which is associative $\rightarrow$ a bit gory to prove) forms a semigroup.
+			\item[] Since $*$ is associative on a semigroup, we can define $a^n:$\\
+			$a^1 = a$ \\
+			$a^2 = a*a$\\
+			$a^3 = a*a*a$\\
+			\vdots \\
+			Recursively, $a^1=1$ and $a^n=a*a^{n-1}, \forall n > 1$
+			\item[\textbf{NB:}] In $(\mathbb{R}, \times), \forall a \in \mathbb{R}, a^n = \underset{n\: times}{\underbrace{a \times a \times ... \times a}}$, whereas in $(\mathbb{R}, +), \forall a \in \mathbb{R}, a^n = \underset{n\: times}{\underbrace{a + a + ... + a}}=na$. Be careful what $*$ stands for!
+		\end{enumerate}
+		\item[Theorem:] Let $(A, *)$ be a semigroup. $\forall a \in A, a^m * a^n = a^{m+n}, \forall m, n \in \mathbb{N*}$.
+		\begin{description}
+			\item[Proof:] By induction on $m$.
+			\item[Base Case:] $m=1 \hspace{10mm} a^1*a^n= a*a^n =a*{1+n}$
+			\item[Inductive Step:] Assume the result is true for $m=p$, \textbf{i.e.} $a^p*a^n = a^{p+n}$ and seek to prove that $a^{p+1}*a^n=a^{p+1+n}$
+			\item $a^p+1*a^n = (a*a^p)*a^n = a*(a^p*a*n) = a*a^{p+n} =a^{p+1+n}$
+		\end{description}
+		\item[Theorem:] Let$(A, *)$ be a semigroup. $\forall a \in A, (a^m)^n = a^(mn), \forall m, n \in \mathbb{N}*$
+		\begin{description}
+			\item[Proof:] By induction on $n$.
+			\item[Base Case:] $n=1 \hspace{10mm} (a^m)^1 = a^m = a^{m \times 1}$
+			\item[Inductive Step:] Assume the result if true for $n=p$, \textbf{i.e.} $(a^m)^p = a^{mp}$ and seek to prove that $(a^m)^{p+1}=a^{m(p+1)}$
+			\item $(a^m)^{p+1} = (a^m)^p * a^m = a^{mp} * a^m = a^{mp+m} = a^{m(p+1)}$
+		\end{description}
+	\end{description}
+	
+	\subsubsection{General Associative Law}
+	Let $(A, *)$ be a semigroup. $\forall a_1, ..., a_s \in A, a_1 * a_2 * ... * a_s$ has the same value regardless of how the product is bracketed.
+	\begin{description}
+		\item[Proof] Use associativity of $*$.
+		\item[qed]
+		\item[NB:] Unless $(A, *)$ has a commutative binary operation, $a_1 * a_2 * ... * a_s$ does depend on the \underline{ORDER} in which the $a_j's$ appearin $a_1 * a_2 * ... * a_s$
+	\end{description}
+	
+	\subsubsection{Identity Elements}
+	\begin{description}
+		\item[Definition:] Let $(A, *)$ be a semigroup. An element $e \in A$ is called an identity element for the binary operation $*$ if $e*x = x*e = x, \forall x \in A$.
+		\item[Examples:]
+		\begin{enumerate}
+			\item[]
+			\item $(\mathbb{R}, +)$ has 0 as the identity element.
+			\item $(\mathbb{R}, \times)$ has 1 as the identity element.
+			\item Given a set $A, (P(A), \cup)$ has $\emptyset$ (the empty set) as its identity elements, whereas $(P(A), \cap)$ does \underline{NOT} have an identity element.
+			\item $(Mn, *)$ has $In$, the identity matrix as its identity element.
+		\end{enumerate}
+		\item[Theorem] A binary operation on a set cannot have more than one identity elements, \textbf{i.e.} if an identity element exists, then it is unique.
+		\begin{description}
+			\item[Proof:] Assume not (proof by contradiction). Let $e$ and $e'$ both be identity elements for a binary operation on a set $A$. $e=e*e'=e'$
+			\item[qed]
+		\end{description}
+	\end{description}
+	
+	\subsection{Monoids}
+	\begin{description}
+		\item[Definition:] A \underline{monoid} is a set $A$ endowed with an associative binary operation $*$ that has an identity element $e$. In other words, a monoid is a semigroup $(A, *)$ where $*$ has an identity element $e$.
+		\item[Definition:] A monoid $(A, *)$ is called \underline{commutative} (or \underline{Abelian}) if the binary operation $*$ is commutative.
+		\item[Example:]
+		\begin{enumerate}
+			\item[]
+			\item $(\mathbb{R}, +)$ is a commutative monoid with $e=o$.
+			\item $(\mathbb{R}, \times)$ is a commutative monoid with $e=1$.
+			\item Given a set $A$, $(P(A), \cup)$ is a commutative monoid with $e = \emptyset$.
+			\item $(M,n *)$ is a monoid since $e=In$, but it is not commutative since matrix multiplication is not commutative.
+			\item $(\mathbb{N}, +)$ is a commutative monoid with $e=o$, whereas $(\mathbb{N}*, +)$ is merely a semigroup (recall $\mathbb{N}* = \mathbb{N} \backslash\{0\}$)
+		\end{enumerate}
+		\item[Theorem:] Let $(A, *)$ be a monoid and let $a \in A$. Then $a^m * a^n = a^{m+n}, \forall m, n \in \mathbb{N}$
+		\begin{description}
+			\item[Remark:] Recall that we proved this theorem for semigroups if $m, n \in \mathbb{N}*$. We now need to extend that result.
+			\item[Proof:] A monoid is a semigroup $\implies \forall a \in A, a^m * a^n = a^{m+n}$ whenever $m, n \in \mathbb{N}*$, \textbf{i.e.} $m > 0$ and $n > 0$. Now let $m = 0$. $a^m * a^n = a^0 * a^n = e * a^n = a^n = a^{0+n}$ \\
+			If $n=0, a^m * a^n = a^m * a^0 = a^m* e = a^m = a^{m+0}$
+			\item[qed]
+		\end{description}
+		\item[Theorem:] Let $A, *)$ be a monoid, $\forall a \in A \forall m, n \in \mathbb{N}, (a^m)^n = a^{mn}$
+		\begin{description}
+			\item[Remark:] Once again, we had this result for semigroups when $m>0$ and $n > 0$
+			\item[Proof:] By the remark, we only need to prove the result when $m=0$ or $n=0$. If $m=0, (a^0)^n = (e)^n = e = a^0 = a^{0\times n}$. If $n=0$ then $(a^m)^0 = e = a^0 = a^{0 \times m}$
+		\end{description}
+	\end{description}
+	
+	\section{Inverses}
+	\begin{description}
+		\item[Task:] Understand what an inverse is and what formal properties it satisfies.
+		\item[Definition:] Let $(A, *)$ be a monoid with identity element $e$ and let $a \in A$. An element $y$ of $A$ is called the \underline{inverse} of $x$ if $x*y = y*x = e$. If an element $a \in A$ has an inverse, then $a$ is called \underline{invertible}.
+		\item[Examples:]
+		\begin{enumerate}
+			\item[]
+			\item $(\mathbb{R}, +)$ has identity element 0. $\forall x \in \mathbb{R}, (-x)$ is the inverse of $x$ since $x+(-x)=(-x)=x = 0$.
+			\item $(\mathbb{R}, \times)$ has identity element 1. $x \in \mathbb{R}$ is invertible only if $x \neq 0$. If $x \neq 0$, the inverse of $x$ is $\frac{1}{x}$ since $x \times \frac{1}{x} = \frac{1}{x} \times x =1$.
+			\item $(Mn, *)$ the identity element is $In$. $A \in Mn$ is invertible if $det(A) \neq 0$. $A^{-1}$ the inverse is exactly the one you computed in linear algebra. If $det(a) = 0, A$ is \underline{NOT} invertible.
+			\item Given a set $A, (P(A), \cup)$ has $\emptyset$ as its identity element of all the elements of $P(A)$ only $\emptyset$ is invertible and has itself asits inverse: $\emptyset \cup \emptyset= \emptyset \cup \emptyset = \emptyset$
+		\end{enumerate}
+		\item[Theorem:] Let $(A, *)$ be a monoid. If $a \in A$ has an inverse, then that inverse is unique.
+		\begin{description}
+			\item[Proof:] By contradiction: Assume not, then $\exists a \in A$ s.t. both $b$ and $c$ in $A$ are its inverses, \textbf{i.e.} $a*b = b*a = e$, the identity element of $(A, *)$ and $a*c = c*a = e$ and $b \neq c$, then $b = b*e=b*(a*c)=(b*a)*c=e*c=c$.
+			\item[qed]
+		\end{description}
+		\item Since every invertible element of $a$ for $(A, *)$ a monoid has a unique inverse, we can denote the inverse by the more standard notation $a^{-1}$.
+		\item Next, we need to understand inverses of elements obtained via the binary operation:
+		\item[Theorem:] Let $(A, *)$ be a monoid and let $a, b$ be invertible elements of $A$. $a*b$ is also invertible and $a*b^{-1} = b^{-1}*a^{-1}$.
+		\begin{description}
+			\item[Remark:] You might remember this formula from linear algebra when you looked at the inverse of a product of matrices $AB$.
+			\item[Proof:] Let $e$ be the identity element of $(A, *)  a*a^{-1} = a^{-1}*a = e$ and $b * b^{-1} = b^{-1}*b = e$. We would like to show $b^{-1} * a*{-1}$ is the inverse of $a*b$ by computing $(a*b)*(b^{-1} * a^{-1})$ and $(b^{-1} * a^{-1}) * (a*b)$ and showing both are $e$.
+			\item $(a*b)*(a^{-1}*b^{-1}) = a*(b*b^{-1})*a^{-1} = a*e*a^{-1} = a*a^{-1} = e$
+			\item $(b^{-1}*a^{-1})*(a*b) = b^{-1}*(a^{-1}*a)*b = b^{-1}*e*b = (b^{-1}*e)*b = b^{-1}*b=e$
+			\item Thus $b^{-1}*a^{-1}$ satisfies the conditions needed for it to be the inverse of $a*b$.Since an inverse of unique, $a*b$ is invertible and $b^{-1}*a^{-1}$.
+		\end{description}
+		\item[Theorem:] Let $(A, *)$ be a monoid, and let $a, b \in A$. Let $x \in A$ be invertible. $a=b*x \Leftrightarrow b = a*x^{-1}$. Similarly, $a=x*b \Leftrightarrow b = x^{-1}*a$
+		\begin{description}
+			\item[Proof:] Let $e$ be the identity element of $(A, *)$.
+			\item First $a=b*x \Leftrightarrow b = a*x^{-1}$:
+			\item $\Rightarrow$ Assume $a=b*x. a*x^{-1} = (b*x)*x^{-1} = b*{x*x^{-1}} = b*e = b$ as needed.
+			\item $\Leftarrow$ Assume $b=a*x^{-1}$. Then $b*x=(a*x^{-1})=a*(x^{-1}*x)=a*e=1$ as needed.
+			\item Apply the same type of argument to show $a=x*b \Leftrightarrow b=x^{-1}*a$.
+			\item[qed]
+		\end{description}
+		\item Let $(A, *)$ be a monoid. We can now make sense of $a^n$ for $n \in \mathbb{Z}, n < -$ for every $n \in A$ invertible. Since $n$ is a negative integer, $\exists p \in \mathbb{N}$ s.t. $n=-1$. Set $a^n = a^{-p}=(a^p)^{-1}$.
+	\end{description}
+	
 \end{document}
