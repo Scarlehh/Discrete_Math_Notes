@@ -1107,6 +1107,36 @@
 			\item[qed]
 		\end{description}
 		\item Let $(A, *)$ be a monoid. We can now make sense of $a^n$ for $n \in \mathbb{Z}, n < -$ for every $n \in A$ invertible. Since $n$ is a negative integer, $\exists p \in \mathbb{N}$ s.t. $n=-1$. Set $a^n = a^{-p}=(a^p)^{-1}$.
+		\item[Theorem:] Let $(A, *)$ be a monoid and let $a \in A$ be invertible. Then $a^n * a^m = a^{m+n} \hspace{10mm} \forall m, n \in \mathbb{Z}$.
+		\begin{description}
+			\item[Proof:] When $m \geq 0 \land n \geq n$ we have already proven this result. The rest of the proof splits into cases.
+			\item[Case 1:] $m=n \lor n = 0$
+			\item If $m=0, n \in \mathbb{Z}, a^m * a^n = a^0 * a^n = e * a^n = a^n = a^{0+n}$ as needed.
+			\item If $m \in \mathbb{Z}, n = 0, a^m * a^n = a^m * a^0 = a^m * e = a^m = a^{m+0}$ as needed.
+			\item[Case 2:] $m < 0 \land n < 0$
+			\item $m < 0 \Rightarrow \exists p \in \mathbb{N} \: s.t. \: p = -m. \: n<0 \Rightarrow \exists q \in \mathbb{N} \: s.t. \: q = -n.$
+			\item $a^m = a^{-p} = (a^p)^{-1} \land a^n = a^{-q} = (a^q)^{-1}$
+			\item $a^m * a^n = (a^p)^{-1} * (a^q)^{-1} = (a^q * a^p)^{-1} = (a^{p+q})^{-1} = a^{-(p+q)} = a^{-q-p} = a^{m+n} = a^{n+m}$
+			\item[Case 3:] $m \land n$ have opposite signs.\\
+			Without loss of generality, assume $m<0 \land n>0$ (the case $m>0 \land n<0$ is handled by the same argument). Since $m<0, \exists p \in \mathbb{N} \: s.t. \: p = -m.$ This case splits into two subcases:
+			\begin{description}
+				\item[Case 3.1:] $m+n \geq 0$
+				\item Set $q = m+n$. Then $a^{m+n} = a^q = e*a^q = (a^p)^{-1} * a^p * a^q = (a^p)^{-1} * a^{p+q} = a^{-p} * a^{p+q} = a^m * a^{-m+m+n} = a^m * a^n$
+				\item[Case 3.2:] $m+n < 0$
+				\item Set $q = -(m+n) = -m-n \in \mathbb{N}^*$. Then $a^{m+n} = a^{-q} = (a^q)^{-1} * e = (a^q)^{-1} * (a^{-n} * a^n) = (a^q)^{-1} * (a^n)^{-1} *a^n = (a^n * a^q)^{-1} * a^n = (a^{n+p})^{-1} * a^n = (a^{n-m-n})^{-1} * a^n = (a^{-m})^{-1} * a^n = (a^p)^{-1} * a^n = a^m * a^n$
+			\end{description}
+		\end{description}
+		\item[Theorem:] Let $(A, *)$ be a monoid, and let $a$ be an invertible element of $A$. $\forall m, n \in \mathbb{Z}, (a^m)^n = a^{mn}$.
+		\begin{description}
+			\item[Proof:] We consider 3 cases:
+			\item[Case 1:] $n > 0$, \textbf{i.e.} $n \in \mathbb{N}^*. \: m \in \mathbb{Z}$ with no additional restrictions we proceed by induction on $m$.
+			\begin{description}
+				\item[Base Case:] $n=1 \hspace{10mm} (a^m)^1 = a^m = a^{m \times 1}$
+				\item[Inductive Step:] We assume $(a^m)^n = a^{mn}$ and seek to prove $(a^m)^{n+1} = a^{m(n+1)}$. Start with $(a^m)^{n+1} = (a^m)^n * (a^m)^1 = a^{mn} * a^m = a^{mn+m} = a^{m(n+1)}$
+			\end{description}
+			\item[Case 2:] $n=0$; no restriction on $m \in \mathbb{Z}$
+			\item $(a^m)^n = (a^m)^0 = e = a^0 = a^{m \times 0} = a^{mn}$
+		\end{description}
 	\end{description}
 	
 \end{document}
