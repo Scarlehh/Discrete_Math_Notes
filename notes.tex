@@ -1242,7 +1242,62 @@
 			\item $A =$ {letters of the English alphabet}
 		\end{enumerate}
 		\item[Definition:] $\forall n \in \mathbb{N}^*$, we define a \underline{word} of length $n$ in the alphabet $A$ as being any string of the form $a_1, a_2, ..., a_n \: s.t. \: a_i \in A \hspace{5mm} \forall i, 1 \leq i \leq n$. Let $A^n$ be the set of all words of length $n$ over the alphabet $A$.
-		\item[Remark:] There is a one-to-one correspondence between the string $a_1a_2...a_n$ and the ordered n-tuple $(a_1, a_2, ..., a_n) \in A^n = \underset{n \: times}{\underbrace{A \times ... \times A}}$ the cartesian product of $n$ copies of $A$.
+		\item[Remark:] There is a one-to-one correspondence between the string $a_1a_2...a_n$ and the ordered n-tuple $(a_1, a_2, ..., a_n) \in A^n = \underset{n \: times}{\underbrace{A \times ... \times A}}$ the Cartesian product of $n$ copies of $A$.
+		\item[Definition:] Let $A^+ = \underset{n=1}{\overset{\infty}{\cup}} A^n = A^1 \cup A^2 \cup A^3 \cup ...$. $A^+$ is the set of all words of positive length over the alphabet $A$.
+		\item[Examples:]
+		\begin{enumerate}
+			\item[]
+			\item $A = \{0, 1\}, A^+$ is the set of all binary strings of finite length that is at least on, \textbf{i.e.} $0, 1, 01, 10, 00, 11,$ etc.
+			\item If $A =$ {letters of the English alphabet}, then $A^+$ consists of all non-empty strings of finite lengths of letters from the English alphabet. \\
+			It is useful to also have the empty for $\varepsilon$ in our set of strings. $\varepsilon$ has length 0. Define $A^0 = \{\varepsilon\}$ and then adjoin the empty word $\varepsilon$ to $A^+$. We get $A^* = \{\varepsilon\} \cup A^+ = A^0 \cup \underset{n=1}{\overset{\infty}{\cup}} A^n = \underset{n=0}{\overset{\infty}{\cup}} A^n$.
+		\end{enumerate}
+		\item[Notation:] We denote the length of a word $w$ by $\mid w \mid$. Next introduce an operation on $A^*$.
+		\item[Definition:] Let $A$ be a finite set and let $w_1 \land w_2$ be words in $A^*$. $w_1 = a_1a_2...a_m \land w_2 = b_1b_2...b_n$. The \underline{concatenation} of $w_1 \land w_2$ is the word $w_1 \circ w_2$, where $w_1 \circ w_2 = a_1a_2...a_mb_1b_2...b_n$. Sometimes $w_1 \circ w_2$ is denoted as just $w_1w_2$. Note that $\mid w_1 \circ w_2 \mid = \mid w_1 \mid + \mid w_2 \mid$. \\
+		Concatenation of words is:
+		\begin{enumerate}
+			\item associative
+			\item \underline{NOT} commutative is $A$ has more than one element.
+		\end{enumerate}
+		\begin{description}
+			\item[Proof of (1):] Let $w_1, w_2, w_3 \in A^*. w_1 = a_1a_2...a_m$ for some $m \in \mathbb{N}, w_2=b_1b_2...b_n$ for some $m \in \mathbb{N}$ and $w_3 = c_1c_2...c_p$ for some $p \in \mathbb{N}$. $w_1 \circ w_2) \circ w_3 = w_1 \circ (w_2 \circ w_3) = a_1a_2...a_mb_1b_2...b_nc_1c_2...c_p$.
+			\item[qed]
+			\item[Proof of (2):] Since $A$ has at least two elements, $\exists a, b \in A$ s.t. $a \neq b$.
+			\item $a \circ b = ab \neq ba = b \circ a$.
+			\item[qed]
+		\end{description}
+		\item $A^*$ is closed under the operation of concatenation $\Rightarrow$ concatenation is a binary operation of $A^*$ as $\forall w_1, w_2 \in \AA^*, w_1 \circ w_2 \in A^*$.
+		\item[Theorem] Let $A$ be a finite set. $(A^*, \circ)$ is a monoid with identity element $\varepsilon$.
+		\item[Proof:] Concatenation $\circ$ is an associative binary operation on $A^*$ as we showed above. Moreover, $\forall w \in A^*, \varepsilon \circ w = w \circ \varepsilon = w$, so $\varepsilon$ is the identity element of $A^*$.
+		\item[qed]
+		\item[Definition:] Let $A$ be a finite set. A \underline{language} over $A$ is a subset of $A^*$. A language $L$ over $A$ is called a \underline{formal language} is $\exists$ a finite set of rules of algorithm that generates exactly $L$, \textbf{i.e.} all words that belong to $L$ and no other words.
+		\item[Theorem:] Let $A$ be a finite set.
+		\begin{enumerate}
+			\item If $L_1$ and $L_2$ are languages over $A, L_1 \cup L_2$ is a language over $A$.
+			\item If $L_1$ and $L_2$ are languages over $A, L_1 \cap L_2$ is a language over $A$.
+			\item If $L_1$ and $L_2$ are languages over $A$, the concatenation of $L_1 \land L_2$ given by $L_1 \circ L_2 = \{w_1 \circ w_2 \in A^* \mid w_1 \in L_1 \land w_2 \in L_2\}$ is a language over $A$.
+			\item Let $L$ be a language over $A$. Define $L^1=L$ inductively for and $n\geq 1 \hspace{5mm} L^n = L \circ L^{n-1}. L^n$ is a language over $A$. Furthermore, $L^* = \{\varepsilon\} \cup L^! \cup L^2 \cup L^3 \cup ... = \underset{n=0}{\overset{\infty}{\cup}} L^n$ is a language over $A$.
+		\end{enumerate}
+		\item[Proof:] By definition, a language over $A$ is a subset of $A^*$. Therefore, if $L_1 \subseteq A^* \land L_2 \subseteq A^*$, then $L_1 \cup L_2 \subseteq A^* \land L_1 \cap L_2 \subseteq A^*. \forall w_1 \circ w_2 \in L_1 \circ L_2, w_1 \circ w_2 \in A^*$ becomes $w_1 \in A^n$ for some $n$ and $w_2 \in A^m$ for some $m$ so $w_1 \circ w_2 \in A^{m+n} \subseteq A^* = \underset{n=1}{\overset{\infty}{\cup}} A^n$.
+		\item Applying the same reasoning inductively, we see that $L \subset A^* \Rightarrow L^* \subseteq A^*$ as $L^m \subseteq A^* \: \forall n \geq 0$.
+		\item[qed]
+		\item[Remark:] This theorem gives us a theoretic way of building languages, but we need a practical way. The practical way of building a language is through the notion of a grammar.
+		\item[Definition:] A (formal) grammar is a set of production rules for strings in a language. \\
+		To generate a language we use:
+		\begin{enumerate}
+			\item $A$ the set, which is the alphabet of the language.
+			\item A start symbol $\langle s\rangle$
+			\item A set of production rules.
+		\end{enumerate}
+		\item[Example:] $A = \{0, 1\}$; start symbol $\langle s\rangle$; 2 production rules given by:
+		\begin{enumerate}
+			\item $\langle s\rangle$ $\rightarrow$ 0$\langle s\rangle$1
+			\item $\langle s\rangle$ $\rightarrow$ 01
+		\end{enumerate}
+		Let's see what we generate: via rule 2 \hspace{5mm} $\langle s\rangle$ $\rightarrow$ 01, so we get $\langle s\rangle$ $\Rightarrow$ 01 \\
+		Via rule 1 \hspace{5mm} $\langle s\rangle$ $\rightarrow$ 0$\langle s\rangle$1, then via rule 2, 0$\langle s\rangle$1 $\rightarrow$ 0011. We write the process as $\langle s\rangle$ $\rightarrow$ 0$\langle s\rangle$1 $\Rightarrow$ 0011. \\
+		Via rule 1, $\langle s\rangle$ $\rightarrow$ 0$\langle s\rangle$1, then via rule 1 again 0$\langle s\rangle$1 $\rightarrow$ 00$\langle s\rangle$11, then via rule 2, 00$\langle s\rangle$11 $\rightarrow$ 000111. \\
+		We got $\langle s\rangle$ $\Rightarrow$ 0$\langle s\rangle$1 $\Rightarrow$ 00$\langle s\rangle$11 $\Rightarrow$ 000111. \\
+		The language $L$ we generated thus consists of all strings of the form $0^m1^m$ ($m$ 0's followed by $m$ 1's) for all $m \geq 1, m \in \mathbb{N}$
 	\end{description}
 	
 \end{document}
