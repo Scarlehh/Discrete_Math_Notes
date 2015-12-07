@@ -1285,71 +1285,87 @@
 		To generate a language we use:
 		\begin{enumerate}
 			\item $A$ the set, which is the alphabet of the language.
-			\item A start symbol $\langle s\rangle$
+			\item A start symbol $<$s$>$
 			\item A set of production rules.
 		\end{enumerate}
-		\item[Example:] $A = \{0, 1\}$; start symbol $\langle s\rangle$; 2 production rules given by:
+		\item[Example:] $A = \{0, 1\}$; start symbol $<$s$>$; 2 production rules given by:
 		\begin{enumerate}
-			\item $\langle s\rangle$ $\rightarrow$ 0$\langle s\rangle$1
-			\item $\langle s\rangle$ $\rightarrow$ 01
+			\item $<$s$>$ $\rightarrow$ 0$<$s$>$1
+			\item $<$s$>$ $\rightarrow$ 01
 		\end{enumerate}
-		Let's see what we generate: via rule 2 \hspace{5mm} $\langle s\rangle$ $\rightarrow$ 01, so we get $\langle s\rangle$ $\Rightarrow$ 01 \\
-		Via rule 1 \hspace{5mm} $\langle s\rangle$ $\rightarrow$ 0$\langle s\rangle$1, then via rule 2, 0$\langle s\rangle$1 $\rightarrow$ 0011. We write the process as $\langle s\rangle$ $\rightarrow$ 0$\langle s\rangle$1 $\Rightarrow$ 0011. \\
-		Via rule 1, $\langle s\rangle$ $\rightarrow$ 0$\langle s\rangle$1, then via rule 1 again 0$\langle s\rangle$1 $\rightarrow$ 00$\langle s\rangle$11, then via rule 2, 00$\langle s\rangle$11 $\rightarrow$ 000111. \\
-		We got $\langle s\rangle$ $\Rightarrow$ 0$\langle s\rangle$1 $\Rightarrow$ 00$\langle s\rangle$11 $\Rightarrow$ 000111. \\
+		Let's see what we generate: via rule 2 \hspace{5mm} $<$s$>$ $\rightarrow$ 01, so we get $<$s$>$ $\Rightarrow$ 01 \\
+		Via rule 1 \hspace{5mm} $<$s$>$ $\rightarrow$ 0$<$s$>$1, then via rule 2, 0$<$s$>$1 $\rightarrow$ 0011. We write the process as $<$s$>$ $\rightarrow$ 0$<$s$>$1 $\Rightarrow$ 0011. \\
+		Via rule 1, $<$s$>$ $\rightarrow$ 0$<$s$>$1, then via rule 1 again 0$<$s$>$1 $\rightarrow$ 00$<$s$>$11, then via rule 2, 00$<$s$>$11 $\rightarrow$ 000111. \\
+		We got $<$s$>$ $\Rightarrow$ 0$<$s$>$1 $\Rightarrow$ 00$<$s$>$11 $\Rightarrow$ 000111. \\
 		The language $L$ we generated thus consists of all strings of the form $0^m1^m$ ($m$ 0's followed by $m$ 1's) for all $m \geq 1, m \in \mathbb{N}$ \\
 		We saw 2 types of strings that appeared in this process of generating $L$:
 		\begin{enumerate}
 			\item \underline{terminals}, \textbf{i.e.} the elements of $A$
-			\item \underline{nonterminals}, \textbf{i.e.} strings that don't consist solely of 0's and 1's such as $\langle s\rangle$, 0$\langle s\rangle$1, 00$\langle s\rangle$11, etc.
+			\item \underline{nonterminals}, \textbf{i.e.} strings that don't consist solely of 0's and 1's such as $<$s$>$, 0$<$s$>$1, 00$<$s$>$11, etc.
 		\end{enumerate}
 		The production rules then have the form:
 		\begin{description}
 			\item nonterminal $\rightarrow$ word over the alphabet V = {terminals, non-terminals}
-			\item $\langle T\rangle$ $\rightarrow$ w
+			\item $<$T$>$ $\rightarrow$ w
 		\end{description}
-		In our notation, the set of nonterminals if $V \backslash A$, so $\langle T\rangle \in V \backslash A \land w \in V^* - \underset{n=0}{\overset{\infty}{\cup}} V^n$. To the production rule $\langle T\rangle \rightarrow w$. \\
-		We can associate the ordered pair ($\langle T\rangle, w) \in (V \backslash A) \times V^*$, so the set of production rules, which we will denote by $P$, is a subset of the Cartesian product $(V\backslash A) \times V^*$. \\
+		In our notation, the set of nonterminals if $V \backslash A$, so $<$T$>\in V \backslash A \land w \in V^* - \underset{n=0}{\overset{\infty}{\cup}} V^n$. To the production rule $<$T$>\rightarrow w$. \\
+		We can associate the ordered pair ($<$T$>, w) \in (V \backslash A) \times V^*$, so the set of production rules, which we will denote by $P$, is a subset of the Cartesian product $(V\backslash A) \times V^*$. \\
 		Grammers come in two flavours:
 		\begin{enumerate}
-			\item Contest - \underline{free grammars} where we can replace \underline{any} occurrence of $\langle T\rangle$ by $w$ if $\langle T\rangle \rightarrow w$ is one of our production rules.
-			\item \underline{Context - sensitive grammars} only certain replacements of $\langle T\rangle$ by $w$ are allowed, which are governed by the syntax of our language $L$.
+			\item Contest - \underline{free grammars} where we can replace \underline{any} occurrence of $<$T$>$ by $w$ if $<$T$>\rightarrow w$ is one of our production rules.
+			\item \underline{Context - sensitive grammars} only certain replacements of $<$T$>$ by $w$ are allowed, which are governed by the syntax of our language $L$.
 		\end{enumerate}
 		The example we have was of a context free grammar. We can now finally define context free grammars.
-		\item[Definition:] A \underline{context free grammar} $(V, A, \langle s\rangle P)$ consists o a finite set $V$, a subset $A$ of $V$, an element $\langle s\rangle$ of $V \backslash A$, and a finite subset $P$ of the Cartesian product $V\backslash A \times V^*$.
-		\item[Notation:] $(\underset{set\:of\:terminals\:and\:non\:terminals}{V}, \underset{set\:of\:terminals}{A}, \underset{start symbol}{\langle s\rangle}, \underset{set\:of\:production\:rules}{P})$
-		\item[Example:] $A = \{0, 1\}$; start symbol $\langle s\rangle$; 3 production rules given by:
+		\item[Definition:] A \underline{context free grammar} $(V, A, <$s$>P)$ consists o a finite set $V$, a subset $A$ of $V$, an element $<$s$>$ of $V \backslash A$, and a finite subset $P$ of the Cartesian product $V\backslash A \times V^*$.
+		\item[Notation:] $(\underset{set\:of\:terminals\:and\:non\:terminals}{V}$, $\underset{set\:of\:terminals}{A}$, $\underset{start symbol}{{<}s{>}}$, $\underset{set\:of\:production\:rules}{P})$
+		\item[Example:] $A = \{0, 1\}$; start symbol $<$s$>$; 3 production rules given by:
 		\begin{enumerate}
-			\item $\langle s\rangle \rightarrow$ 0$\langle s\rangle$1
-			\item $\langle s\rangle \rightarrow$ 01
-			\item $\langle s\rangle \rightarrow$ 0011
+			\item $<$s$>\rightarrow$ 0$<$s$>$1
+			\item $<$s$>\rightarrow$ 01
+			\item $<$s$>\rightarrow$ 0011
 		\end{enumerate}
 		We notice here that the word 0011 can be generated in 2 ways in this context free grammar:
 		\begin{enumerate}
-			\item[By rule 3,] $\langle s\rangle \rightarrow$ 0011 so $\langle s\rangle \Rightarrow$ 0011
+			\item[By rule 3,] $<$s$>\rightarrow$ 0011 so $<$s$>\Rightarrow$ 0011
 			\item[] $\lor$
-			\item[By rule 1,] $\langle s\rangle \rightarrow$ 0$\langle s\rangle$1 and by rule 2, 0$\langle s\rangle$1 $\rightarrow$ 0011. Therefore, $\langle s\rangle \Rightarrow$ 0$\langle s\rangle$1 $\Rightarrow$ 0011.
+			\item[By rule 1,] $<$s$>\rightarrow$ 0$<$s$>$1 and by rule 2, 0$<$s$>$1 $\rightarrow$ 0011. Therefore, $<$s$>\Rightarrow$ 0$<$s$>$1 $\Rightarrow$ 0011.
 		\end{enumerate}
 		\item[Definition:] A grammar is called \underline{ambiguous} if it generates the same string in more than one way. \\
 		Obviously, we prefer to have unambiguous grammars, else we waste computer operations. \\
 		Next, we need to spell out how words \underline{relate} to each other in the production of our language via the grammar:
-		\item[Definition:] Let $w'$ and $w"$ be words over the alphabet $V$ = {terminals, non-terminals}. We say that \underline{$w'$ directly yields $w"$} if $\exists$ words $u \land v$ over the alphabet $V$ and a production rule $\langle T\rangle \rightarrow w$ of the grammar s.t. $w' = u\langle T\rangle \land w" = uwv$, where either or both of the words $u$ and $v$ may be the empty word. \\
-		In other words, $w'$ directly yields $w" \Leftrightarrow \exists$ production rule $\langle T\rangle \rightarrow w$ in the grammar s.t. $w"$ may be obtained from $w'$ by replacing a simple occurrence of the nonterminal $\langle T\rangle$ within the word $w'$ by the word $w$.
+		\item[Definition:] Let $w'$ and $w"$ be words over the alphabet $V$ = {terminals, non-terminals}. We say that \underline{$w'$ directly yields $w"$} if $\exists$ words $u \land v$ over the alphabet $V$ and a production rule $<$T$>\rightarrow w$ of the grammar s.t. $w' = u<$T$>\land w" = uwv$, where either or both of the words $u$ and $v$ may be the empty word. \\
+		In other words, $w'$ directly yields $w" \Leftrightarrow \exists$ production rule $<$T$>\rightarrow w$ in the grammar s.t. $w"$ may be obtained from $w'$ by replacing a simple occurrence of the nonterminal $<$T$>$ within the word $w'$ by the word $w$.
 		\item[Notation:] $w'$ directly yields $w"$ is denoted by $w' \Rightarrow w"$
 		\item[Definition:] Let $w' \land w"$ be words over the alphabet $V$. We say that $w'$ yields $w"$ if either $w'= w"$ or else $\exists$ words $w_0, w_1, ... w_n$ over the alphabet $V$ s.t. $w_0=w', w_n = w", w_{i-1} \Rightarrow w_i$ for all $i, 1 \leq i \leq n$. In other words, $w_0 \Rightarrow w_1 \Rightarrow w_2 \Rightarrow ... \Rightarrow w_n-1 \Rightarrow w_n$
 		\item[Notation:] $w'$ yields $w"$ is denotes by $w' \overset{*}{\Rightarrow} w"$.
-		\item[Definition:] Let $(V, A, \langle s\rangle, P)$ be a context free grammar. The \underline{language} generated by this grammar is the subset $L$ or $A^*$ defined by $L = \{w \in A^* \mid \langle s\rangle \overset{*}{\Rightarrow} w\}$ \\
-		In other words, th language $L$ generated by a context free grammar $(V, A, \langle s\rangle, P)$ consists of the set of all finite strings consisting entirely of terminals that may be obtained from the start symbol $\langle s\rangle$ by applying a finite sequence of production rules of the grammar where the application of one production rule causes \underline{one and only one nonterminal} to be replaced by the string in $V^*$ corresponding of the right hand side of the production rule.
+		\item[Definition:] Let $(V, A, <$s$>, P)$ be a context free grammar. The \underline{language} generated by this grammar is the subset $L$ or $A^*$ defined by $L = \{w \in A^* \mid <$s$>\overset{*}{\Rightarrow} w\}$ \\
+		In other words, th language $L$ generated by a context free grammar $(V, A, <$s$>, P)$ consists of the set of all finite strings consisting entirely of terminals that may be obtained from the start symbol $<$s$>$ by applying a finite sequence of production rules of the grammar where the application of one production rule causes \underline{one and only one nonterminal} to be replaced by the string in $V^*$ corresponding of the right hand side of the production rule.
 	\end{description}
 	
 	\subsection{Phrase Structure Grammars}
 	\begin{description}
-		\item[Definition:] A phrase structure grammar $(V, A \langle s\rangle, P)$ consists of a finite set $V$, a subset $A$ of $V$, an element $\langle s\rangle$ of $V \backslash A$, and a finite subset $P$ of $(V^* \backslash A^*) \times V^*$ \\
+		\item[Definition:] A phrase structure grammar $(V, A <$s$>, P)$ consists of a finite set $V$, a subset $A$ of $V$, an element $<$s$>$ of $V \backslash A$, and a finite subset $P$ of $(V^* \backslash A^*) \times V^*$ \\
 		In a context free grammar, the set of production rules $P \subset (V \backslash A) \times V^*$. \\
 		In a phrase structure grammar, $P \subset (V^* \backslash A^*) \times V^*$. In other words, a production rule in a phrase structure grammar $r \rightarrow w$ has a left hand side $n$ that may contain more than one nonterminal. It is required to contain \underline{at least one} nonterminal. \\
-		For example, if $A \{0, 1\}$ and $\langle s\rangle$ is the start symbol in a phrase grammar grammar, 0$\langle s\rangle$0$\langle s\rangle$0 $\rightarrow$ 00010 would be an acceptable production rule in a phrase structure grammar but not in a context free grammar. \\
+		For example, if $A \{0, 1\}$ and $<$s$>$ is the start symbol in a phrase grammar grammar, 0$<$s$>$0$<$s$>$0 $\rightarrow$ 00010 would be an acceptable production rule in a phrase structure grammar but not in a context free grammar. \\
 		The notions $w' \Rightarrow w"$ ($w'$ directly yields $w"$) and $w' \overset{*}{\Rightarrow} w"$ ($w'$ yields $w"$) are defined the same way as for context free grammars except that our production rules may, of course, be more general as we saw in the example above.
-		\item[Definition:] Lt $(V, A \langle s\rangle, P)$ be a phrase structure grammar. The language generated by this grammar is the subset $L$ or $A^*$ defined by $L \{w \in A^* \mid \langle s \rangle \overset{*}{\Rightarrow} w \}$
+		\item[Definition:] Lt $(V, A <$s$>, P)$ be a phrase structure grammar. The language generated by this grammar is the subset $L$ or $A^*$ defined by $L \{w \in A^* \mid <$s $>\overset{*}{\Rightarrow} w \}$
 		\item[Remark:] The term phrase structure grammars was introduced by Noam Chowsky.
+		\item[Definition:] A lamguage $L$ generated by a context-free grammar is called a \underline{context-free language}.
+	\end{description}
+	We now want to understand a particularly important subclass of context free languages called regular languages.
+	
+	\section{Regular Languages}
+	\begin{description}
+		\item[Task:] Understand when a language is regular and how regular languages are produced. Understand basics of automata theory.
+		\item[History:] The term \underline{regular languages} was introduced by Stephen Kleene in 1951. A more descriptive name is \underline{finite-state languages} as we will see that a language is regular $\Leftrightarrow$ it can be recognised by a finite state acceptor, which is a type of finite state machine. \\
+		The definition of a regular language is very abstract, though. First, describe what operations the collection of regular languages is closed under: \\
+		Let $A$ be a finite set, and let $A*$ be the set of all words over the alphabet $A$. The regular language over the alphabet $A$ consitute the smallest collection $C$ of subsets of $A*$ satisfying that:
+		\begin{enumerate}
+			\item All finite subsets of $A*$ belong to $C$.
+			\item $C$ is closed under the Kleene start operation (if $M \subseteq A*$ is inside $C, \textbf{i.e.} M \subseteq C$, then $M* \subseteq C$)
+			\item $C$ is closed under concatenation (if $M \subseteq A*, N \subseteq A*$ satisfy that $M \subseteq C \land N \subseteq C$, then $M \circ N \subseteq C$)
+			\item $C$ is closed under union (if $M \subseteq A* \land N \subseteq A*$ satisfy that $M \subseteq C \land N \subseteq C$, then $M \cup N \subseteq C$)
+		\end{enumerate}
 	\end{description}
 \end{document}
