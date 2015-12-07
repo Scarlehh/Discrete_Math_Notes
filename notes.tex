@@ -1386,4 +1386,94 @@
 		\end{enumerate}
 		\item[Remark:] These two properties did not come into the definition of a regular language, but they are true and often quite useful.
 	\end{description}
+	
+	\subsection{Finite State Acceptors and Automata Theory}
+	\begin{description}
+		\item[Definition:] An \underline{automation} is a mathematical model of a computing device. \\
+		Plural of automation is \underline{automata}.
+		\item[Basic idea:] Reason about compatability without having to worry about the complexity of actual implementation. \\
+		It is most reasonable to consider at the beginning just finite states automata, \textbf{i.e.} machines with a finite number of internal states. The data entered discretely, and each datum causes the machine to either remain in the same internal state or else make the transition to some other state determined solely by 2 pieces of information:
+		\begin{enumerate}
+			\item The current state
+			\item The input datum
+		\end{enumerate}
+		In other words, if $S$ is the finite set of all possible states of our finite state machine, then the \underline{transition mapping} $t$ that tells us how the internal state of the machine changes on inputting a datum will depend on the current state $s \in S$ and the imput datum $a$, \textbf{i.e.} the machine will enter a (potentially) new state $s' = t(s, a)$.
+		\item[Want] to use finite state machines to recognise languages over some alphabet $A$. Let $L$ be our language.\\
+		\begin{table}[h!]
+			\centering
+			\begin{tabular}{cc}
+				\underline{Input} & \underline{Output} \\
+				Word $w=a_1...a_n, a_i \in A \forall i$ & Yes if $w \in L$ \\
+				& No if $w \ni L$
+			\end{tabular}
+		\end{table}
+		Since our finite state machine accepts (\textbf{i.e.} returns \underline{yes} to) $w$ if $w \in L$, we call our machine a \underline{finite state acceptor}. We want to give a rigorous definition of a finite state acceptor. To check $w=a_1...a_n$, we input each $a_i$ starting with $a_1$ and trace how the internal state of the machin changes. $S$ is our set of states of the machine (a finite set). The transition mapping $t$ takes the pair($s, a$) and returns the new state $s'=t(s, a)$ (where $s \in S \land a \in A$) that the machine has reached so $t: S \times A \rightarrow S$. \\
+		Some elements and subets of $S$ are important to understand:
+		\begin{enumerate}
+			\item The initial state $i ]in S$ where the machine starts
+			\item The subset $F \subseteq S$ of finishing states
+		\end{enumerate}
+		It turns out that knowing $S, F, i, t, W$ satisfies a finite state acceptor completely.
+		\item[Definition:] A finite state acceptor $(S, A, i, t, F)$ consists of a finite set $S$ of states, a finite set $A$ that is the input alphabet, a starting state $i \in S$, a transition mapping $t: S \times A \rightarrow S$, and a set $F$ of finishing states, where $F \subseteq S$.
+		\item[Definition:] Let $(S, A, i, t F)$ be a finite state acceptor, and let $A*$ denote the set of words over the input alphabet $A$. A word $a_1, a_2...a_n$ of length $n$ over the alphabet $A$ is said to be \underline{recognised} or \underline{accepted} by the finite state acceptor if $\exists s_0, s_1, ..., s_n \in S$ states s.t. $s_0 = i$ (the initial state), $s_n \in F$, and $s_i = t(s_{i-1}, a_i) \forall i \hspace{5mm} 1 \leq i \leq n$.
+		\item[Definition:] Let $(S, A, i, t, F)$ be a finite state acceptor. A language $L$ over the alphabet $A$ is said to be \underline{recognised} or \underline{accepted} by the finite state acceptor. \\
+		In the definition of a finite state acceptor, $t$ is the transition maping, which may or may not be a function (hence the careful terminology). This is because finite state acceptors come in 2 flavours:
+		\begin{enumerate}
+			\item \underline{Deterministic:} every state has exactly one transition for each possible input, \textbf{i.e.} $\forall (s, a) \in S \times A$ $\exists!$ $t(s, a) \in S$. In other words, the transition mapping is a function.
+			\item \underline{Non-deterministic:} an input can lead to one, more than one or no transition for a given state. Some $(s, a) \in S \times A$ might be assigned to more than one element of $S$, \textbf{i.e.} the transition mapping is not a function.
+		\end{enumerate}
+		\item[Surprisingly] $\exists$ algorithm that transforms a non deterministic (thought more complex one) using the powerset construction. \\
+		As a result, we have the following theorem:
+		\item[Theorem:] A language $L$ over som alphabet $A$ is a regular language $\Leftrightarrow L$ is recognised by a deterministic finite state acceptor with input alphabet $A \Leftrightarrow L$ is recognised by a nondeterministic finite state acceptor with input alphabet $A$.
+		\item[Example:] Build a deterministic finite state acceptor for the regular language $L = \{0^m1^n \mid m, n \in \mathbb{N}, m \geq 0, n \geq 0 \}$ \\
+		\begin{figure}[h!]
+			\centering
+			\begin{tikzpicture}
+				% Top arrows
+				\draw[-latex] (-2, 0)--node[above]{start} (-1, 0);
+				\draw[-latex] (0, 0)--node[above]{0} (1, 0);
+				% Bottom arrow
+				\draw[latex-] (0, -2)--node[above]{0} (1, -2);
+				% Middle arrows
+				\draw[-latex] (-0.2, -0.375)--node[above]{1} (1.2, -1.6);
+				\draw[-latex] (1.5, -0.5)--node[right]{1} (1.5, -1.5);
+				
+				% Circles
+				% Top Left
+				\draw (-0.5, 0) circle [radius=0.5];
+				\draw (-0.5, 0) circle [radius=0.3] node{$i$};
+				
+				% Top right
+				\draw (1.5, 0) circle [radius=0.5];
+				\draw (1.5, 0) circle [radius=0.3] node{$s_1$};
+				\draw[->] (1.5, 0.5)  arc(180:-70:10pt);
+				\draw (2.5, 0.5) node{1};
+				
+				% Bottom left
+				\draw (-0.5, -2) circle [radius=0.5] node{$s_3$};
+				\draw[->](-0.5, -2.5) arc(0:-250:10pt);
+				\draw[->](-0.5, -1.5) arc(0:250:10pt);
+				\draw (-1.5, -2.5) node{1};
+				\draw (-1.5, -1.5) node{0};
+				
+				% Bottom right
+				\draw (1.5, -2) circle [radius=0.5];
+				\draw (1.5, -2) circle [radius=0.3] node{$s_2$};
+				\draw[->](2, -2) arc(90:-160:10pt);
+				\draw (2.5, -2.5) node{1};
+				
+				% Legend
+				\draw (4, 0) circle [radius=0.5];
+				\draw (4, 0) circle [radius=0.3];
+				\draw (4.5, 0) node[right]{accepting state output: YES};
+				
+				\draw (4, -2) circle [radius=0.5];
+				\draw (4.5, -2) node[right]{non accepting state output: NO};
+			\end{tikzpicture}
+		\end{figure}
+		~\\
+		Accepting states in this examples: $i, s_1, s_2$ \\
+		Non accepting states: $s_3$ \\
+		Start states: $i$
+	\end{description}
 \end{document}
