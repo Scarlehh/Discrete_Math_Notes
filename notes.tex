@@ -1459,7 +1459,7 @@
 				% Bottom right
 				\draw (1.5, -2) circle [radius=0.5];
 				\draw (1.5, -2) circle [radius=0.3] node{$s_2$};
-				\draw[->](2, -2) arc(90:-160:10pt);
+				\draw[->](1.5, -2.5) arc(-180:70:10pt);
 				\draw (2.5, -2.5) node{1};
 				
 				% Legend
@@ -1474,6 +1474,48 @@
 		~\\
 		Accepting states in this examples: $i, s_1, s_2$ \\
 		Non accepting states: $s_3$ \\
-		Start states: $i$
+		Start states: $i$ \\
+		Here $S = \{i, s_1, s_2, s_3\} \hspace{5mm} F = \{i, s_1, s_2\} \hspace{5mm} A = \{0, 1\} \hspace{5mm} t: S \times A \rightarrow S \hspace{5mm} t(i, 0) = s_1 \hspace{5mm} t(i, 1) = s_2 \hspace{5mm} t(s_1, 0)  = s_1 \hspace{5mm} t(s_1, 1) = s_2 \hspace{5mm} t(s_2, 0) = s_3 \hspace{5mm} t(s_2, 1) = s_2$ \\
+		Let's process some strings:
+		\begin{table}[h!]
+			\centering
+			\begin{tabular}{c|ccc|c|c|c|c|c}
+				\cline{1-2} \cline{4-9}
+				String & $\varepsilon$ (empty string) & & String & 0 & 0 & 1 & 1 & 1 \\ \cline{1-2} \cline{4-9}
+				State (i) & i & & State i & $s_1$ & $s_1$ & $s_2$ & $s_2$ & $s_2$ \\ \cline{1-2} \cline{4-9}
+				Output & YES & & Output & \multicolumn{5}{c}{YES} \\ \cline{1-2} \cline{4-9}
+			\end{tabular}
+		\end{table}
+		\begin{table}[h!]
+			\centering
+			\begin{tabular}{c|c|ccc|ccc|c|c|c|c}
+				\cline{1-3} \cline{5-6} \cline{8-12}
+				String & 1 & 1 & & String & 1 & & String & 0 & 1 & 0 & 1 \\ \cline{1-3} \cline{5-6} \cline{8-12}
+				State i & $s_2$ & $s_2$ & & State i & $s_2$ & & State i & $s_1$ & $s_2$ & $s_3$ & $s_3$ \\ \cline{1-3} \cline{5-6} \cline{8-12}
+				Output & \multicolumn{2}{c}{YES} & & Output & YES & & Output & \multicolumn{4}{c}{NO} \\ \cline{1-3} \cline{5-6} \cline{8-12}
+			\end{tabular}
+		\end{table}
+		~\\
+		Now that we really understand what a finite state acceptor is, we can develop a criterion for recognised regular languages called the \underline{Myhill-Nerode theorem} based on an equivalence relation we can set up on words in our language over the alphabet $A$.
+		\item[Definition:] Let $x, y \in L$, a language over the alphabet $A$. We call $x$ and $y$ equivalent over $L$ denoted by $x \equiv_L y$ if $\forall w \in A*, xw \in L \Leftrightarrow yx \in L$.
+		\item[Note:] $xw$ means the concatenation $x \circ w$, and $yw$ is the concatenation $y \circ w$.
+		\item[Idea:] If $x \equiv_L y$, then $x$ and $y$ place our finite state acceptor into the \underline{same state} $s$.
+		\item[Notation:] Let $L/N$ be the set of equivalence classes determined by the equivalence relation $\equiv_L$.
+		\item[The Myhill-Nerode Theorem:] Let $L$ be a language over the alphabet $A$. If the set $L/N$ ofequivalence classes in $L$ is infinite, then $L$ is not a regular language.
+		\item[Stretch of Proof:] All element of one equivalence class in $L/N$ place our automation into the same state $s$. Elements of distinct equivalence classes place the automation into distinct state, \textbf{i.e.} if $[x], [y] \in L/N$ and $[x] \neq [y]$, then all elements of $[x]$ place the automation into some state $s$, while all elements of $[y]$ place the automation into some state $s'$, with $s \neq s' \Rightarrow$ an automation that can recognise $L$ has \underline{as many} states at the number of equivalence classes in $L/N$, but $L/N$ is \underline{NOT} finite $\Rightarrow L$ cannot be recognised by a finite state automation $\Rightarrow L$ is not regular by the theorem above.
+		\item[qed]
+	\end{description}
+	
+	\section{Regular Grammars}
+	\begin{description}
+		\item[Task:] Understand what is the form of the production rules of a grammar that generates a regular language.
+		\item[Recall:] that a context-free grammar is given by $(V, A {<}s{>}, P)$ where every production rule $<$T$> \rightarrow w$ in $P$ causes \underline{one and only one} nonterminal to be replaced by a string in $V*$.
+		\item[Definition:] A context-free grammar $(V, A {<}s{>}, P)$ is called a \underline{regular grammar} is every production rule in $P$ is of one of the three forms:
+		\begin{enumerate}
+			\item $<$A$> \rightarrow$ b$<$B$>$
+			\item $<$A$> \rightarrow$ b
+			\item $<$A$> \rightarrow \varepsilon$
+		\end{enumerate}
+		where $<$A$>$ and $<$B$>$ are nonterminals, $b$ is a terminal, and $\varepsilon$ is the empty word. A regular grammar is said to be in normal form if all its production rules are of types 1 and 3.
 	\end{description}
 \end{document}
