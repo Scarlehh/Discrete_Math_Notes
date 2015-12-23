@@ -1008,7 +1008,7 @@
 			\item[Inductive Step:] Assume the result is true for $m=p$, \textbf{i.e.} $a^p*a^n = a^{p+n}$ and seek to prove that $a^{p+1}*a^n=a^{p+1+n}$
 			\item $a^p+1*a^n = (a*a^p)*a^n = a*(a^p*a*n) = a*a^{p+n} =a^{p+1+n}$
 		\end{description}
-		\item[Theorem:] Let$(A, *)$ be a semigroup. $\forall a \in A, (a^m)^n = a^(mn), \forall m, n \in \mathbb{N}*$
+		\item[Theorem:] Let$(A, *)$ be a semigroup. $\forall a \in A, (a^m)^n = a^{mn}, \forall m, n \in \mathbb{N}*$
 		\begin{description}
 			\item[Proof:] By induction on $n$.
 			\item[Base Case:] $n=1 \hspace{10mm} (a^m)^1 = a^m = a^{m \times 1}$
@@ -1312,12 +1312,12 @@
 		We can associate the ordered pair ($<$T$>, w) \in (V \backslash A) \times V^*$, so the set of production rules, which we will denote by $P$, is a subset of the Cartesian product $(V\backslash A) \times V^*$. \\
 		Grammers come in two flavours:
 		\begin{enumerate}
-			\item Contest - \underline{free grammars} where we can replace \underline{any} occurrence of $<$T$>$ by $w$ if $<$T$>\rightarrow w$ is one of our production rules.
-			\item \underline{Context - sensitive grammars} only certain replacements of $<$T$>$ by $w$ are allowed, which are governed by the syntax of our language $L$.
+			\item \underline{Context-free grammars} where we can replace \underline{any} occurrence of $<$T$>$ by $w$ if $<$T$>\rightarrow w$ is one of our production rules.
+			\item \underline{Context-sensitive grammars} only certain replacements of $<$T$>$ by $w$ are allowed, which are governed by the syntax of our language $L$.
 		\end{enumerate}
 		The example we have was of a context free grammar. We can now finally define context free grammars.
 		\item[Definition:] A \underline{context free grammar} $(V, A, <$s$>P)$ consists o a finite set $V$, a subset $A$ of $V$, an element $<$s$>$ of $V \backslash A$, and a finite subset $P$ of the Cartesian product $V\backslash A \times V^*$.
-		\item[Notation:] $(\underset{set\:of\:terminals\:and\:non\:terminals}{V}$, $\underset{set\:of\:terminals}{A}$, $\underset{start symbol}{{<}s{>}}$, $\underset{set\:of\:production\:rules}{P})$
+		\item[Notation:] $(\underset{set\:of\:terminals\:and\:non\:terminals}{V}$, $\underset{set\:of\:terminals}{A}$, $\underset{start\:symbol}{{<}s{>}}$, $\underset{set\:of\:production\:rules}{P})$
 		\item[Example:] $A = \{0, 1\}$; start symbol $<$s$>$; 3 production rules given by:
 		\begin{enumerate}
 			\item $<$s$>\rightarrow$ 0$<$s$>$1
@@ -1404,20 +1404,20 @@
 			\begin{tabular}{cc}
 				\underline{Input} & \underline{Output} \\
 				Word $w=a_1...a_n, a_i \in A \forall i$ & Yes if $w \in L$ \\
-				& No if $w \ni L$
+				& No if $w \notin L$
 			\end{tabular}
 		\end{table}
-		Since our finite state machine accepts (\textbf{i.e.} returns \underline{yes} to) $w$ if $w \in L$, we call our machine a \underline{finite state acceptor}. We want to give a rigorous definition of a finite state acceptor. To check $w=a_1...a_n$, we input each $a_i$ starting with $a_1$ and trace how the internal state of the machin changes. $S$ is our set of states of the machine (a finite set). The transition mapping $t$ takes the pair($s, a$) and returns the new state $s'=t(s, a)$ (where $s \in S \land a \in A$) that the machine has reached so $t: S \times A \rightarrow S$. \\
+		Since our finite state machine accepts (\textbf{i.e.} returns \underline{yes} to) $w$ if $w \in L$, we call our machine a \underline{finite state acceptor}. We want to give a rigorous definition of a finite state acceptor. To check $w=a_1...a_n$, we input each $a_i$ starting with $a_1$ and trace how the internal state of the machine changes. $S$ is our set of states of the machine (a finite set). The transition mapping $t$ takes the pair($s, a$) and returns the new state $s'=t(s, a)$ (where $s \in S \land a \in A$) that the machine has reached so $t: S \times A \rightarrow S$. \\
 		Some elements and subets of $S$ are important to understand:
 		\begin{enumerate}
-			\item The initial state $i ]in S$ where the machine starts
+			\item The initial state $i \in S$ where the machine starts
 			\item The subset $F \subseteq S$ of finishing states
 		\end{enumerate}
-		It turns out that knowing $S, F, i, t, W$ satisfies a finite state acceptor completely.
+		It turns out that knowing $S, F, i, t, A$ satisfies a finite state acceptor completely.
 		\item[Definition:] A finite state acceptor $(S, A, i, t, F)$ consists of a finite set $S$ of states, a finite set $A$ that is the input alphabet, a starting state $i \in S$, a transition mapping $t: S \times A \rightarrow S$, and a set $F$ of finishing states, where $F \subseteq S$.
-		\item[Definition:] Let $(S, A, i, t F)$ be a finite state acceptor, and let $A*$ denote the set of words over the input alphabet $A$. A word $a_1, a_2...a_n$ of length $n$ over the alphabet $A$ is said to be \underline{recognised} or \underline{accepted} by the finite state acceptor if $\exists s_0, s_1, ..., s_n \in S$ states s.t. $s_0 = i$ (the initial state), $s_n \in F$, and $s_i = t(s_{i-1}, a_i) \forall i \hspace{5mm} 1 \leq i \leq n$.
+		\item[Definition:] Let $(S, A, i, t, F)$ be a finite state acceptor, and let $A*$ denote the set of words over the input alphabet $A$. A word $a_1, a_2...a_n$ of length $n$ over the alphabet $A$ is said to be \underline{recognised} or \underline{accepted} by the finite state acceptor if $\exists s_0, s_1, ..., s_n \in S$ states s.t. $s_0 = i$ (the initial state), $s_n \in F$, and $s_i = t(s_{i-1}, a_i) \forall i \hspace{5mm} 1 \leq i \leq n$.
 		\item[Definition:] Let $(S, A, i, t, F)$ be a finite state acceptor. A language $L$ over the alphabet $A$ is said to be \underline{recognised} or \underline{accepted} by the finite state acceptor. \\
-		In the definition of a finite state acceptor, $t$ is the transition maping, which may or may not be a function (hence the careful terminology). This is because finite state acceptors come in 2 flavours:
+		In the definition of a finite state acceptor, $t$ is the transition mapping, which may or may not be a function (hence the careful terminology). This is because finite state acceptors come in 2 flavours:
 		\begin{enumerate}
 			\item \underline{Deterministic:} every state has exactly one transition for each possible input, \textbf{i.e.} $\forall (s, a) \in S \times A$ $\exists!$ $t(s, a) \in S$. In other words, the transition mapping is a function.
 			\item \underline{Non-deterministic:} an input can lead to one, more than one or no transition for a given state. Some $(s, a) \in S \times A$ might be assigned to more than one element of $S$, \textbf{i.e.} the transition mapping is not a function.
@@ -1641,5 +1641,118 @@
 			\draw (B)--(E) node[right]{e};
 			\end{tikzpicture}
 		\end{figure}
+		\item[Definition:] Let $(V,E)$ be an undirected graph. Two vertices $A, B \in V \hspace{5mm} A \neq B$ are called \underline{adjacent} if $\exists$ edge $AB \in E$. \\
+		We represent the incidence relations among the vertices $V$ and edges $E$ of an undirected graph via:
+		\begin{enumerate}
+			\item An incidence table
+			\item An incidence matrix
+		\end{enumerate}
+		\item[Legend:] ~\\
+		1 an incidence relation holds \\
+		0 an incidene relation does not hold \\
+		\item From the pentagram: \\
+		$V = \{a, b, c, d, e\}$ \\
+		$E = \{ac, ad, be, bd, ce\}$ \\
+		\pagebreak
+		\begin{figure}[h!]
+			\centering
+			\begin{tikzpicture}
+			\coordinate (A) at (0, 0);
+			\coordinate (B) at (-1.5, -1);
+			\coordinate (E) at (1.5, -1);
+			\coordinate (C) at (-1, -3);
+			\coordinate (D) at (1, -3);
+			
+			\draw (A) node[above]{a}--(C) node[below]{c};
+			\draw (A)--(D) node[below]{d};
+			\draw (C)--(E);
+			\draw (D)--(B) node[left]{b};
+			\draw (B)--(E) node[right]{e};
+			\end{tikzpicture}
+		\end{figure}
+		\item The indidence table is:
+		\begin{table}[h!]
+			\centering
+			\begin{tabular}{c|ccccc}
+				& ac & ad & be & bd & ce \\ \cline{1-6}
+				a & 1 & 1 & 0 & 0 & 0 \\
+				b & 0 & 0 & 1 & 1 & 0 \\
+				c & 1 & 0 & 0 & 0 & 1 \\
+				d & 0 & 1 & 0 & 1 & 0 \\
+				e & 0 & 0 & 1 & 0 & 1 \\
+			\end{tabular}
+		\end{table}
+		\item Correspondingly, the incidence matrix is:
+		\[ \left( \begin{array}{ccccc}
+		1 & 1 & 0 & 0 & 0 \\
+		0 & 0 & 1 & 1 & 0 \\
+		1 & 0 & 0 & 0 & 1 \\
+		0 & 1 & 0 & 1 & 0 \\
+		0 & 0 & 1 & 0 & 1 \end{array} \right)\] 
+		Note that for the incidence matrix to make sense, we need to know that vertices were considered in the order $\{a, b, c, d, e\}$ and edges in the order $\{ac, ad, be, bd, ce\}$. If we shuffle either set, the incidence matrix chances. \\
+		With this in mind, we can now rigorously define the incidence matrix:
+		\item[Definition:] Let $(V, E)$ be an undirected graph with $m$ vertices and $n$ edges. Let vertices be ordered as $v_1, v_2,..., v_m$, and let the edges be ordered $e_1, e_2, ..., e_n$. The \underline{incidence matrix} for such a graph is given by $\left( \begin{array}{cccc}
+			a_{11} & a_{12} & ... & a_{1n} \\
+			a_{21} & a_{22} & ... & a_{2n} \\
+			\vdots & \vdots & \ddots & \vdots \\
+			a_{m1} & a_{m2} & ... & a_{mn} \end{array} \right)$, where the entry $a_{ij}$ in row $i$ and column $j$ has the value 1 if the $i^{th}$ vertex is incident to the $j^{th}$ edge and has value 0 otherwise. \\
+			Similarly, we can define the \underline{adjacency table} and the \underline{adjacency matrix} of a graph:
+			\item[Definition:] Let $(V,E)$ be an undirected graph with $m$ vertices, and let these vertices be ordered as $v_1, v_2, ..., v_m$. The \underline{adjacency matrix} for this graph is given by $\left( \begin{array}{cccc}
+			b_{11} & b_{12} & ... & b_{1m} \\
+			b_{21} & b_{22} & ... & b_{2m} \\
+			\vdots & \vdots & \ddots & \vdots \\
+			b_{m1} & b_{m2} & ... & b_{mm} \end{array} \right)$ where $b_{ij}=1$ if $v_i$ and $v_j$ are adjacent to each other and $b_{ij}=0$ if $v_i$ and $v_j$ are not adjacent to each other.
+			\item[Remark:] "Being adjacent to" is a symmetric relation on he set of vertices $V$, so the adjacency matrix is symmetric, \textbf{i.e.} $b_{ij}=b_{ji} \hspace{5mm} \forall i, j \hspace{5mm} 1 \leq i, j \leq m$. It is not reflexive so all the entries on the diagonal are zero.
+	\end{description}
+	
+	\subsection{Complete graphs}
+	\begin{description}
+		\item[Definition:] A graph $(V, E)$ is called \underline{complete} if $\forall v, v' \in V$ s.t. $v \neq v'$, the edge $vv' \in E$. In other words, a complete grapg has the highest number of edges possible given its number of vertices.
+		\item[Examples:] ~\\
+		\begin{enumerate}
+			\item The triangle is a complete graph.
+			\item The pentagram is \underline{not} a complete graph.
+		\end{enumerate}
+		\item[Notation:] A complete graph with $n$ vertices is denoted by $K_n$.
+		\item[Q:] How does the adjacency matrix of a complete graph look like?
+		\item[A:] All entrices are 1 except on the diagonal, where they are all two.
+		\item[Definition:] A graph $(V, E)$ is called \underline{bipartite} is $\exists$ subsets $V_1$ and $V_2$ s.t.
+		\begin{enumerate}
+			\item $V_1 \cup V_2 = V$
+			\item $V_1 \cap V_2 = \emptyset$
+			\item Every edge in $E$ is of the form $vw$ with $v \in V_1$ and $w \in V_2$.
+		\end{enumerate}
+		A bipartite graph is called a \underline{complete bipartite graph} if $\forall v \in V_1 \hspace{5mm} \forall w \in V_2 \hspace{5mm} \exists vw \in E$.
+		\item[Notation:] A complete bipartite graph where the set $V_1$ has $p$ elements and the set $V_2$ has $q$ elements is denoted by $K_{p,q}$.
+		\item[Example:] ~\\
+		$V_1 = \{a, b\}$ \\
+		$V_2 = \{c, d, e\}$ \\
+		$V = \{a, b, c, d, e\}$ \\
+		$E = \{ac, ad, ae, bc, bd, be\}$ \\
+		\pagebreak
+		\begin{figure}[h!]
+			\centering
+			\begin{tikzpicture}
+			\coordinate (A) at (0, 0);
+			\coordinate (B) at (-1.5, -1);
+			\coordinate (E) at (1.5, -1);
+			\coordinate (C) at (-1, -3);
+			\coordinate (D) at (1, -3);
+			
+			\draw (A) node[above]{a}--(C) node[below]{c};
+			\draw (A)--(D) node[below]{d};
+			\draw (A)--(E);
+			\draw (B)--(C);
+			\draw (D)--(B) node[left]{b};
+			\draw (B)--(E) node[right]{e};
+			\end{tikzpicture}
+		\end{figure}
+		is a complete bipartite graph.
+		\item Next, relate graph to each other via functions with special properties.
+	\end{description}
+	
+	\section{Isomorphism of Graphs}
+	\begin{description}
+		\item[Definition:] An \underline{isomorphism} between two graphs $(V, E)$ and $(V',E')$ is a bijective function 
 	\end{description}
 \end{document}
