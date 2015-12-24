@@ -1753,6 +1753,115 @@
 	
 	\section{Isomorphism of Graphs}
 	\begin{description}
-		\item[Definition:] An \underline{isomorphism} between two graphs $(V, E)$ and $(V',E')$ is a bijective function 
+		\item[Definition:] An \underline{isomorphism} between two graphs $(V, E)$ and $(V',E')$ is a bijective function $\varphi : V \rightarrow V'$ satisfying that $\forall a, b \in V$ with $a \neq b$ the edge $ab \in E \Leftrightarrow$ the edge $\varphi (a) \varphi (b) \in E'$.
+		\item[Recall:] A function $\varphi : V \rightarrow V'$ is bijective $\Leftrightarrow$ it has an inverse $\varphi^{-1} : V' \rightarrow V'$. \\
+		The bijection $\varphi V \rightarrow V'$ that gives the isomorphism between $(V, E)$ and $(V' E')$ thus sets up the following:
+		\begin{enumerate}
+			\item A 1-1 correspondence of the vertices $V$ of $(V,E)$ with the vertices $V'$ of $(V',E') \rightarrow$ comes from $\varphi: V \rightarrow V'$ being bijective.
+			\item A 1-1 correspondence of the edges $E$ of $(V,E)$ with the edges $E'$ of $(V',E') \rightarrow$ comes from the additional property in the definition of an isomorphism that $\forall a, b \in V$ with $a \neq b, ab \in E \Leftrightarrow \varphi (a) \varphi (b) \in E'$. 
+		\end{enumerate}
+		\item[Remark:] Just like an isomorphism of groups discussed earlier in the course, an ismorphism of graphs means $(V,E)$ and $(V',E')$ have the same "iso" from "morph\'{e}". "Being isomorphic" is an equivalence relations, so we get classes of graphs that have the same form as our equivalence classes.
+		\item[Definition:] If there exists an isomorphism $\varphi :V \rightarrow V'$ between two graphs $(V, E)$ and $(V', E')$, then $(V, E)$ and $(V', E')$ are called isomorphic.
+	\end{description}
+	
+	\section{Subgraphs}
+	\begin{description}
+		\item[Task:] Understand subobjects of a graph.
+		\item[Definition:] Let $(V, E)$ and $(V', E')$ be graphs. The graph $(V', E')$ is called a subgraph of $(V, E)$ if $V' \subseteq V$ and $E' \subseteq E$, \textbf{i.e.} if $(V', E')$ consists of a subset $V'$ of the vertices of $(V, E)$ and a subset $E'$ of edges $(V, E)$ between vertices in $V'$.
+		\item[Example:] Star of David on the flag of Israel \\
+			$V = \{a, b, c, d, e, f\}$ \\
+			$E = \{ac, ce, ae, bf, fd, bd\}$ \\
+			\begin{figure}[h!]
+				\centering
+				\begin{tikzpicture}
+				\coordinate (A) at (0, 0);
+				\coordinate (B) at (-1.5, -1);
+				\coordinate (C) at (-1.5, -2.5);
+				\coordinate (D) at (0, -3.5);
+				\coordinate (E) at (1.5, -2.5);
+				\coordinate (F) at (1.5, -1);
+				
+				\draw (A) node[above]{A} -- (C);
+				\draw (A) -- (E) node[right]{E};
+				\draw (C) node[left]{C} -- (E);
+				\draw (D) -- (B) node[left]{B};
+				\draw (D) node[below]{D} -- (F);
+				\draw (B) -- (F) node[right]{F};
+			\end{tikzpicture}
+		\end{figure}
+		\item 2 triangle subgraphs of the star of David: \\
+		\begin{tabular}{ll}
+				$V' = \{a, c, e\}$ & $E' = \{ac, ce, ae\}$ \\
+				$V" = \{b, f, d\}$ & $E" = \{bf, fd, bd\}$
+		\end{tabular}
+	\end{description}
+	
+	\section{Vertex Degrees}
+	\begin{description}
+		\item[Task:] Use numbers to understand incidence relationships.
+		\item[Definition:] Let $(V, E)$ be a graph. The \underline{degree} deg $v$ of a vertex $v \in V$ is defined as the number of edges of the graph that are incidence to $v$, \textbf{i.e.} the number of edge with $v$ as one of their endpoints.
+		\item[Example:] ~\\
+		\begin{figure}[h!]
+			\centering
+			\begin{tikzpicture}
+			\coordinate (A) at (0, 0);
+			\coordinate (H) at (0, -2);
+			\coordinate (B) at (-1, -1);
+			\coordinate (C) at (1, -1);
+			\coordinate (D) at (-1, -3);
+			\coordinate (E) at (1, -3);
+			\coordinate (F) at (-0.5, -2.3);
+			\coordinate (G) at (0.5, -2.3);
+			
+			\draw (A) -- (H);
+			\draw (H) -- (B);
+			\draw (H) -- (C);
+			\draw (B) -- (D);
+			\draw (C) -- (E);
+			
+			\draw[fill=black] (A) circle[radius=0.5mm] node[above]{A};
+			\draw[fill=black] (B) circle[radius=0.5mm] node[above left]{B};
+			\draw[fill=black] (C) circle[radius=0.5mm] node[above right]{C};
+			\draw[fill=black] (D) circle[radius=0.5mm] node[below left]{D};
+			\draw[fill=black] (E) circle[radius=0.5mm] node[below right]{E};
+			\draw[fill=black] (H) circle[radius=0.5mm] node[below]{H};
+			\draw[fill=black] (F) circle[radius=0.5mm] node[below]{F};
+			\draw[fill=black] (G) circle[radius=0.5mm] node[below]{G};
+			\end{tikzpicture}
+		\end{figure}
+		~\\
+		def $f$ = deg $g$ = 0 \\
+		deg $d$ = deg $e$ = deg $a$ = 1 \\
+		deg $b$ = deg $c$ = 2 \\
+		deg $h$ = 3 \\
+		\item[Definition:] A vertex of degree 0 is called an \underline{isolated} vertex.
+		\item[Definition:] A vertex of degree 1 is called a \underline{pendent} vertex.
+		\item[Theorem:] Let $(V, E)$ be a graph. Then $\sum_{v \in V}$deg $v = Z\#(E)$, where $\sum_{v \in V}$deg $v$ is the sum of the degrees of all the vertices of the graph, and $\#(E)$ is the number of edges of the graph.
+		\item[Proof:] $\sum_{v \in V}$deg $v$ is the sum of all the entries in the adjacency matrix. Every edge $vv' \in E$ contributes 2 to the sum $\sum_{v \in V}$deg $v$, 1 for the vertex $v$ and 1 for the vertex $v' \Rightarrow$ each edge must be counted twice, so $\sum_{v \in V}$deg $v = 2 \#(E)$.
+		\item[qed]
+		\item[Corollary:] $\sum_{v \in V}$deg $v$ is an even integer.
+		\item[Proof:] Since $\sum_{v \in V}$deg $v = 2 \#(E)$, and $\#(E) \in \mathbb{N}$, the result follows.
+		\item[qed]
+		\item[Corollary:] In any graph, the number of vertices of odd degrees must be even.
+		\item[Proof:] Assume not, then $\sum_{v \in V}$deg $v$ is an odd integer as $odd + even = odd \Rightarrow \Leftarrow$ to the previous corollary.
+		\item[qed]
+		\item[Definition:] A graph is called k-regular for some non-negative integer $k$ if every vertex of the graph has degree equal to $k$.
+		\item[Example:] A rectangle is 2-regular. \\
+		\begin{figure}[h!]
+			\centering
+			\begin{tikzpicture}
+				\coordinate (A) at (0, 0);
+				\coordinate (B) at (4, 0);
+				\coordinate (D) at (0, -2);
+				\coordinate (C) at (4, -2);
+				
+				\draw (A) node[above left]{A} -- (B);
+				\draw (A) -- (D) node[below left]{D};
+				\draw (B) node[above right]{B} -- (C);
+				\draw (D) -- (C) node[below right]{C};
+			\end{tikzpicture}
+		\end{figure}
+		deg $a$ = deg $b$ = deg $c$ = deg $d$ = 2.
+		\item[Definition:] A graph $(V, E)$ is called \underline{regular} is $\exists k \in \mathbb{N}$ s.t. $(V, E)$ is k-regular.
 	\end{description}
 \end{document}
