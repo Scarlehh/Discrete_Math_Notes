@@ -1978,4 +1978,44 @@
 		\item[Transitive:] If $a \sim b$ and $b \sim c$, for $a, b, c \in V$, there $\exists$ walk $a v_1 v_2 ... v_{n-1} b$ from $a$ to $b$ and $\exists$ walk $b w_1 w_2 ... w_{m-1} c$ from $b$ to $c$. We put these two walks together (concatenate them) to yield the walk $a v_1 v_2 ... v_{n-1} b w_1 w_2 ... w_{m-1} c$ from $a$ to $c$. Therefore $a \sim c$.
 		\item[qed]
 	\end{description}
+	The equivalence relation $\sim$ on $V$ partitions it into dsjoint subsets $v_1, v_2, ... v_p$, where
+	\begin{enumerate}
+		\item $v_1 \cup v_2 \cup ... \cup v_p = V$
+		\item $v_i \cap v_j = \emptyset$ if $i \neq j$
+		\item Two vertices $a, b \in v_i \Leftrightarrow a \sim b$, \textbf{i.e.} $\exists$ walk in $(V, E)$ from $a$ to $b$
+	\end{enumerate}
+	Note that an edge is a walk of length 1, so if $a, b \in V$ satisfy that $\exists ab \in E$, then $a$ and $b$ belong to the same $v_i$. As a result, we can partition the set of edges as follows:
+	\[E_i \{ab \in E \mid a, b \in v_i \}\]
+	Clearly, $E_1 \cup E_2 \cup ... \cup E_p = E \land E_i \cap E_j = \emptyset$ is $i \neq j$. Furthermore, $(V_1, E_1), (V_2, E_2), ..., (V_p, E_p)$ are subgraphs of $(V, E)$, and these subgraphs are disjoint since $v_i \cap v_j = \emptyset$ and $E_i \cap E_j = \emptyset$ is $i \neq j$. The subgraphs $(V_i, E_i)$ are called the \underline{components} (or \underline{connected components}) of the graph $(V, E)$.
+	\begin{description}
+		\item[Lemma:] The vertices and edges of any walk in an undirected graph are all contained in a single component of that graph.
+		\item[Proof:] Let $v_0 v_1 ... v_n$ be a walk in a graph $(V, E)$, then $v_0 v_1 ... v_r$ is a walk in $(V, E) \forall r \hspace{5mm} 1 \leq r \leq n \Rightarrow v_0 \sim v_r \forall r \hspace{5mm} 1 \leq r \leq n \Rightarrow v_r$ belongs to the same component of the graph as $v_0$. The same is true for all the edges $v_{i-1}v_i$ for $1 \leq i \leq n$
+		\item[qed]
+		\item[Lemma:] Each component of an undirected graph is connected.
+		\item[Proof:] Let $(V, E)$ be a graph and let $(V_1, E_i)$ be any component of $(V, E). \forall u, v \in V_i$, by definition $\exists$ walk in $(V, E)$ between $u$ and $v$. By previous lemma, however, all vertices and edges of this walk are in $(V_i, E_i) \Rightarrow$ the walk between $u$ and $v$ is a walk in $(V_i, E_i)$, but this assertion is true $\forall u, v \in V_i \Rightarrow (V_i, E_i)$ is connected.
+		\item[qed]
+	\end{description}
+	
+	\subsection{Moral of the story}
+	Any undirected graph can be represented as a disjoint union of connected subgraphs, namely its components $\Rightarrow$ the study of undirected graphs reduces to the study of connected graphs, as components don't share either vertices or edges.
+	
+	\section{Circuits}
+	\begin{description}
+		\item[Task:] Use closed walks to understand the structure of graphs better.
+		\item[Definition:] Let $(V, E)$ be a graph. A walk $v_0 v_1 ... v_n$ in $(V, E)$ is called \underline{closed} if $v_0 = v_n$, \textbf{i.e.} if it starts and edges at the same vertex.
+		\item[Definition:] Let $(V, E)$ be a graph. A \underline{circuit} is a nontrivial closed trail in $(V, E)$, \textbf{i.e.} a closed walk with no repeated edges passing through at least two vertices.
+		\item[Definition:] A circuit is called \underline{simple} if the vertices $v_0, v_1, v_2, ... v_{n-1}$ are distinct.
+		\item[NB:] This is the strangest condition regarding vertices tha we can impose ince $v_0 = v_n$.
+		\item[Alternative terminology:] Some authors use \underline{cycle} to denote a simple circuit, which for ohers \underline{cycle} denotes a circuit regardless of whether it is simple or not.
+		\item[Q:] When does a graph have simple circuits?
+		\item[A:] We can give 2 criteria for the existence of simple circuits:
+		\begin{enumerate}
+			\item Every vertex has degres $\geq$ 2.
+			\item $\forall u, v \in V$ s.t. $\exists$ 2 distinct paths from $u$ to $v$.
+		\end{enumerate}
+		\item[Theorem:] If $(V, E)$ has no isolated or pendant vertices, \textbf{i.e.} $\forall v \in V$ deg $v \geq$ 2, then $(V, E)$ contains at least one simple circuit.
+		\item[Proof:] Consider all paths $(V, E)$. The maximum length of a path is $\#(V) - 1$ since a path of length $p$ passed through $p+1$ vertices. Take a path $v_0 v_1 ... v_m$ is $(V, E)$ of maximum length, \textbf{i.e.} any other path in $(V, E)$ has length $\leq m = $ length of $v_0 v_1 ... v_m$. Now consider the vertex $v_m$. deg $v_m \geq$ 2 by assumption. We know $v_{m-1}$ is adjacent to $v_m$ since the edge $v_{m-1} v_m$ is part of the path $v_0 v_1 ... v_m$, but deg $v_m \geq $ 2 means $\exists w \in V$ s.t. $ww_m \in E$. If $w \neq v_i$ for $0 \leq i \leq m-2$, then $v_0 v_1 ... v_m w$ is a path in $(V, E)$ longer than $v_0 v_1 ... v_m \Rightarrow \Leftarrow$ to the act that $v_0 v_1 ... v_m$ was chosen of maximal length. Therefore, $w = v_i$ for some $0 \leq i \leq m-2$, but then $v_i v_{i+1} ... v_m v_i$ is a simple circuit in the graph.
+		\item[qed]
+		\item[Theorem:] Let $(V, E)$ be an undirected graph and let $u, v \in V$ be vertices s.t. $u \neq v$ and $\exists$ at least two distinct paths in $(V, E)$ from $u$ to $v$. Then the graph contains at least one.
+	\end{description}
 \end{document}
