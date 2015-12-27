@@ -1863,5 +1863,119 @@
 		\end{figure}
 		deg $a$ = deg $b$ = deg $c$ = deg $d$ = 2.
 		\item[Definition:] A graph $(V, E)$ is called \underline{regular} is $\exists k \in \mathbb{N}$ s.t. $(V, E)$ is k-regular.
+		\item[Corollary:] Let $(V, E)$ be a k-regular graph. Then $k\#(V) = 2\#(E)$ where $\#(V)$ is the number of vertices and $\#(E)$ is the number of edges.
+		\item[Proof:] By the theorem, $\sum_{v \in V}$deg $v = 2\#(E)$, but $(V, E)$ is k-regular $\Rightarrow$ deg $v = k \forall v \in V$. Therefore $\sum_{v \in V}$deg $v = \#(V).k = 2 \#(E)$.
+		\item[qed]
+		\item[Example:] Consider a complete graph $(V, E)$ with $n$ vertices. $(V, E)$ is $(n-1)$-regular because every vertex is adjacent to all the remaining $(n-1)$ vertices.
+		\item[Corollary:] A complete bipartite graph $k_{p,q}$ is regular $\Leftrightarrow p = q$
+		\item[Proof:] Recall that $V=V_1 \cup V_2 \hspace{10mm} V_1 \cap V_2 = \emptyset$ for a bipartite graph. \\
+		$\Leftarrow$ is $p=q, \forall v \in V_1$ satisfies that deg $v = p = q$ and $\forall v \in V_2$ satisfies that def $v=p=q$ since the graph is complete $\Rightarrow (V, E)$ is p-regular. \\
+		$\Rightarrow \: (V, E)$ is regular $\Rightarrow \forall v \in V_1$ and $\forall v' \in V_2$, deg $v=$ deg $v'$, but $(V, E)$ is complete $\Rightarrow v$ is adjacent to all vertices in $V_2$, \textbf{i.e.} def $v = \#(V_1)$ and $v'$ is adjacent to all vertices in $V_1$, \textbf{i.e.} deg $v' = \#(V_2) \rightarrow \#(V_1) = \#(V_2)$
+	\end{description}
+	
+	\section{Walks, trails and paths}
+	\begin{description}
+		\item[Task:] Make rigorous the notion of traversing parts of a graph in order to understand its structure better.
+		\item[Definition:] Let $(V, E)$ be a graph. A \underline{walk} $v_0 v_1 v_2... v_n$ of length $n$ in the graph from vertex $a$ to vertex $b$ is determined by a finite sequence $v_0, v_1, v_1, ..., v_n$ of vertices of the graph s.t. $v_0 = a, v_n = b$ and $v_{i-1} v_i$ is an edge of the graph for $i=1, 2, ..., n$.
+		\item[Definition:] A walk $v_0 v_1 v_2 ... v_n$ in a graph is said to \underline{traverse} the edges $v_{i-1} v_i$ and to \underline{pass through} the vertices $v_0, v_1, ..., v_n$. Length of walk $= \#$ of edges traversed $\rightarrow$ the smallest possible number is two edges. As a result, we have the following definition:
+		\item[Definition:] A walk that consists of a single vertex $v \in V$ and has length two is called \underline{trivial}.
+		\item[Definition:] Let $(V, E)$ be a graph. A \underline{trail} $v_0 v_1 v_2 ... v_n$ of length $n$ in the graph from some vertex $a$ to some vertex $b$ is a walk of length $n$ from $a$ to $b$ with the property that edges $v_{i-1} v_i$ are distinct for $i-1, 2, ..., n$. In other words, a trail is a walk in the graph, which traverses edges of the graph at most once.
+		\item[Definition:] A walk, trail or path is a graph is called \underline{trivial} if it is a walk of length two consist of a single vertex $v \in V$; otherwise, the walk, trail, or path is called \underline{non-trivial}.
+		\item[Example:] ~\\
+		\begin{enumerate}
+			\item $h$ is a trivial walk/trail/path
+			\item $defd$ is a trail, but not a path because we pass through the vertex $d$ twice.
+			\item $def$ is a path
+			\item $gfdefdc$ is a walk but not a trail of a path
+		\end{enumerate}
+		\begin{figure}[h!]
+			\centering
+			\begin{tikzpicture}
+			\coordinate (G) at (0, -1);
+			\coordinate (F) at (3, -3.5);
+			\coordinate (E) at (1, -3);
+			\coordinate (D) at (1, -5);
+			\coordinate (A) at (-2, -3.5);
+			\coordinate (H) at (-1, -3.2);
+			\coordinate (B) at (-0.5, -6.2);
+			\coordinate (C) at (2.7, -7);
+			
+			\draw (G) -- (F) -- (D) -- (C) -- (B) -- (A) -- (G);
+			\draw (D) -- (E) -- (F);
+			
+			\draw[fill=black] (A) circle[radius=0.5mm] node[left]{A};
+			\draw[fill=black] (B) circle[radius=0.5mm] node[below left]{B};
+			\draw[fill=black] (C) circle[radius=0.5mm] node[right]{C};
+			\draw[fill=black] (D) circle[radius=0.5mm] node[left]{D};
+			\draw[fill=black] (E) circle[radius=0.5mm] node[above]{E};
+			\draw[fill=black] (F) circle[radius=0.5mm] node[right]{F};
+			\draw[fill=black] (G) circle[radius=0.5mm] node[above]{G};
+			\draw[fill=black] (H) circle[radius=0.5mm] node[above]{H};
+			\end{tikzpicture}
+		\end{figure}
+	\end{description}
+	
+	\section{Connected Graphs}
+	\begin{description}
+		\item[Task:] Use the ideas above related to traversing parts of a graph in order to define a particularly important category of graphs.
+		\item[Definition:] An undirected graph $(V, E)$ is called \underline{connected} if $\forall u, v \in V$ vertices, $\exists$ path in the graph from $u$ to $v$.
+		\item[Examples:]
+		\begin{enumerate}
+			\item Is not connected as $d$ is not connected to any other vertex.
+			\begin{figure}[h!]
+				\centering
+				\begin{tikzpicture}
+				\coordinate (A) at (0, 0);
+				\coordinate (B) at (-1, -2);
+				\coordinate (C) at (2, -2);
+				\coordinate (D) at (0, -1);
+				
+				\draw (A) -- (B) -- (C) -- (A);
+				\draw[fill=black] (A) circle[radius=0.5mm] node[above]{A};
+				\draw[fill=black] (B) circle[radius=0.5mm] node[left]{B};
+				\draw[fill=black] (C) circle[radius=0.5mm] node[right]{C};
+				\draw[fill=black] (D) circle[radius=0.5mm] node[above]{D};
+				\end{tikzpicture}
+			\end{figure}
+			\pagebreak
+			\item Is connected. $\exists$ path between any two of the vertices.
+			\begin{figure}[h!]
+				\centering
+				\begin{tikzpicture}
+				\coordinate (A) at (-1, 1);
+				\coordinate (B) at (1, 1);
+				\coordinate (C) at (1, -1);
+				\coordinate (D) at (-1, -1);
+				
+				\draw (A) -- (B) -- (C) -- (D) -- (A);
+				\draw (A) -- (C);
+				\draw (D) -- (B);
+				
+				\draw[fill=black] (A) circle[radius=0.5mm] node[above left]{A};
+				\draw[fill=black] (B) circle[radius=0.5mm] node[above right]{B};
+				\draw[fill=black] (C) circle[radius=0.5mm] node[below right]{C};
+				\draw[fill=black] (D) circle[radius=0.5mm] node[below left]{D};
+				\end{tikzpicture}
+			\end{figure}
+		\end{enumerate}
+		\item[Theorem:] Let $(V, E)$ be a undirected graph, and let $u, v \in V. \exists$ path between $u$ and $v$ in the graph $\Leftrightarrow \exists$ walk in the graph between $u$ and $v$.
+		\item[Proof:] $\Rightarrow$ trivial: A path is a walk. \\
+		$\Leftarrow \exists$ walk between $u$ and $v$. Choose the walk of least length between $u$ and $v$, (\textbf{i.e.} $\nexists$ a walk of lower length than this one) and prove it is a path. Let this walk be $a_0 a_1 ... a_n$ with $a_0 = u$ and $a_n = v$. Assume $\exists j, k$ with $a \leq j, k \leq n$ s.t. $j < k$ and $a_j = a_k$, but then $a_0 a_1 ... a_j a_k+1 ... a_n$ would be a walk from $u$ to $v$ of \underline{strictly smaller} length than $a_0 a_1 ... a_n$. $\Rightarrow \Leftarrow$ as we chose $a_0 a_1 ... a_n$ to be of minimal length $ \Rightarrow a_i \neq a_j \forall i, j$ s.t. $0 \leq i, j \leq n \Rightarrow a_0 a_1 ... a_n$ is a path between $u$ and $v$.
+		\item[qed]
+		\item[Corollary:] An undirected grapg $(V, E)$ is connected $\Leftrightarrow \forall u, v \in V \exists$ walk in the graph between $u$ and $v$.
+	\end{description}
+	
+	\section{Components of a graph}
+	\begin{description}
+		\item[Task:] Divide a graph into subgraphs that are isolated from each other.
+	\end{description}
+	Let $(V, E)$ be an undirected graph. We define a relation $\sim$ on the set of vertices $V$, where $a, b \in V$ satisfy $a \sim b$ iff $\exists$ walk in the graph from $a$ to $b$.
+	\begin{description}
+		\item[Lemma:] Let $(V, E)$ be an undirected graph. The relation $a \sim b$ or $a, b \in V$, which holds iff $\exists$ walk in the graph between $a$ and $b$ is an equivalence relation.
+		\item[Proof:] We must show $\sim$ is reflexive, symmetric, and transitive.
+		\item[Reflexive:] $\forall v \in V, v \sim v$ since the trivial walk is a walk from $v$ to itself.
+		\item[Symmetric:] If $a \sim b$ for $a, b \in V$, then $\exists$ walk $v_0 v_1 ... v_n$ where $v_0 = a$ and $v_n = b$. This walk can be reversed to $v_n v_{n-1} ... v_1 v_0$, which now goes from $v_n = b$ to $v_0 = a$. Therefore, $b \sim b$ as needed.
+		\item[Transitive:] If $a \sim b$ and $b \sim c$, for $a, b, c \in V$, there $\exists$ walk $a v_1 v_2 ... v_{n-1} b$ from $a$ to $b$ and $\exists$ walk $b w_1 w_2 ... w_{m-1} c$ from $b$ to $c$. We put these two walks together (concatenate them) to yield the walk $a v_1 v_2 ... v_{n-1} b w_1 w_2 ... w_{m-1} c$ from $a$ to $c$. Therefore $a \sim c$.
+		\item[qed]
 	\end{description}
 \end{document}
