@@ -1,4 +1,4 @@
-\documentclass[10pt]{article}
+ \documentclass[10pt]{article}
 \usepackage{caption}
 \usepackage{multirow}
 \usepackage{amsfonts}
@@ -365,7 +365,7 @@
 		\item[Proposition:] $\forall A, B$ sets. $(A \cap B) \cup (A \backslash B) = A$
 		\item[Proof:] Use the criterion for proving equality of sets from above, \textbf{i.e.} inclusion in both directions.
 		\item \underline{Show $(A \cap B) \cup (A \backslash B) \subseteq A$:} $\forall x \in (A \cap B) \cup (A \backslash B), x \in (A \cap B)$ or $x \in A \backslash B$. If $x \in (A \cap B)$ then clearly $x \in A$ as $A \cap B \subseteq A$ by definition. If $x \in A \backslash B$, then by definition $x \in A$ and $x \notin B$ so definitely $x \in A$. In both cases, $x \in A$ as needed.
-		\item \underline{Show $A \subseteq (A \cap B) \cup (A \backslash B)$:} $\forall x \in A$, we have two possibilities, namely $x \in B$ or $x \notin B$. If $x \in B$, then $x \in A$ and $x \in B$, so $x \in A \cap B$. If $x \notin B$, then $x \in A$ and $x \notin B$, so $x \notin A \backslash B$. In both cases, $x \in (A \cap B)$ or $x \in (A \backslash B)$ so $x \in (A \cap B) \cup (A \backslash B)$ as needed.
+		\item \underline{Show $A \subseteq (A \cap B) \cup (A \backslash B)$:} $\forall x \in A$, we have two possibilities, namely $x \in B$ or $x \notin B$. If $x \in B$, then $x \in A$ and $x \in B$, so $x \in A \cap B$. If $x \notin B$, then $x \in A$ and $x \notin B$, so $x \in A \backslash B$. In both cases, $x \in (A \cap B)$ or $x \in (A \backslash B)$ so $x \in (A \cap B) \cup (A \backslash B)$ as needed.
 		\item \textbf{qed}
 	\end{description}
 	
@@ -2061,7 +2061,7 @@
 		\end{enumerate}
 		In both cases, the degree of the vertices is even for all vertices. We'll see this property is important and derive other necessary and sufficient conditions for the existence of Eulerian trails and circuits.
 		\item[Theorem:] Let $(V, E)$ be a graph, and let $v_0 v_1 ... v_m$ be a trail in $(V, E)$. Let $v \in V$ be a vertex, then the number of edges of the trail incident to $v$ is even except when the trail is not closed and the trail starts and finishes at $v$, in which case the number of edges of the trail incident to the vertex $v$ is odd.
-		\item[Proof:] Note that 0 is an een integer as 0 = 2 $\times$ 0.
+		\item[Proof:] Note that 0 is an even integer as 0 = 2 $\times$ 0.
 		\begin{description}
 			\item[Case 1:] $v \neq v_0 \land v \neq v_m$. If the trail does not pass through $v$, the number of dges incident to $v$ belonging to the trail is 0, which is even. \\
 			If the trail passes through $v$, then edges of the trail incident to $v$ are of the form $v{i-1} v_i$ and $v_i v_{i+1}$ with $v = v_i$ and $0 < i < m$. Therefore, the number of edges of the trail incident to $v$ equals twice the number of integers $i$ among $1, 2, ..., m-1 (0 < i < m)$ s.t. $v= v_i \Rightarrow$ the number of even.
@@ -2128,7 +2128,7 @@
 		\item[qed]
 	\end{description}
 	
-	\section{Forects and Trees}
+	\section{Forests and Trees}
 	\begin{description}
 		\item[Task:] Use the notion of a circuit to define trees.
 		\item[Definition:] A graph is called acyclic if it contains no circuits (also known as cycles).
