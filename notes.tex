@@ -635,7 +635,7 @@
 			\item $A$ is a set. Consider $P(A)$, the power set of $A$. The relation $\subseteq$ "being a subset of" is a partial order.
 			\begin{enumerate}
 				\item $\forall B \in P(A), B\subseteq B \rightarrow$ reflexive.
-				\item $forall B, C \in P(A), B \subseteq C \land C \subseteq B \implies B=C$ (recall the criterion for proving equality of sets) $\rightarrow$ anti-symmetric
+				\item $\forall B, C \in P(A), B \subseteq C \land C \subseteq B \implies B=C$ (recall the criterion for proving equality of sets) $\rightarrow$ anti-symmetric
 				\item $\forall B, C, D \in P(A)$ s.t. $B \subseteq C \land C \subseteq D \implies B \subseteq B \rightarrow$ transitive
 			\end{enumerate}
 		\end{enumerate}
@@ -662,17 +662,23 @@
 						\coordinate (A2) at (-2, 0);
 						\coordinate (A3) at (-2, -1);
 					
-						\draw (A1) node{x} node[left]{1};
-						\draw (A2) node{x} node[left]{3};
-						\draw (A3) node{x} node[left]{7};
+						\draw (A1) node[left]{1};
+						\draw (A2) node[left]{3};
+						\draw (A3) node[left]{7};
+						\draw[fill=black] (A1) circle(0.5mm);
+						\draw[fill=black] (A2) circle(0.5mm);
+						\draw[fill=black] (A3) circle(0.5mm);
 						
 						\coordinate (B1) at (2, 1);
 						\coordinate (B2) at (2, 0);
 						\coordinate (B3) at (2, -1);
 						
-						\draw (B1) node{x} node[right]{1};
-						\draw (B2) node{x} node[right]{2};
-						\draw (B3) node{x} node[right]{5};
+						\draw (B1) node[right]{1};
+						\draw (B2) node[right]{2};
+						\draw (B3) node[right]{5};
+						\draw[fill=black] (B1) circle(0.5mm);
+						\draw[fill=black] (B2) circle(0.5mm);
+						\draw[fill=black] (B3) circle(0.5mm);
 						
 						\draw (-2, 0) circle [x radius=1, y radius=1.5];
 						\draw (2, 0) circle [x radius=1, y radius=1.5];
@@ -688,17 +694,23 @@
 						\coordinate (A2) at (-2, 0);
 						\coordinate (A3) at (-2, -1);
 					
-						\draw (A1) node{x} node[left]{1};
-						\draw (A2) node{x} node[left]{3};
-						\draw (A3) node{x} node[left]{7};
+						\draw (A1) node[left]{1};
+						\draw (A2) node[left]{3};
+						\draw (A3) node[left]{7};
+						\draw[fill=black] (A1) circle(0.5mm);
+						\draw[fill=black] (A2) circle(0.5mm);
+						\draw[fill=black] (A3) circle(0.5mm);
 						
 						\coordinate (B1) at (2, 1);
 						\coordinate (B2) at (2, 0);
 						\coordinate (B3) at (2, -1);
 						
-						\draw (B1) node{x} node[right]{1};
-						\draw (B2) node{x} node[right]{2};
-						\draw (B3) node{x} node[right]{5};
+						\draw (B1) node[right]{1};
+						\draw (B2) node[right]{2};
+						\draw (B3) node[right]{5};
+						\draw[fill=black] (B1) circle(0.5mm);
+						\draw[fill=black] (B2) circle(0.5mm);
+						\draw[fill=black] (B3) circle(0.5mm);
 						
 						\draw (-2, 0) circle [x radius=1, y radius=1.5];
 						\draw (2, 0) circle [x radius=1, y radius=1.5];
@@ -715,17 +727,23 @@
 						\coordinate (A2) at (-2, 0);
 						\coordinate (A3) at (-2, -1);
 										
-						\draw (A1) node{x} node[left]{1};
-						\draw (A2) node{x} node[left]{3};
-						\draw (A3) node{x} node[left]{7};
+						\draw (A1) node[left]{1};
+						\draw (A2) node[left]{3};
+						\draw (A3) node[left]{7};
+						\draw[fill=black] (A1) circle(0.5mm);
+						\draw[fill=black] (A2) circle(0.5mm);
+						\draw[fill=black] (A3) circle(0.5mm);
 										
 						\coordinate (B1) at (2, 1);
 						\coordinate (B2) at (2, 0);
 						\coordinate (B3) at (2, -1);
 										
-						\draw (B1) node{x} node[right]{1};
-						\draw (B2) node{x} node[right]{2};
-						\draw (B3) node{x} node[right]{5};
+						\draw (B1) node[right]{1};
+						\draw (B2) node[right]{2};
+						\draw (B3) node[right]{5};
+						\draw[fill=black] (B1) circle(0.5mm);
+						\draw[fill=black] (B2) circle(0.5mm);
+						\draw[fill=black] (B3) circle(0.5mm);
 										
 						\draw (-2, 0) circle [x radius=1, y radius=1.5];
 						\draw (2, 0) circle [x radius=1, y radius=1.5];
