@@ -403,7 +403,7 @@
 		\item[Recall from Calculus:]
 		\item $\mathbb{R} = \mathbb{R}^1 \ni x$
 		\item $\mathbb{R} \times \mathbb{R} = \mathbb{R}^2 \ni (x_1, x_1)$ \\ \vdots
-		\item $\underbrace{\mathbb{R} \times \mathbb{R}}_{\text{n times}} = \mathbb{R}^n \ni (x_1, x_2, ..., x_n)$
+		\item $\underbrace{\mathbb{R} \times \mathbb{R}}_{\text{n times}} = \mathbb{R}^n \ni (x_1, x_2, \dots, x_n)$
 		\item These are examples of Cartesian products.
 		\item[Definition:] Let $A, B$ be sets. The Cartesian product denoted by $A \times B$ consists of all ordered pairs $(x, y) \: s.t. \: x \in A \land y \in B$, \textbf{i.e.} $A \times B = \{(x, y) \mid x \in A \land y \in B \}$
 		\item[Further Examples:]
@@ -558,9 +558,9 @@
 			\item[]
 			\item $A = \mathbb{N} \hspace{10mm} x \equiv y$ mod 3 \\
 			We have the equivalence classes $[0]_R, [1]_R$ and $[2]_R$ given by the then possible remainders under division by 3. \\
-			${[0]}_R = \{0, 3, 6, 9, ...\}$ \\
-			${[1]}_R = \{1, 4, 7, 10, ...\}$ \\
-			${[2]}_R = \{2, 5, 8, 11, ...\}$ \\
+			${[0]}_R = \{0, 3, 6, 9, \dots\}$ \\
+			${[1]}_R = \{1, 4, 7, 10, \dots\}$ \\
+			${[2]}_R = \{2, 5, 8, 11, \dots\}$ \\
 			Clearly ${[0]}_R \cup {[1]}_R \cup {[2]}_R = \mathbb{N}$ and they are mutually disjoint $\Rightarrow R$ gives a partition of $\mathbb{N}$.
 			\item $ABC \sim A'B'C'$ \\
 			$[ABC] = \{$The set of all triangles with angles of magnitude $\measuredangle{ABC}, \measuredangle{BAC}, \measuredangle{ACB} \}$ \\
@@ -839,7 +839,7 @@
 		\item[Task:] Derive conclusions about a function given the number of elements of the domain and codomain if finite; understand the pigeonhole principle.
 		\item[Proposition:] Let $A, B$ be sets and let $f:A \rightarrow B$ be a function. Assume $A$ is finite. Then $f$ is injective $\Leftrightarrow f(A)$ has the same number of elements as $A$.
 		\item[Proof:]
-		\item $A$ is finite so we can write it as $A = \{a_1, a_2, ..., a_p\}$ for some $p$. Then $f(A) = \{f(a_1), f(a_2), ..., f(a_p)\} \subseteq B$. A priori, some $f(a_i)$ might be the same as some $f(a_j)$. However, $f$ injective $\Leftrightarrow f(a_i) \neq f(a_j)$ whenever $i \neq j \Leftrightarrow f(A)$ has example $p$ elements just like $A$.
+		\item $A$ is finite so we can write it as $A = \{a_1, a_2, \dots, a_p\}$ for some $p$. Then $f(A) = \{f(a_1), f(a_2), \dots, f(a_p)\} \subseteq B$. A priori, some $f(a_i)$ might be the same as some $f(a_j)$. However, $f$ injective $\Leftrightarrow f(a_i) \neq f(a_j)$ whenever $i \neq j \Leftrightarrow f(A)$ has example $p$ elements just like $A$.
 		\item[qed]
 		\item[Corollary 1] Let $A, B$ be finite sets such that $\#(A) = \#(B)$. Let $f: A \rightarrow B$ be a function. $f$ is injective $\Leftrightarrow f$ is bijective.
 		\item[Proof:]
@@ -863,20 +863,20 @@
 	Let $A$ be a set and $f:A \rightarrow A$ be a function. If $A$ is finite , the corollary 1 tells us $f$ injective $\Leftrightarrow f$ bijective. What if $A$ is not finite?
 	
 	\subsubsection{Hilbert's Hotel problem (jazzier name: Hilbert's paradox of the Grand Hotel)}
-	A fully occupied hotel with infinitely many rooms can always accommodate an additional guest as follows: The person in Room 1 removes to Room 2. The person in Room 2 moves to Room 3 and so on, \textbf{i.e.} if the rooms at $x_1, x_2, x_3...$ define the function $f(x_1)=x_2, f(x_2)=x_3, ..., f(x_m) = x_{m+1}$.
+	A fully occupied hotel with infinitely many rooms can always accommodate an additional guest as follows: The person in Room 1 removes to Room 2. The person in Room 2 moves to Room 3 and so on, \textbf{i.e.} if the rooms at $x_1, x_2, x_3\dots$ define the function $f(x_1)=x_2, f(x_2)=x_3, \dots, f(x_m) = x_{m+1}$.
 	
 	\begin{description}
-		\item[Claim:] As defined $f$ is injective but not surjective (hence not bijective!). Let $H = \{x_1, x_2,...\}$ the hotel consisting of infinitely many rooms. $f: H \rightarrow H$ is given by $f(x_n) = f(x_{n+1})$. $f(H) = H \backslash \{x_1\}$. We cn use this idea to prove:
+		\item[Claim:] As defined $f$ is injective but not surjective (hence not bijective!). Let $H = \{x_1, x_2,\dots\}$ the hotel consisting of infinitely many rooms. $f: H \rightarrow H$ is given by $f(x_n) = f(x_{n+1})$. $f(H) = H \backslash \{x_1\}$. We cn use this idea to prove:
 		\item[Proposition:] A set $A$ is finite $\Leftrightarrow \forall f:A \rightarrow A$ an injective function is also bijective.
 		\item[Proof:] If the set $X$ is finite then it follows immediately that every injective function $f:X \rightarrow X$ is bijective. \\
-		Suppose that the set $X$ is infinite. Then there exists some infinite sequence $x_1, x_2, x_3, ...$ of distinct elements of $X$ (where an element of $X$ occurs at most once in this list). Then there exists a function $f:X \rightarrow X$ defined such that $f(x_n) = x_{n+1}$ for all positive integers of $n$, and $f(x) = x$ for all elements of $x$ of $X$. If $x$ is not a member of the infinite sequence $x_1, x_2, x_3, ...$ then the only elements of $X$ that gets mapped to $x$ is the element $x$ itself; if $x = x_n$, where $x>1$, then the only element of $X$ gets mapped to $x$. It follows that the function $f$ is injective. However it is not surjective, since $x_1$ does not belong to the range of the function. This function $f$ is thus an example of a function from the set $X$ to itself which is injective but not bijective.
+		Suppose that the set $X$ is infinite. Then there exists some infinite sequence $x_1, x_2, x_3, \dots$ of distinct elements of $X$ (where an element of $X$ occurs at most once in this list). Then there exists a function $f:X \rightarrow X$ defined such that $f(x_n) = x_{n+1}$ for all positive integers of $n$, and $f(x) = x$ for all elements of $x$ of $X$. If $x$ is not a member of the infinite sequence $x_1, x_2, x_3, \dots$ then the only elements of $X$ that gets mapped to $x$ is the element $x$ itself; if $x = x_n$, where $x>1$, then the only element of $X$ gets mapped to $x$. It follows that the function $f$ is injective. However it is not surjective, since $x_1$ does not belong to the range of the function. This function $f$ is thus an example of a function from the set $X$ to itself which is injective but not bijective.
 	\end{description}
 	
 	\section{Mathematical Induction}
 	\begin{description}
 		\item[Task:] Understand how to construct a proof using mathematical induction.
 	\end{description}
-	$\mathbb{N} = \{0, 1, 2, ...\}$ set of natural numbers. \\
+	$\mathbb{N} = \{0, 1, 2, \dots\}$ set of natural numbers. \\
 	Recall that $\mathbb{N}$ is constructed using 2 axioms:
 	\begin{enumerate}
 		\item $0 \in \mathbb{N}$
@@ -888,7 +888,7 @@
 		\begin{enumerate}
 			\item[]
 			\item This is exactly the process of counting.
-			\item If we start at $1$, then we construct $\mathbb{N}* = \{1, 2, 3, 4, ...\} = \mathbb{N} \backslash \{0\}$
+			\item If we start at $1$, then we construct $\mathbb{N}* = \{1, 2, 3, 4, \dots\} = \mathbb{N} \backslash \{0\}$
 		\end{enumerate}
 		\item via the axioms
 		\begin{enumerate}
@@ -922,28 +922,28 @@
 		\item[Examples:]
 		\begin{enumerate}
 			\item[]
-			\item Prove $1+3+5+...+(2n-1) = n^2$ by induction.
+			\item Prove $1+3+5+\dots+(2n-1) = n^2$ by induction.
 			\begin{description}
 				\item[Base Case:] Verify statement for $n=1$
 				\item When $n=1$, $2n-1 = 2 \times 1 - 1 = 1^2$
-				\item[Inductive Step:] Assume $P(n)$, \textbf{i.e.} $1+3+5+...+(2n-1)=n^2$ and seek to prove $P(n+1)$, \textbf{i.e.} the statement $1+3+5...+(2n-1+2(n+1)-1) = (n+1)^2$
-				\item We start with LHS: $1+ \underset{n^2}{\underbrace{3+5+...+(2n-1)}}+(2(n+1)-1)=n^2+2n+2-1=n^2+2n+1=(n+1)^2$
+				\item[Inductive Step:] Assume $P(n)$, \textbf{i.e.} $1+3+5+\dots+(2n-1)=n^2$ and seek to prove $P(n+1)$, \textbf{i.e.} the statement $1+3+5\dots+(2n-1+2(n+1)-1) = (n+1)^2$
+				\item We start with LHS: $1+ \underset{n^2}{\underbrace{3+5+\dots+(2n-1)}}+(2(n+1)-1)=n^2+2n+2-1=n^2+2n+1=(n+1)^2$
 			\end{description}
 			\item Prove $1+2+3+ +n= \frac{n(n+1)}{2}$ by induction.
 			\begin{description}
 				\item [Base Case:] Verify statement for $n=1$
 				\item When $n=1, 1= \frac{1\times (1+1)}{2}=\frac{1 \times 2}{2} = 1$
-				\item[Inductive Step:] Assume $P(n)$, \textbf{i.e.} $1+2+3+...+n=\frac{n\times (n+1)}{2}$ and seek to prove $1+2+3+...+n= \frac{(n+1)(n+2)}{2}$
-				\item $\underset{\frac{n(n+1)}{2}}{\underbrace{1+2+3+...+n}}+n+1 = \frac{n(n+1)}{2} + n + 1 = (n+1)(\frac{n}{2} + 1)=(n+1)\frac{n+2}{2} = \frac{(n+1)(n+2)}{2}$ as needed.
+				\item[Inductive Step:] Assume $P(n)$, \textbf{i.e.} $1+2+3+\dots+n=\frac{n\times (n+1)}{2}$ and seek to prove $1+2+3+\dots+n= \frac{(n+1)(n+2)}{2}$
+				\item $\underset{\frac{n(n+1)}{2}}{\underbrace{1+2+3+\dots+n}}+n+1 = \frac{n(n+1)}{2} + n + 1 = (n+1)(\frac{n}{2} + 1)=(n+1)\frac{n+2}{2} = \frac{(n+1)(n+2)}{2}$ as needed.
 			\end{description}
 		\end{enumerate}
 		\item[Remarks:]
 		\begin{enumerate}
 			\item[]
-			\item For some argument by induction, it might be necessary to assume not just $P(n)$ at the inductive step but also $P(1), P(2)P, ...m P(n-1)$. This is called \underline{strong induction}.
+			\item For some argument by induction, it might be necessary to assume not just $P(n)$ at the inductive step but also $P(1), P(2), \dots, P(n-1)$. This is called \underline{strong induction}.
 			\begin{description}
 				\item[Base Case:] Prove $P(1)$
-				\item[Inductive Step:] Assume $P(a), P(2), ..., P(n)$ and prove $P(n+1)$.
+				\item[Inductive Step:] Assume $P(a), P(2), \dots, P(n)$ and prove $P(n+1)$.
 			\end{description}
 			\item[] An example of result requiring the use of strong induction is the \underline{Fundamental Theorem of Arithmetic}: $\forall n \in \mathbb{N}, n \geq 2, n$ can be expressed as a product of one or more prime numbers.
 			\item One has to be careful with argument involving induction. Here is an illustration why:
@@ -1016,7 +1016,7 @@
 			$a^3 = a*a*a$\\
 			\vdots \\
 			Recursively, $a^1=1$ and $a^n=a*a^{n-1}, \forall n > 1$
-			\item[\textbf{NB:}] In $(\mathbb{R}, \times), \forall a \in \mathbb{R}, a^n = \underset{n\: times}{\underbrace{a \times a \times ... \times a}}$, whereas in $(\mathbb{R}, +), \forall a \in \mathbb{R}, a^n = \underset{n\: times}{\underbrace{a + a + ... + a}}=na$. Be careful what $*$ stands for!
+			\item[\textbf{NB:}] In $(\mathbb{R}, \times), \forall a \in \mathbb{R}, a^n = \underset{n\: times}{\underbrace{a \times a \times \dots \times a}}$, whereas in $(\mathbb{R}, +), \forall a \in \mathbb{R}, a^n = \underset{n\: times}{\underbrace{a + a + \dots + a}}=na$. Be careful what $*$ stands for!
 		\end{enumerate}
 		\item[Theorem:] Let $(A, *)$ be a semigroup. $\forall a \in A, a^m * a^n = a^{m+n}, \forall m, n \in \mathbb{N*}$.
 		\begin{description}
@@ -1035,11 +1035,11 @@
 	\end{description}
 	
 	\subsubsection{General Associative Law}
-	Let $(A, *)$ be a semigroup. $\forall a_1, ..., a_s \in A, a_1 * a_2 * ... * a_s$ has the same value regardless of how the product is bracketed.
+	Let $(A, *)$ be a semigroup. $\forall a_1, \dots, a_s \in A, a_1 * a_2 * \dots * a_s$ has the same value regardless of how the product is bracketed.
 	\begin{description}
 		\item[Proof] Use associativity of $*$.
 		\item[qed]
-		\item[NB:] Unless $(A, *)$ has a commutative binary operation, $a_1 * a_2 * ... * a_s$ does depend on the \underline{ORDER} in which the $a_j's$ appearin $a_1 * a_2 * ... * a_s$
+		\item[NB:] Unless $(A, *)$ has a commutative binary operation, $a_1 * a_2 * \dots * a_s$ does depend on the \underline{ORDER} in which the $a_j's$ appearin $a_1 * a_2 * \dots * a_s$
 	\end{description}
 	
 	\subsubsection{Identity Elements}
@@ -1185,13 +1185,13 @@
 			\item Set $A = \mathbb{Z}$ and recall the equivalence relation $x \equiv y$ mod $3$ \textbf{i.e.} $x \land y$ have te same remainder under the division by $3$. Recall that $\mathbb{Z} / N = \{0, 1, 2\}$, \textbf{i.e.} the set of equivalence classes under the partition determined by this equivalence relation. We denote $\mathbb{Z} / N \ \{0, 1, 2\} = \mathbb{Z}_3$
 			\item[] Consider $(\mathbb{Z}_3, \oplus _3, 0)$ where $\oplus _3$ is the operation of addition modulo $3$, \textbf{i.e.} $1+0=1, 1+1=2, 1+2=3 \equiv 0$ mod $3$.
 			\item[\textbf{Claim:}] $(\mathbb{Z}_3, \oplus _3, 0)$ is an Abelian group.
-			\item[\textbf{Proof of Claim:}] Associativity of $\oplus _3$ follows from the associativity of $+$, addition of $\mathbb{Z}$. Clearly, $0$ is the identity (don't forget $0$ stands for all elements with remainder $0$ under division by $3$, \textbf{i.e.} $\{0, 3, -3, 6, -3, ...\}$). To compute inverses recall that $a \oplus _3 a^{-1} = 0, 0$ is the inverse of $0$ because $0+0=0$. $2$ is he inverse of $1$ because $1+2=3 \equiv 0$ mod $3$, and $1$ is the inverse of $2$ because $2+1=3 \equiv 0$ mod $3$. \\
-			More generally, consider the equivalence relation on $\mathbb{Z}$ given by $x \equiv y$ mod $n$ for $n \geq 1. \mathbb{Z} / N = \{0, 1, ..., n-1\} = \mathbb{Z}_n$. All possible remainders under division by $n$ are the equivalence classes. Let $\oplus _n$ be addition mod $n$. By the same argument as above, $(\mathbb{Z}_n, \oplus _n, 0)$ is an Abelian group.
+			\item[\textbf{Proof of Claim:}] Associativity of $\oplus _3$ follows from the associativity of $+$, addition of $\mathbb{Z}$. Clearly, $0$ is the identity (don't forget $0$ stands for all elements with remainder $0$ under division by $3$, \textbf{i.e.} $\{0, 3, -3, 6, -3, \dots\}$). To compute inverses recall that $a \oplus _3 a^{-1} = 0, 0$ is the inverse of $0$ because $0+0=0$. $2$ is he inverse of $1$ because $1+2=3 \equiv 0$ mod $3$, and $1$ is the inverse of $2$ because $2+1=3 \equiv 0$ mod $3$. \\
+			More generally, consider the equivalence relation on $\mathbb{Z}$ given by $x \equiv y$ mod $n$ for $n \geq 1. \mathbb{Z} / N = \{0, 1, \dots, n-1\} = \mathbb{Z}_n$. All possible remainders under division by $n$ are the equivalence classes. Let $\oplus _n$ be addition mod $n$. By the same argument as above, $(\mathbb{Z}_n, \oplus _n, 0)$ is an Abelian group.
 			\item[\textbf{Q:}] What is we consider multiplication mod $n$, \textbf{i.e.} $\otimes _n$. Is $(\mathbb{Z}_n, \otimes _n, 1)$ a group?
 			\item[\textbf{A:}] No! $(\mathbb{Z}_n, \otimes _n, 1)$ is not even a monoid because $1 \otimes _n 0 = 0 \otimes _n 1 = 0$, so $1$ is not an identity element for $\otimes _n$ on $\mathbb{Z}_n$.
 			\item[\textbf{Q:}] Can this be fixed?
 			\item[\textbf{A:}] Troubleshoot how to get rid of 0. \\
-			Consider $\mathbb{Z}_n^* = \mathbb{Z}_n \backslash \{0\} = \{1, 2, ..., n-1\}$ all non-zero elements in $\mathbb{Z}_n^*$. This eliminates 0 as an element, but can 0 arise any other way from the binary operation? It turns out the answer depends on $n$. If $n$ is not prime, say $n=6$, we get two divisors, \textbf{i.e.} elements that yield 0 when multiplied by \underline{precisely} the factors of $n$, for $n=6$, $\mathbb{Z}^*_6 = \{1, 2, 3, 4, 5\}$ \underline{but} $2 \otimes _6 3 = 6 \equiv 0$ mod $6$, so $2 \land 3$ are two divisors.
+			Consider $\mathbb{Z}_n^* = \mathbb{Z}_n \backslash \{0\} = \{1, 2, \dots, n-1\}$ all non-zero elements in $\mathbb{Z}_n^*$. This eliminates 0 as an element, but can 0 arise any other way from the binary operation? It turns out the answer depends on $n$. If $n$ is not prime, say $n=6$, we get two divisors, \textbf{i.e.} elements that yield 0 when multiplied by \underline{precisely} the factors of $n$, for $n=6$, $\mathbb{Z}^*_6 = \{1, 2, 3, 4, 5\}$ \underline{but} $2 \otimes _6 3 = 6 \equiv 0$ mod $6$, so $2 \land 3$ are two divisors.
 			\item[\textbf{Claim:}] If $n$ is prime, then $(\mathbb{Z}_n^*, \otimes _n, 1)$ is an Abelian group. \\
 			Used in cryptology $\rightarrow$ you will see next semester. \\
 			As an example, let us look at the multiplication table for $\mathbb{Z}_5^*$ to see the inverse of various elements: $\mathbb{Z}^*_5 = \mathbb{Z}_5 \backslash \{0\} = \{0, 1, 2, 3, 4,\} \backslash \{0\} - \{1, 2, 3, 4\}$
@@ -1213,7 +1213,7 @@
 			Cyclic groups come in two flavours: finite ($A'$ is a finite set) and infinite ($A'$ is an infinite set). \\
 			For example, let $(A, *, e) = (\mathbb{Q}^*, , \times , 1)$ \\
 			If $a=-1 \hspace{10mm} A' = \{(-1)^m \mid m \in \mathbb{Z}\} = \{-1, 1\}$ is finite. \\
-			If $a=2 \hspace{10mm} A' = \{2^m \mid m \in \mathbb{Z}\} = \{1, 2, \frac{1}{2}, 4, \frac{1}{4}, ...\}$ is infinite.
+			If $a=2 \hspace{10mm} A' = \{2^m \mid m \in \mathbb{Z}\} = \{1, 2, \frac{1}{2}, 4, \frac{1}{4}, \dots\}$ is infinite.
 		\end{enumerate}
 	\end{description}
 	
@@ -1233,7 +1233,7 @@
 		\item[Examples:]
 		\begin{enumerate}
 			\item[]
-			\item Let $A' = \{2^m \mid m \in \mathbb{Z}\} = \{1, 2, \frac{1}{2}, 4, \frac{1}{4}, ...\}$ \\
+			\item Let $A' = \{2^m \mid m \in \mathbb{Z}\} = \{1, 2, \frac{1}{2}, 4, \frac{1}{4}, \dots\}$ \\
 			$f(m) = 2^m$ from $(\mathbb{Z}, +, 0)$ to $(A', \times, 1)$ is an isomorphism since $2^m \neq 2^n$ if $m \neq n$.
 			\item Let $A' = \{(-1)^m \mid m \in \mathbb{Z} \} = \{-1, 1\}$ \\
 			$f(m) = (-1)^m$ from $(\mathbb{Z}, +, 0)$ to $(A', \times, 1)$ is \underline{NOT} an isomorphism since it's not injective $(-1)^2 = (-1)^4 = 1$.
@@ -1258,9 +1258,9 @@
 			\item $A = \{0, 1, 2, 3, 4, 5, 6, 7, 8, 9\}$ \hspace{10mm} decimal digits
 			\item $A =$ {letters of the English alphabet}
 		\end{enumerate}
-		\item[Definition:] $\forall n \in \mathbb{N}^*$, we define a \underline{word} of length $n$ in the alphabet $A$ as being any string of the form $a_1, a_2, ..., a_n \: s.t. \: a_i \in A \hspace{5mm} \forall i, 1 \leq i \leq n$. Let $A^n$ be the set of all words of length $n$ over the alphabet $A$.
-		\item[Remark:] There is a one-to-one correspondence between the string $a_1a_2...a_n$ and the ordered n-tuple $(a_1, a_2, ..., a_n) \in A^n = \underset{n \: times}{\underbrace{A \times ... \times A}}$ the Cartesian product of $n$ copies of $A$.
-		\item[Definition:] Let $A^+ = \underset{n=1}{\overset{\infty}{\cup}} A^n = A^1 \cup A^2 \cup A^3 \cup ...$. $A^+$ is the set of all words of positive length over the alphabet $A$.
+		\item[Definition:] $\forall n \in \mathbb{N}^*$, we define a \underline{word} of length $n$ in the alphabet $A$ as being any string of the form $a_1, a_2, \dots, a_n \: s.t. \: a_i \in A \hspace{5mm} \forall i, 1 \leq i \leq n$. Let $A^n$ be the set of all words of length $n$ over the alphabet $A$.
+		\item[Remark:] There is a one-to-one correspondence between the string $a_1a_2\dots a_n$ and the ordered n-tuple $(a_1, a_2, \dots, a_n) \in A^n = \underset{n \: times}{\underbrace{A \times \dots \times A}}$ the Cartesian product of $n$ copies of $A$.
+		\item[Definition:] Let $A^+ = \underset{n=1}{\overset{\infty}{\cup}} A^n = A^1 \cup A^2 \cup A^3 \cup \dots$. $A^+$ is the set of all words of positive length over the alphabet $A$.
 		\item[Examples:]
 		\begin{enumerate}
 			\item[]
@@ -1269,14 +1269,14 @@
 			It is useful to also have the empty for $\varepsilon$ in our set of strings. $\varepsilon$ has length 0. Define $A^0 = \{\varepsilon\}$ and then adjoin the empty word $\varepsilon$ to $A^+$. We get $A^* = \{\varepsilon\} \cup A^+ = A^0 \cup \underset{n=1}{\overset{\infty}{\cup}} A^n = \underset{n=0}{\overset{\infty}{\cup}} A^n$.
 		\end{enumerate}
 		\item[Notation:] We denote the length of a word $w$ by $\mid w \mid$. Next introduce an operation on $A^*$.
-		\item[Definition:] Let $A$ be a finite set and let $w_1 \land w_2$ be words in $A^*$. $w_1 = a_1a_2...a_m \land w_2 = b_1b_2...b_n$. The \underline{concatenation} of $w_1 \land w_2$ is the word $w_1 \circ w_2$, where $w_1 \circ w_2 = a_1a_2...a_mb_1b_2...b_n$. Sometimes $w_1 \circ w_2$ is denoted as just $w_1w_2$. Note that $\mid w_1 \circ w_2 \mid = \mid w_1 \mid + \mid w_2 \mid$. \\
+		\item[Definition:] Let $A$ be a finite set and let $w_1 \land w_2$ be words in $A^*$. $w_1 = a_1a_2\dots a_m \land w_2 = b_1b_2\dots b_n$. The \underline{concatenation} of $w_1 \land w_2$ is the word $w_1 \circ w_2$, where $w_1 \circ w_2 = a_1a_2\dots a_mb_1b_2\dots b_n$. Sometimes $w_1 \circ w_2$ is denoted as just $w_1w_2$. Note that $\mid w_1 \circ w_2 \mid = \mid w_1 \mid + \mid w_2 \mid$. \\
 		Concatenation of words is:
 		\begin{enumerate}
 			\item associative
 			\item \underline{NOT} commutative is $A$ has more than one element.
 		\end{enumerate}
 		\begin{description}
-			\item[Proof of (1):] Let $w_1, w_2, w_3 \in A^*. w_1 = a_1a_2...a_m$ for some $m \in \mathbb{N}, w_2=b_1b_2...b_n$ for some $m \in \mathbb{N}$ and $w_3 = c_1c_2...c_p$ for some $p \in \mathbb{N}$. $w_1 \circ w_2) \circ w_3 = w_1 \circ (w_2 \circ w_3) = a_1a_2...a_mb_1b_2...b_nc_1c_2...c_p$.
+			\item[Proof of (1):] Let $w_1, w_2, w_3 \in A^*. w_1 = a_1a_2\dots a_m$ for some $m \in \mathbb{N}, w_2=b_1b_2\dots b_n$ for some $m \in \mathbb{N}$ and $w_3 = c_1c_2\dots c_p$ for some $p \in \mathbb{N}$. $w_1 \circ w_2) \circ w_3 = w_1 \circ (w_2 \circ w_3) = a_1a_2\dots a_mb_1b_2\dots b_nc_1c_2\dots c_p$.
 			\item[qed]
 			\item[Proof of (2):] Since $A$ has at least two elements, $\exists a, b \in A$ s.t. $a \neq b$.
 			\item $a \circ b = ab \neq ba = b \circ a$.
@@ -1292,7 +1292,7 @@
 			\item If $L_1$ and $L_2$ are languages over $A, L_1 \cup L_2$ is a language over $A$.
 			\item If $L_1$ and $L_2$ are languages over $A, L_1 \cap L_2$ is a language over $A$.
 			\item If $L_1$ and $L_2$ are languages over $A$, the concatenation of $L_1 \land L_2$ given by $L_1 \circ L_2 = \{w_1 \circ w_2 \in A^* \mid w_1 \in L_1 \land w_2 \in L_2\}$ is a language over $A$.
-			\item Let $L$ be a language over $A$. Define $L^1=L$ inductively for and $n\geq 1 \hspace{5mm} L^n = L \circ L^{n-1}. L^n$ is a language over $A$. Furthermore, $L^* = \{\varepsilon\} \cup L^! \cup L^2 \cup L^3 \cup ... = \underset{n=0}{\overset{\infty}{\cup}} L^n$ is a language over $A$.
+			\item Let $L$ be a language over $A$. Define $L^1=L$ inductively for and $n\geq 1 \hspace{5mm} L^n = L \circ L^{n-1}. L^n$ is a language over $A$. Furthermore, $L^* = \{\varepsilon\} \cup L^! \cup L^2 \cup L^3 \cup \dots = \underset{n=0}{\overset{\infty}{\cup}} L^n$ is a language over $A$.
 		\end{enumerate}
 		\item[Proof:] By definition, a language over $A$ is a subset of $A^*$. Therefore, if $L_1 \subseteq A^* \land L_2 \subseteq A^*$, then $L_1 \cup L_2 \subseteq A^* \land L_1 \cap L_2 \subseteq A^*. \forall w_1 \circ w_2 \in L_1 \circ L_2, w_1 \circ w_2 \in A^*$ becomes $w_1 \in A^n$ for some $n$ and $w_2 \in A^m$ for some $m$ so $w_1 \circ w_2 \in A^{m+n} \subseteq A^* = \underset{n=1}{\overset{\infty}{\cup}} A^n$.
 		\item Applying the same reasoning inductively, we see that $L \subset A^* \Rightarrow L^* \subseteq A^*$ as $L^m \subseteq A^* \: \forall n \geq 0$.
@@ -1353,7 +1353,7 @@
 		\item[Definition:] Let $w'$ and $w"$ be words over the alphabet $V$ = {terminals, non-terminals}. We say that \underline{$w'$ directly yields $w"$} if $\exists$ words $u \land v$ over the alphabet $V$ and a production rule $<$T$>\rightarrow w$ of the grammar s.t. $w' = u<$T$>\land w" = uwv$, where either or both of the words $u$ and $v$ may be the empty word. \\
 		In other words, $w'$ directly yields $w" \Leftrightarrow \exists$ production rule $<$T$>\rightarrow w$ in the grammar s.t. $w"$ may be obtained from $w'$ by replacing a simple occurrence of the nonterminal $<$T$>$ within the word $w'$ by the word $w$.
 		\item[Notation:] $w'$ directly yields $w"$ is denoted by $w' \Rightarrow w"$
-		\item[Definition:] Let $w' \land w"$ be words over the alphabet $V$. We say that $w'$ yields $w"$ if either $w'= w"$ or else $\exists$ words $w_0, w_1, ... w_n$ over the alphabet $V$ s.t. $w_0=w', w_n = w", w_{i-1} \Rightarrow w_i$ for all $i, 1 \leq i \leq n$. In other words, $w_0 \Rightarrow w_1 \Rightarrow w_2 \Rightarrow ... \Rightarrow w_n-1 \Rightarrow w_n$
+		\item[Definition:] Let $w' \land w"$ be words over the alphabet $V$. We say that $w'$ yields $w"$ if either $w'= w"$ or else $\exists$ words $w_0, w_1, \dots w_n$ over the alphabet $V$ s.t. $w_0=w', w_n = w", w_{i-1} \Rightarrow w_i$ for all $i, 1 \leq i \leq n$. In other words, $w_0 \Rightarrow w_1 \Rightarrow w_2 \Rightarrow \dots \Rightarrow w_n-1 \Rightarrow w_n$
 		\item[Notation:] $w'$ yields $w"$ is denotes by $w' \overset{*}{\Rightarrow} w"$.
 		\item[Definition:] Let $(V, A, <$s$>, P)$ be a context free grammar. The \underline{language} generated by this grammar is the subset $L$ or $A^*$ defined by $L = \{w \in A^* \mid <$s$>\overset{*}{\Rightarrow} w\}$ \\
 		In other words, th language $L$ generated by a context free grammar $(V, A, <$s$>, P)$ consists of the set of all finite strings consisting entirely of terminals that may be obtained from the start symbol $<$s$>$ by applying a finite sequence of production rules of the grammar where the application of one production rule causes \underline{one and only one nonterminal} to be replaced by the string in $V^*$ corresponding of the right hand side of the production rule.
@@ -1384,7 +1384,7 @@
 			\item $C$ is closed under concatenation (if $M \subseteq A*, N \subseteq A*$ satisfy that $M \subseteq C \land N \subseteq C$, then $M \circ N \subseteq C$)
 			\item $C$ is closed under union (if $M \subseteq A* \land N \subseteq A*$ satisfy that $M \subseteq C \land N \subseteq C$, then $M \cup N \subseteq C$)
 		\end{enumerate}
-		\item[Definition:] Let $A$ be a finite set, and let $A*$ be the set of words over the alphabet $A$. A subset $L$ of $A*$ is called a \underline{regular language} over the alphabet $A$ is $L = L_m$ for some finite sequence $L_1, L_2,..., L_m$ os subsets of $A*$ with the property that $\forall i, 1 \leq i \leq m, L_i$ satisfies one of the following:
+		\item[Definition:] Let $A$ be a finite set, and let $A*$ be the set of words over the alphabet $A$. A subset $L$ of $A*$ is called a \underline{regular language} over the alphabet $A$ is $L = L_m$ for some finite sequence $L_1, L_2,\dots, L_m$ os subsets of $A*$ with the property that $\forall i, 1 \leq i \leq m, L_i$ satisfies one of the following:
 		\begin{enumerate}
 			\item $L_i$ is a finite set
 			\item $L_i = L_j*$ for some $j, 1 \leq j \leq i$ (the Klenne star operation applied to one of the previous $L_j's$)
@@ -1420,11 +1420,11 @@
 			\centering
 			\begin{tabular}{cc}
 				\underline{Input} & \underline{Output} \\
-				Word $w=a_1...a_n, a_i \in A \forall i$ & Yes if $w \in L$ \\
+				Word $w=a_1\dots a_n, a_i \in A \forall i$ & Yes if $w \in L$ \\
 				& No if $w \notin L$
 			\end{tabular}
 		\end{table}
-		Since our finite state machine accepts (\textbf{i.e.} returns \underline{yes} to) $w$ if $w \in L$, we call our machine a \underline{finite state acceptor}. We want to give a rigorous definition of a finite state acceptor. To check $w=a_1...a_n$, we input each $a_i$ starting with $a_1$ and trace how the internal state of the machine changes. $S$ is our set of states of the machine (a finite set). The transition mapping $t$ takes the pair($s, a$) and returns the new state $s'=t(s, a)$ (where $s \in S \land a \in A$) that the machine has reached so $t: S \times A \rightarrow S$. \\
+		Since our finite state machine accepts (\textbf{i.e.} returns \underline{yes} to) $w$ if $w \in L$, we call our machine a \underline{finite state acceptor}. We want to give a rigorous definition of a finite state acceptor. To check $w=a_1 \dots a_n$, we input each $a_i$ starting with $a_1$ and trace how the internal state of the machine changes. $S$ is our set of states of the machine (a finite set). The transition mapping $t$ takes the pair($s, a$) and returns the new state $s'=t(s, a)$ (where $s \in S \land a \in A$) that the machine has reached so $t: S \times A \rightarrow S$. \\
 		Some elements and subets of $S$ are important to understand:
 		\begin{enumerate}
 			\item The initial state $i \in S$ where the machine starts
@@ -1432,7 +1432,7 @@
 		\end{enumerate}
 		It turns out that knowing $S, F, i, t, A$ satisfies a finite state acceptor completely.
 		\item[Definition:] A finite state acceptor $(S, A, i, t, F)$ consists of a finite set $S$ of states, a finite set $A$ that is the input alphabet, a starting state $i \in S$, a transition mapping $t: S \times A \rightarrow S$, and a set $F$ of finishing states, where $F \subseteq S$.
-		\item[Definition:] Let $(S, A, i, t, F)$ be a finite state acceptor, and let $A*$ denote the set of words over the input alphabet $A$. A word $a_1, a_2...a_n$ of length $n$ over the alphabet $A$ is said to be \underline{recognised} or \underline{accepted} by the finite state acceptor if $\exists s_0, s_1, ..., s_n \in S$ states s.t. $s_0 = i$ (the initial state), $s_n \in F$, and $s_i = t(s_{i-1}, a_i) \forall i \hspace{5mm} 1 \leq i \leq n$.
+		\item[Definition:] Let $(S, A, i, t, F)$ be a finite state acceptor, and let $A*$ denote the set of words over the input alphabet $A$. A word $a_1, a_2\dots a_n$ of length $n$ over the alphabet $A$ is said to be \underline{recognised} or \underline{accepted} by the finite state acceptor if $\exists s_0, s_1, \dots, s_n \in S$ states s.t. $s_0 = i$ (the initial state), $s_n \in F$, and $s_i = t(s_{i-1}, a_i) \forall i \hspace{5mm} 1 \leq i \leq n$.
 		\item[Definition:] Let $(S, A, i, t, F)$ be a finite state acceptor. A language $L$ over the alphabet $A$ is said to be \underline{recognised} or \underline{accepted} by the finite state acceptor. \\
 		In the definition of a finite state acceptor, $t$ is the transition mapping, which may or may not be a function (hence the careful terminology). This is because finite state acceptors come in 2 flavours:
 		\begin{enumerate}
@@ -1583,7 +1583,7 @@
 		\item Strategy and tactics in games - teach the opposition to recognise certain patterns, then suddenly change them to gain an advantage and score - used in football, fencing, etc.
 		\item Learning a sport/a numerical instrument/a new field or subject - split the information into blocks and learn how to combine them into meaningful patterns - uses notions from context-sensitive grammars.
 		\item Finite state automata and probability - chaos theory, financial mathematics.
-		\item[etc...]
+		\item[etc\dots]
 	\end{enumerate}
 	
 	\section{Graph Theory}
@@ -1708,17 +1708,17 @@
 		0 & 0 & 1 & 0 & 1 \end{array} \right)\] 
 		Note that for the incidence matrix to make sense, we need to know that vertices were considered in the order $\{a, b, c, d, e\}$ and edges in the order $\{ac, ad, be, bd, ce\}$. If we shuffle either set, the incidence matrix chances. \\
 		With this in mind, we can now rigorously define the incidence matrix:
-		\item[Definition:] Let $(V, E)$ be an undirected graph with $m$ vertices and $n$ edges. Let vertices be ordered as $v_1, v_2,..., v_m$, and let the edges be ordered $e_1, e_2, ..., e_n$. The \underline{incidence matrix} for such a graph is given by $\left( \begin{array}{cccc}
-			a_{11} & a_{12} & ... & a_{1n} \\
-			a_{21} & a_{22} & ... & a_{2n} \\
+		\item[Definition:] Let $(V, E)$ be an undirected graph with $m$ vertices and $n$ edges. Let vertices be ordered as $v_1, v_2,\dots, v_m$, and let the edges be ordered $e_1, e_2, \dots, e_n$. The \underline{incidence matrix} for such a graph is given by $\left( \begin{array}{cccc}
+			a_{11} & a_{12} & \dots & a_{1n} \\
+			a_{21} & a_{22} & \dots & a_{2n} \\
 			\vdots & \vdots & \ddots & \vdots \\
-			a_{m1} & a_{m2} & ... & a_{mn} \end{array} \right)$, where the entry $a_{ij}$ in row $i$ and column $j$ has the value 1 if the $i^{th}$ vertex is incident to the $j^{th}$ edge and has value 0 otherwise. \\
+			a_{m1} & a_{m2} & \dots & a_{mn} \end{array} \right)$, where the entry $a_{ij}$ in row $i$ and column $j$ has the value 1 if the $i^{th}$ vertex is incident to the $j^{th}$ edge and has value 0 otherwise. \\
 			Similarly, we can define the \underline{adjacency table} and the \underline{adjacency matrix} of a graph:
-			\item[Definition:] Let $(V,E)$ be an undirected graph with $m$ vertices, and let these vertices be ordered as $v_1, v_2, ..., v_m$. The \underline{adjacency matrix} for this graph is given by $\left( \begin{array}{cccc}
-			b_{11} & b_{12} & ... & b_{1m} \\
-			b_{21} & b_{22} & ... & b_{2m} \\
+			\item[Definition:] Let $(V,E)$ be an undirected graph with $m$ vertices, and let these vertices be ordered as $v_1, v_2, \dots, v_m$. The \underline{adjacency matrix} for this graph is given by $\left( \begin{array}{cccc}
+			b_{11} & b_{12} & \dots & b_{1m} \\
+			b_{21} & b_{22} & \dots & b_{2m} \\
 			\vdots & \vdots & \ddots & \vdots \\
-			b_{m1} & b_{m2} & ... & b_{mm} \end{array} \right)$ where $b_{ij}=1$ if $v_i$ and $v_j$ are adjacent to each other and $b_{ij}=0$ if $v_i$ and $v_j$ are not adjacent to each other.
+			b_{m1} & b_{m2} & \dots & b_{mm} \end{array} \right)$ where $b_{ij}=1$ if $v_i$ and $v_j$ are adjacent to each other and $b_{ij}=0$ if $v_i$ and $v_j$ are not adjacent to each other.
 			\item[Remark:] "Being adjacent to" is a symmetric relation on he set of vertices $V$, so the adjacency matrix is symmetric, \textbf{i.e.} $b_{ij}=b_{ji} \hspace{5mm} \forall i, j \hspace{5mm} 1 \leq i, j \leq m$. It is not reflexive so all the entries on the diagonal are zero.
 	\end{description}
 	
@@ -1893,10 +1893,10 @@
 	\section{Walks, trails and paths}
 	\begin{description}
 		\item[Task:] Make rigorous the notion of traversing parts of a graph in order to understand its structure better.
-		\item[Definition:] Let $(V, E)$ be a graph. A \underline{walk} $v_0 v_1 v_2... v_n$ of length $n$ in the graph from vertex $a$ to vertex $b$ is determined by a finite sequence $v_0, v_1, v_1, ..., v_n$ of vertices of the graph s.t. $v_0 = a, v_n = b$ and $v_{i-1} v_i$ is an edge of the graph for $i=1, 2, ..., n$.
-		\item[Definition:] A walk $v_0 v_1 v_2 ... v_n$ in a graph is said to \underline{traverse} the edges $v_{i-1} v_i$ and to \underline{pass through} the vertices $v_0, v_1, ..., v_n$. Length of walk $= \#$ of edges traversed $\rightarrow$ the smallest possible number is two edges. As a result, we have the following definition:
+		\item[Definition:] Let $(V, E)$ be a graph. A \underline{walk} $v_0 v_1 v_2 \dots v_n$ of length $n$ in the graph from vertex $a$ to vertex $b$ is determined by a finite sequence $v_0, v_1, v_1, \dots, v_n$ of vertices of the graph s.t. $v_0 = a, v_n = b$ and $v_{i-1} v_i$ is an edge of the graph for $i=1, 2, \dots, n$.
+		\item[Definition:] A walk $v_0 v_1 v_2 \dots v_n$ in a graph is said to \underline{traverse} the edges $v_{i-1} v_i$ and to \underline{pass through} the vertices $v_0, v_1, \dots, v_n$. Length of walk $= \#$ of edges traversed $\rightarrow$ the smallest possible number is two edges. As a result, we have the following definition:
 		\item[Definition:] A walk that consists of a single vertex $v \in V$ and has length two is called \underline{trivial}.
-		\item[Definition:] Let $(V, E)$ be a graph. A \underline{trail} $v_0 v_1 v_2 ... v_n$ of length $n$ in the graph from some vertex $a$ to some vertex $b$ is a walk of length $n$ from $a$ to $b$ with the property that edges $v_{i-1} v_i$ are distinct for $i-1, 2, ..., n$. In other words, a trail is a walk in the graph, which traverses edges of the graph at most once.
+		\item[Definition:] Let $(V, E)$ be a graph. A \underline{trail} $v_0 v_1 v_2 \dots v_n$ of length $n$ in the graph from some vertex $a$ to some vertex $b$ is a walk of length $n$ from $a$ to $b$ with the property that edges $v_{i-1} v_i$ are distinct for $i-1, 2, \dots , n$. In other words, a trail is a walk in the graph, which traverses edges of the graph at most once.
 		\item[Definition:] A walk, trail or path is a graph is called \underline{trivial} if it is a walk of length two consist of a single vertex $v \in V$; otherwise, the walk, trail, or path is called \underline{non-trivial}.
 		\item[Example:] ~\\
 		\begin{enumerate}
@@ -1977,7 +1977,7 @@
 		\end{enumerate}
 		\item[Theorem:] Let $(V, E)$ be a undirected graph, and let $u, v \in V. \exists$ path between $u$ and $v$ in the graph $\Leftrightarrow \exists$ walk in the graph between $u$ and $v$.
 		\item[Proof:] $\Rightarrow$ trivial: A path is a walk. \\
-		$\Leftarrow \exists$ walk between $u$ and $v$. Choose the walk of least length between $u$ and $v$, (\textbf{i.e.} $\nexists$ a walk of lower length than this one) and prove it is a path. Let this walk be $a_0 a_1 ... a_n$ with $a_0 = u$ and $a_n = v$. Assume $\exists j, k$ with $a \leq j, k \leq n$ s.t. $j < k$ and $a_j = a_k$, but then $a_0 a_1 ... a_j a_k+1 ... a_n$ would be a walk from $u$ to $v$ of \underline{strictly smaller} length than $a_0 a_1 ... a_n$. $\Rightarrow \Leftarrow$ as we chose $a_0 a_1 ... a_n$ to be of minimal length $ \Rightarrow a_i \neq a_j \forall i, j$ s.t. $0 \leq i, j \leq n \Rightarrow a_0 a_1 ... a_n$ is a path between $u$ and $v$.
+		$\Leftarrow \exists$ walk between $u$ and $v$. Choose the walk of least length between $u$ and $v$, (\textbf{i.e.} $\nexists$ a walk of lower length than this one) and prove it is a path. Let this walk be $a_0 a_1 \dots a_n$ with $a_0 = u$ and $a_n = v$. Assume $\exists j, k$ with $a \leq j, k \leq n$ s.t. $j < k$ and $a_j = a_k$, but then $a_0 a_1 \dots a_j a_k+1 \dots a_n$ would be a walk from $u$ to $v$ of \underline{strictly smaller} length than $a_0 a_1 \dots a_n$. $\Rightarrow \Leftarrow$ as we chose $a_0 a_1 \dots a_n$ to be of minimal length $ \Rightarrow a_i \neq a_j \forall i, j$ s.t. $0 \leq i, j \leq n \Rightarrow a_0 a_1 \dots a_n$ is a path between $u$ and $v$.
 		\item[qed]
 		\item[Corollary:] An undirected grapg $(V, E)$ is connected $\Leftrightarrow \forall u, v \in V \exists$ walk in the graph between $u$ and $v$.
 	\end{description}
@@ -1991,22 +1991,26 @@
 		\item[Lemma:] Let $(V, E)$ be an undirected graph. The relation $a \sim b$ or $a, b \in V$, which holds iff $\exists$ walk in the graph between $a$ and $b$ is an equivalence relation.
 		\item[Proof:] We must show $\sim$ is reflexive, symmetric, and transitive.
 		\item[Reflexive:] $\forall v \in V, v \sim v$ since the trivial walk is a walk from $v$ to itself.
-		\item[Symmetric:] If $a \sim b$ for $a, b \in V$, then $\exists$ walk $v_0 v_1 ... v_n$ where $v_0 = a$ and $v_n = b$. This walk can be reversed to $v_n v_{n-1} ... v_1 v_0$, which now goes from $v_n = b$ to $v_0 = a$. Therefore, $b \sim b$ as needed.
-		\item[Transitive:] If $a \sim b$ and $b \sim c$, for $a, b, c \in V$, there $\exists$ walk $a v_1 v_2 ... v_{n-1} b$ from $a$ to $b$ and $\exists$ walk $b w_1 w_2 ... w_{m-1} c$ from $b$ to $c$. We put these two walks together (concatenate them) to yield the walk $a v_1 v_2 ... v_{n-1} b w_1 w_2 ... w_{m-1} c$ from $a$ to $c$. Therefore $a \sim c$.
+		\item[Symmetric:] If $a \sim b$ for $a, b \in V$, then $\exists$ walk $v_0 v_1 \dots v_n$ where $v_0 = a$ and $v_n = b$. This walk can be reversed to $v_n v_{n-1} \dots v_1 v_0$, which now goes from $v_n = b$ to $v_0 = a$. Therefore, $b \sim b$ as needed.
+		\item[Transitive:] If $a \sim b$ and $b \sim c$, for $a, b, c \in V$, there $\exists$ walk $a v_1 v_2 \dots v_{n-1} b$ from $a$ to $b$ and $\exists$ walk $b w_1 w_2 \dots w_{m-1} c$ from $b$ to $c$. We put these two walks together (concatenate them) to yield the walk $a v_1 v_2 \dots v_{n-1} b w_1 w_2 \dots w_{m-1} c$ from $a$ to $c$. Therefore $a \sim c$.
 		\item[qed]
 	\end{description}
-	The equivalence relation $\sim$ on $V$ partitions it into dsjoint subsets $v_1, v_2, ... v_p$, where
+	The equivalence relation $\sim$ on $V$ partitions it into dsjoint subsets $v_1, v_2, \dots
+	
+	v_p$, where
 	\begin{enumerate}
-		\item $v_1 \cup v_2 \cup ... \cup v_p = V$
+		\item $v_1 \cup v_2 \cup \dots
+		
+		\cup v_p = V$
 		\item $v_i \cap v_j = \emptyset$ if $i \neq j$
 		\item Two vertices $a, b \in v_i \Leftrightarrow a \sim b$, \textbf{i.e.} $\exists$ walk in $(V, E)$ from $a$ to $b$
 	\end{enumerate}
 	Note that an edge is a walk of length 1, so if $a, b \in V$ satisfy that $\exists ab \in E$, then $a$ and $b$ belong to the same $v_i$. As a result, we can partition the set of edges as follows:
 	\[E_i \{ab \in E \mid a, b \in v_i \}\]
-	Clearly, $E_1 \cup E_2 \cup ... \cup E_p = E \land E_i \cap E_j = \emptyset$ is $i \neq j$. Furthermore, $(V_1, E_1), (V_2, E_2), ..., (V_p, E_p)$ are subgraphs of $(V, E)$, and these subgraphs are disjoint since $v_i \cap v_j = \emptyset$ and $E_i \cap E_j = \emptyset$ is $i \neq j$. The subgraphs $(V_i, E_i)$ are called the \underline{components} (or \underline{connected components}) of the graph $(V, E)$.
+	Clearly, $E_1 \cup E_2 \cup \dots \cup E_p = E \land E_i \cap E_j = \emptyset$ is $i \neq j$. Furthermore, $(V_1, E_1), (V_2, E_2), \dots, (V_p, E_p)$ are subgraphs of $(V, E)$, and these subgraphs are disjoint since $v_i \cap v_j = \emptyset$ and $E_i \cap E_j = \emptyset$ is $i \neq j$. The subgraphs $(V_i, E_i)$ are called the \underline{components} (or \underline{connected components}) of the graph $(V, E)$.
 	\begin{description}
 		\item[Lemma:] The vertices and edges of any walk in an undirected graph are all contained in a single component of that graph.
-		\item[Proof:] Let $v_0 v_1 ... v_n$ be a walk in a graph $(V, E)$, then $v_0 v_1 ... v_r$ is a walk in $(V, E) \forall r \hspace{5mm} 1 \leq r \leq n \Rightarrow v_0 \sim v_r \forall r \hspace{5mm} 1 \leq r \leq n \Rightarrow v_r$ belongs to the same component of the graph as $v_0$. The same is true for all the edges $v_{i-1}v_i$ for $1 \leq i \leq n$
+		\item[Proof:] Let $v_0 v_1 \dots v_n$ be a walk in a graph $(V, E)$, then $v_0 v_1 \dots v_r$ is a walk in $(V, E) \forall r \hspace{5mm} 1 \leq r \leq n \Rightarrow v_0 \sim v_r \forall r \hspace{5mm} 1 \leq r \leq n \Rightarrow v_r$ belongs to the same component of the graph as $v_0$. The same is true for all the edges $v_{i-1}v_i$ for $1 \leq i \leq n$
 		\item[qed]
 		\item[Lemma:] Each component of an undirected graph is connected.
 		\item[Proof:] Let $(V, E)$ be a graph and let $(V_1, E_i)$ be any component of $(V, E). \forall u, v \in V_i$, by definition $\exists$ walk in $(V, E)$ between $u$ and $v$. By previous lemma, however, all vertices and edges of this walk are in $(V_i, E_i) \Rightarrow$ the walk between $u$ and $v$ is a walk in $(V_i, E_i)$, but this assertion is true $\forall u, v \in V_i \Rightarrow (V_i, E_i)$ is connected.
@@ -2019,9 +2023,9 @@
 	\section{Circuits}
 	\begin{description}
 		\item[Task:] Use closed walks to understand the structure of graphs better.
-		\item[Definition:] Let $(V, E)$ be a graph. A walk $v_0 v_1 ... v_n$ in $(V, E)$ is called \underline{closed} if $v_0 = v_n$, \textbf{i.e.} if it starts and edges at the same vertex.
+		\item[Definition:] Let $(V, E)$ be a graph. A walk $v_0 v_1 \dots v_n$ in $(V, E)$ is called \underline{closed} if $v_0 = v_n$, \textbf{i.e.} if it starts and edges at the same vertex.
 		\item[Definition:] Let $(V, E)$ be a graph. A \underline{circuit} is a nontrivial closed trail in $(V, E)$, \textbf{i.e.} a closed walk with no repeated edges passing through at least two vertices.
-		\item[Definition:] A circuit is called \underline{simple} if the vertices $v_0, v_1, v_2, ... v_{n-1}$ are distinct.
+		\item[Definition:] A circuit is called \underline{simple} if the vertices $v_0, v_1, v_2, \dots v_{n-1}$ are distinct.
 		\item[NB:] This is the strangest condition regarding vertices tha we can impose ince $v_0 = v_n$.
 		\item[Alternative terminology:] Some authors use \underline{cycle} to denote a simple circuit, which for ohers \underline{cycle} denotes a circuit regardless of whether it is simple or not.
 		\item[Q:] When does a graph have simple circuits?
@@ -2031,14 +2035,14 @@
 			\item $\forall u, v \in V$ s.t. $\exists$ 2 distinct paths from $u$ to $v$.
 		\end{enumerate}
 		\item[Theorem:] If $(V, E)$ has no isolated or pendant vertices, \textbf{i.e.} $\forall v \in V$ deg $v \geq$ 2, then $(V, E)$ contains at least one simple circuit.
-		\item[Proof:] Consider all paths $(V, E)$. The maximum length of a path is $\#(V) - 1$ since a path of length $p$ passed through $p+1$ vertices. Take a path $v_0 v_1 ... v_m$ is $(V, E)$ of maximum length, \textbf{i.e.} any other path in $(V, E)$ has length $\leq m = $ length of $v_0 v_1 ... v_m$. Now consider the vertex $v_m$. deg $v_m \geq$ 2 by assumption. We know $v_{m-1}$ is adjacent to $v_m$ since the edge $v_{m-1} v_m$ is part of the path $v_0 v_1 ... v_m$, but deg $v_m \geq $ 2 means $\exists w \in V$ s.t. $ww_m \in E$. If $w \neq v_i$ for $0 \leq i \leq m-2$, then $v_0 v_1 ... v_m w$ is a path in $(V, E)$ longer than $v_0 v_1 ... v_m \Rightarrow \Leftarrow$ to the act that $v_0 v_1 ... v_m$ was chosen of maximal length. Therefore, $w = v_i$ for some $0 \leq i \leq m-2$, but then $v_i v_{i+1} ... v_m v_i$ is a simple circuit in the graph.
+		\item[Proof:] Consider all paths $(V, E)$. The maximum length of a path is $\#(V) - 1$ since a path of length $p$ passed through $p+1$ vertices. Take a path $v_0 v_1 \dots v_m$ is $(V, E)$ of maximum length, \textbf{i.e.} any other path in $(V, E)$ has length $\leq m = $ length of $v_0 v_1 \dots v_m$. Now consider the vertex $v_m$. deg $v_m \geq$ 2 by assumption. We know $v_{m-1}$ is adjacent to $v_m$ since the edge $v_{m-1} v_m$ is part of the path $v_0 v_1 \dots v_m$, but deg $v_m \geq $ 2 means $\exists w \in V$ s.t. $ww_m \in E$. If $w \neq v_i$ for $0 \leq i \leq m-2$, then $v_0 v_1 \dots v_m w$ is a path in $(V, E)$ longer than $v_0 v_1 \dots v_m \Rightarrow \Leftarrow$ to the act that $v_0 v_1 \dots v_m$ was chosen of maximal length. Therefore, $w = v_i$ for some $0 \leq i \leq m-2$, but then $v_i v_{i+1} \dots v_m v_i$ is a simple circuit in the graph.
 		\item[qed]
 		\item[Theorem:] Let $(V, E)$ be an undirected graph and let $u, v \in V$ be vertices s.t. $u \neq v$ and $\exists$ at least two distinct paths in $(V, E)$ from $u$ to $v$. Then the graph contains at least one.
 		\item[Theorem:] If $(V, E)$ has bo isolated or pendent vertices, \textbf{i.e.} $\forall v \in V$ deg $v \geq$ 2, then $(V, E)$ contains at least one simple circuit.
-		\item[Proof:] Consider all paths in $(V, E)$. The maximum length of a path is $\#(V)-1$ since a path of length $p$ passes through $p+1$ vertices. Take a path $v_0 v_1 ... v_m$ in $(V, E)$ of maximum length, \textbf{i.e.} any other path in $(V, E)$ has length $\leq m =$ length of $v_0 v_1 ... v_m$. Now consider the vertex $v_m$. def $v_m \geq $ 2 by assumption. We know $v_{m-1}$ is adjacent to $v_m$ since the edge $v_{m-1} v_m$ is part of the path $v_0 v_1 ... v_m$, but def $v_m \geq$ 2 means $\exists w \in V$ s.t. $ww_m \in E$. If $w \neq v_i$ for $0 \leq i \leq m-2$, then $v_0 v_1 ... v_m w$ is a path in $(V, E)$ longer than $v_0 v_1 ... v_m \Rightarrow \Leftarrow$ to the fact that $v_0 v_1 ... v_m$ was chosen of maximal length. Therefore, $w = v_i$ for some $0 \leq i \leq m-2$, but then $v_i v_{i+i}...v_m v_i$ is a simple circuit in the graph.
+		\item[Proof:] Consider all paths in $(V, E)$. The maximum length of a path is $\#(V)-1$ since a path of length $p$ passes through $p+1$ vertices. Take a path $v_0 v_1 \dots v_m$ in $(V, E)$ of maximum length, \textbf{i.e.} any other path in $(V, E)$ has length $\leq m =$ length of $v_0 v_1 \dots v_m$. Now consider the vertex $v_m$. def $v_m \geq $ 2 by assumption. We know $v_{m-1}$ is adjacent to $v_m$ since the edge $v_{m-1} v_m$ is part of the path $v_0 v_1 \dots v_m$, but def $v_m \geq$ 2 means $\exists w \in V$ s.t. $ww_m \in E$. If $w \neq v_i$ for $0 \leq i \leq m-2$, then $v_0 v_1 \dots v_m w$ is a path in $(V, E)$ longer than $v_0 v_1 \dots v_m \Rightarrow \Leftarrow$ to the fact that $v_0 v_1 \dots v_m$ was chosen of maximal length. Therefore, $w = v_i$ for some $0 \leq i \leq m-2$, but then $v_i v_{i+i}\dots v_m v_i$ is a simple circuit in the graph.
 		\item[qed]
 		\item[Theorem:] Let $(V, E)$ be an undirected graph and let $u, v \in V$ be vertices s.t. $u \neq v$ and $\exists$ at least two distinct paths in $(V, E)$ from $u$ to $v$. Then the graph contains at least one simple circuit.
-		\item[Proof:] Let $a_0 a_1 a_2 ... a_m$ and $b_0 b_1 ... b_n$ be the two distinct paths in the graph between $u$ and $v$, \textbf{i.e.} $a_0 = b_0 = u$ and $a_m = b_m = v$. Let $m \leq n$. Since the paths are distinct $\exists i$ with $0 \leq i \leq m$ s.t. $a_1 \neq b_i$. Choose the smallest $i$ for which $a_i \neq b_i$, \textbf{i.e.} $a_0 = b_0, a_1 = b_1, ..., a_{i-1} = b_{i-1}$, but $a_i \neq b_i$. We have thus eliminated the redundencies at the beginning of the paths. We now need to eliminate redundencies at the other end of the paths. We know $a_m = b_m$ so $a_j \in \{b_m \mid i-1 < k \leq n \}$ is certainly satisfied for $j=m$, but we want to choose the \underline{smallest} index for which this condition is satisfied. Let this index be $p \Rightarrow a_p \in \{b_k \mid i-1 < k \leq n \}$, \textbf{i.e.} $a_p = b_s$ for some $s$ s.t. $i-1 < s \leq n$. Since $p$ is the smallest index satisfying $a_p \in \{b_k \mid i-1 < k \leq n \}, a_i, a_{i+1}, ..., a_{p-1} \notin \{b_k \mid i-1 < k \leq n \} \Rightarrow \underset{indices \: running \: in \: increasing \: order}{\underbrace{a_{i-1} a_i ... a_p}} (= b_s) \underset{indices \: running \: in \: decreasing \: order}{\underbrace{b_{s-1}...b_i}} a_{i-1} (=b_{i-1})$ is a simple circuit in $(V, E) \Rightarrow (V, E)$ has at least one simple circuit.
+		\item[Proof:] Let $a_0 a_1 a_2 \dots a_m$ and $b_0 b_1 \dots b_n$ be the two distinct paths in the graph between $u$ and $v$, \textbf{i.e.} $a_0 = b_0 = u$ and $a_m = b_m = v$. Let $m \leq n$. Since the paths are distinct $\exists i$ with $0 \leq i \leq m$ s.t. $a_1 \neq b_i$. Choose the smallest $i$ for which $a_i \neq b_i$, \textbf{i.e.} $a_0 = b_0, a_1 = b_1, \dots, a_{i-1} = b_{i-1}$, but $a_i \neq b_i$. We have thus eliminated the redundencies at the beginning of the paths. We now need to eliminate redundencies at the other end of the paths. We know $a_m = b_m$ so $a_j \in \{b_m \mid i-1 < k \leq n \}$ is certainly satisfied for $j=m$, but we want to choose the \underline{smallest} index for which this condition is satisfied. Let this index be $p \Rightarrow a_p \in \{b_k \mid i-1 < k \leq n \}$, \textbf{i.e.} $a_p = b_s$ for some $s$ s.t. $i-1 < s \leq n$. Since $p$ is the smallest index satisfying $a_p \in \{b_k \mid i-1 < k \leq n \}, a_i, a_{i+1}, \dots, a_{p-1} \notin \{b_k \mid i-1 < k \leq n \} \Rightarrow \underset{indices \: running \: in \: increasing \: order}{\underbrace{a_{i-1} a_i \dots a_p}} (= b_s) \underset{indices \: running \: in \: decreasing \: order}{\underbrace{b_{s-1}\dots b_i}} a_{i-1} (=b_{i-1})$ is a simple circuit in $(V, E) \Rightarrow (V, E)$ has at least one simple circuit.
 		\item[qed]
 	\end{description}
 	
@@ -2077,18 +2081,18 @@
 			\end{figure}
 		\end{enumerate}
 		In both cases, the degree of the vertices is even for all vertices. We'll see this property is important and derive other necessary and sufficient conditions for the existence of Eulerian trails and circuits.
-		\item[Theorem:] Let $(V, E)$ be a graph, and let $v_0 v_1 ... v_m$ be a trail in $(V, E)$. Let $v \in V$ be a vertex, then the number of edges of the trail incident to $v$ is even except when the trail is not closed and the trail starts and finishes at $v$, in which case the number of edges of the trail incident to the vertex $v$ is odd.
+		\item[Theorem:] Let $(V, E)$ be a graph, and let $v_0 v_1 \dots v_m$ be a trail in $(V, E)$. Let $v \in V$ be a vertex, then the number of edges of the trail incident to $v$ is even except when the trail is not closed and the trail starts and finishes at $v$, in which case the number of edges of the trail incident to the vertex $v$ is odd.
 		\item[Proof:] Note that 0 is an even integer as 0 = 2 $\times$ 0.
 		\begin{description}
 			\item[Case 1:] $v \neq v_0 \land v \neq v_m$. If the trail does not pass through $v$, the number of dges incident to $v$ belonging to the trail is 0, which is even. \\
-			If the trail passes through $v$, then edges of the trail incident to $v$ are of the form $v{i-1} v_i$ and $v_i v_{i+1}$ with $v = v_i$ and $0 < i < m$. Therefore, the number of edges of the trail incident to $v$ equals twice the number of integers $i$ among $1, 2, ..., m-1 (0 < i < m)$ s.t. $v= v_i \Rightarrow$ the number of even.
+			If the trail passes through $v$, then edges of the trail incident to $v$ are of the form $v{i-1} v_i$ and $v_i v_{i+1}$ with $v = v_i$ and $0 < i < m$. Therefore, the number of edges of the trail incident to $v$ equals twice the number of integers $i$ among $1, 2, \dots, m-1 (0 < i < m)$ s.t. $v= v_i \Rightarrow$ the number of even.
 			\item[Case 2:] $v = v_0$ and the trail is not closed, \textbf{i.e.} $v_m \neq v_0$. The edges incident to $v$ are $v_0 v_1$ along with $v_{i-1} v_i$ and $v_i v_{i+1}$ whenever $v=v_i$, hence 1+2. $\#$(instances when $v=v_i$), which is odd.
 			\item[Case 3:] $v=v_m$ and the trail is not closed, \textbf{i.e.} $v_m \neq v_0$. Repeat the argument in case 2 with $v_{m-1} v_m$ replacing $v_0 v_1$ to get that the number of edges incident to $v$ is odd.
 			\item[Case 4:] The trail is closed and $v = v_0 = v_m$. The edges incident to $v$ are $v_0 v_1, v_{m-1} v_m$ as well as $v_{i-1} v_i$ and $v_i v_{i+1}$ for each $i$ s.t. $v=v_i \Rightarrow$ once again, the number of edges incident to $v$ is even.
 			\item[qed]
 		\end{description}
 		\item[Corollary 1:] Let $v$ be a vertex of the graph. Given any circuit in the graph, the number of edges incident to $v$ traversed by that circuit is even.
-		\item[Proof:] Apply the theorem to $v_0 v_1 ... v_m$ s.t. $v_0 = v_m$. We deduce that the number of edges incident to $v$ is even.
+		\item[Proof:] Apply the theorem to $v_0 v_1 \dots v_m$ s.t. $v_0 = v_m$. We deduce that the number of edges incident to $v$ is even.
 		\item[Corollary 2:] If a graph admits an Eulerian circuit, then the degree of every vertex of that graph must be even.
 		\item[Proof:] Let $(V, E)$ be the graph. $\forall v \in V$, the number of edges of any Eulerian circuit incident to $v$ is even by the previous corollary. Since an Eulerian circuit by definition traverses every edge of the graph, every edge incident to $v$ is an edge of the Eulerian circuit $\Rightarrow$ deg $v$ is even $\forall v \in V$ (\textbf{NB:} def $v$ could be zero if $v$ is an isolated vertex).
 		\item[Example:] By the previous corollary, $k_4$, the complete graph on four vertices, cannot have an Eulerian circuit since $\forall v$ in $k_4$, def $v = 3$ ($k_4$ is 3-regular as we bserved in a previous lecture).
@@ -2104,30 +2108,30 @@
 		\item[Lemma D:] A criterion for when a trail in Eulerian in a connected graph.
 		\item ~\\
 		\item[Lemma A:] Let $vw$ be an edge of a graph in which the degree of every vertex is even, the $\exists$ circuit of the graph that traverses the edge $vw$.
-		\item[Proof:] We construct the circuit starting with the edge $vw$. Let $v_0 = v$ and $v_1 = w$. Let $v_0 v_1 ... v_k$ be any trail of length $k \geq 1$ traversing the edge $vw$. Suppose $v_k \neq v = v_0$. As we proved in the previous theorem, since $v_k$ is an endpoint of a non-closed trail, then the number of edges of the trail incident to $v_k$ is odd, but deg $v_k$ is even $\Rightarrow \exists$ edge of the graph incident to $v_k$ that is not traversed by the trail $v_0 v_1 ... v_k$. Let $v_k v_{k+1}$ be this edge, then $v_0 v_1 ... v_k v_{k+1}$ is a trail of length $k+1$ that starts at $v$ and traverses $vw$. Since every edge of the graph is traversed at most once by a trail, the length of any trail in the graph cannot be greater than the number of edges of the graph $\#(E)$. We have shown above that if our trail is not closed, then it can be extended. By successive extensions, we will eventually have constructed a trail that cannot be extended (in at most $\#(E)-1$ steps). Therefore, that trail must be closed. As the edge $vw$ is traversed, this trail in nontrivial $\Rightarrow$ it is a circuit.
+		\item[Proof:] We construct the circuit starting with the edge $vw$. Let $v_0 = v$ and $v_1 = w$. Let $v_0 v_1 \dots v_k$ be any trail of length $k \geq 1$ traversing the edge $vw$. Suppose $v_k \neq v = v_0$. As we proved in the previous theorem, since $v_k$ is an endpoint of a non-closed trail, then the number of edges of the trail incident to $v_k$ is odd, but deg $v_k$ is even $\Rightarrow \exists$ edge of the graph incident to $v_k$ that is not traversed by the trail $v_0 v_1 \dots v_k$. Let $v_k v_{k+1}$ be this edge, then $v_0 v_1 \dots v_k v_{k+1}$ is a trail of length $k+1$ that starts at $v$ and traverses $vw$. Since every edge of the graph is traversed at most once by a trail, the length of any trail in the graph cannot be greater than the number of edges of the graph $\#(E)$. We have shown above that if our trail is not closed, then it can be extended. By successive extensions, we will eventually have constructed a trail that cannot be extended (in at most $\#(E)-1$ steps). Therefore, that trail must be closed. As the edge $vw$ is traversed, this trail in nontrivial $\Rightarrow$ it is a circuit.
 		\item[qed]
-		\item[Lemma B:] Let $(V, E)$ be a connected graph s.t. $\forall v \in V$, deg $v$ is even, and let some circuit $v_0 v_1 ... v_{m-1} v_0$, then $\exists$ another circuit in $(V, E)$ passing through $v_i$ that does not traverse any edge traversed by $v_0 v_1 ... v_{m-1} v_0$.
-		\item[Proof:] Let $E'$ be the set of edges not traversed by $v_0 v_1 ... v_{m-1} v_0$. $(V, E'$ is a subgraph of $(V, E). \forall v \in V, \#$ of edges of $v_0 v_1 ... v_{m-1} v_0$ incident to $v = d(v) - d'(v)$, where $d(v) =$ def$(v) = \#$ of edges in $(V, E)$ incident to $v$ and $d'(v) = \#$ of edges in $(V, E')$ incident to $v$. By Corollary 1, $d(v) - d'(v)$ is even, but by assumption $d(v) =$ deg $v$ is even $\Rightarrow d'(v)$ is even $\Rightarrow$ the degree of every vertex in the subgraph $(V, E')$ is even. Now consider the vertex $v_i$ in the statement of Lemme B. Some but not all edges incident to $v_i$ are traversed by $v_0 v_1 ... v_{m-1} v_0 \Rightarrow d'(v_i) > 0$, \textbf{i.e.} at least one edge incident to $v_i$ is in the subgraph $(V, E')$. We are now \underline{exactly} in the scenario described by Lemma A $\Rightarrow$ by Lemma A, $\exists$ circuit in $(V, E')$   passing through $v_i$. This circuit is also a circuit in $(V, E)$ as $(V, E')$ is a subgraph of $(V, E)$, and since all of its edges are in $E'$, this other circuit does not traverse any edge traversed by $v_0 v_1 ... v_{m-1} v_0$
+		\item[Lemma B:] Let $(V, E)$ be a connected graph s.t. $\forall v \in V$, deg $v$ is even, and let some circuit $v_0 v_1 \dots v_{m-1} v_0$, then $\exists$ another circuit in $(V, E)$ passing through $v_i$ that does not traverse any edge traversed by $v_0 v_1 \dots v_{m-1} v_0$.
+		\item[Proof:] Let $E'$ be the set of edges not traversed by $v_0 v_1 \dots v_{m-1} v_0$. $(V, E'$ is a subgraph of $(V, E). \forall v \in V, \#$ of edges of $v_0 v_1 \dots v_{m-1} v_0$ incident to $v = d(v) - d'(v)$, where $d(v) =$ def$(v) = \#$ of edges in $(V, E)$ incident to $v$ and $d'(v) = \#$ of edges in $(V, E')$ incident to $v$. By Corollary 1, $d(v) - d'(v)$ is even, but by assumption $d(v) =$ deg $v$ is even $\Rightarrow d'(v)$ is even $\Rightarrow$ the degree of every vertex in the subgraph $(V, E')$ is even. Now consider the vertex $v_i$ in the statement of Lemme B. Some but not all edges incident to $v_i$ are traversed by $v_0 v_1 \dots v_{m-1} v_0 \Rightarrow d'(v_i) > 0$, \textbf{i.e.} at least one edge incident to $v_i$ is in the subgraph $(V, E')$. We are now \underline{exactly} in the scenario described by Lemma A $\Rightarrow$ by Lemma A, $\exists$ circuit in $(V, E')$   passing through $v_i$. This circuit is also a circuit in $(V, E)$ as $(V, E')$ is a subgraph of $(V, E)$, and since all of its edges are in $E'$, this other circuit does not traverse any edge traversed by $v_0 v_1 \dots v_{m-1} v_0$
 		\item[qed]
 		\item[Lemma C:] Suppose that a graph contains a circuit of length $m$ and a circuit of length $n$. Suppose also that no edges of the graph is traversed by both circuits, and that at least one vertex of the graph is common to both circuits, then the graph contains a circuit of length $m+n$.
-		\item[Proof:] Let $v$ be a vertex of the graph that is common to both circuits. We assume both circuits start and finish at the vertex $v$. Let the first circuit be $vv_1 ... v_{m-1} v$, and let the second circuit be $vw_1 w_2 ... w_{n-1} v$. We concatenate the two circuits obtaining a circuit $vv_1...v_{m-1}vw_1w_2...w_{n-1}w$ of length $m+n$
+		\item[Proof:] Let $v$ be a vertex of the graph that is common to both circuits. We assume both circuits start and finish at the vertex $v$. Let the first circuit be $vv_1 \dots v_{m-1} v$, and let the second circuit be $vw_1 w_2 \dots w_{n-1} v$. We concatenate the two circuits obtaining a circuit $vv_1 \dots v_{m-1}vw_1w_2 \dots w_{n-1}w$ of length $m+n$
 		\item[qed]
-		\item[Lmma D:] Let $(V, E)$ be a connected graph, and let some trail in this graph be given. Suppose that no vertex of the graph has the property that not all the edges of the graph incident to that vertex are traversed by the trail. Then the given trail is an Eulerian trail.
+		\item[Lemma D:] Let $(V, E)$ be a connected graph, and let some trail in this graph be given. Suppose that no vertex of the graph has the property that not all the edges of the graph incident to that vertex are traversed by the trail. Then the given trail is an Eulerian trail.
 		\item[Proof:] Let $v_1$ be the set of vertices through which the trail passes, and let $v_2$ be the set of vertices through which the trail does not pass. $v=v_1 \cup v_2 \land v_1 \cap v_2 = \emptyset$. The conclusion of Lemma D amounts to showing $v_2 = \emptyset. \forall u \in v_1, u$ is incident to at least one edge traversed by the trail. $\Rightarrow$ all edges incident to the vertices in $v_1$ are traversed by the trail, but then every vertex in $v$ adjacent to a vertex in $v_1$ must belong to $v_1 \Rightarrow$ no edge can join a vertex in $v_1$ to a vertex in $v_2$. If $v_2 \neq \emptyset$, then $\exists w \in v_2$, but then $w$ cannot be joined by a path to any vertex in $v_1 \Rightarrow v_1 \land v_2$ are in different connected components of the graph $\Rightarrow \Leftarrow$ since the graph is connected $\Rightarrow$ it has only one connected component. Therefore, $v_2 = \emptyset$.
 		\item[qed]
 	\end{description}
 	Finally, we can prove Euler's theorem:
 	\begin{description}
-		\item[Theorem] A nontrivial connected graph contains an Eulerian circuit if the degree of every vertex of the graph is even.
+		\item[Theorem] A non-trivial connected graph contains an Eulerian circuit if the degree of every vertex of the graph is even.
 		\item[Proof:] Let $(V, E)$ be a non-trivial connected graph s.t. $\forall v \in V$, deg $v$ is even. By Lemma A, $(V, E)$ contains at least one circuit. It therefore contains a circuit of maximal length (\textbf{i.e.} at least as long as any other circuit in the graph). We seek to prove that this circuit of maximal length is indeed Eulerian. \\
-		If the graph contains some vertex $v$ s.t. some but not all of the edges of the grap incident to $v$ are traversed by the circuit of maximal length, and $v$ is a vertex on the circuit of maximal length, then by Lemma B $\exists$ a second circuit in $(V, E)$ passing through $v$, which would not traverse any edge traversed by the circuit of maximal length. By Lemma C, however, we can concatenate the two circuits, obtaining a circuit of length strictly greater than the length of the circuit of maximal length $\Rightarrow \Leftarrow$ we concluse no vertex that belongs to the circuit of maximal length has the property that not all edges incident to it are traversed by the circuit of maximal length. Since $(V, E)$ is connected, by Lemma D, the circuit of maximal length must be Eulerian.
+		If the graph contains some vertex $v$ s.t. some but not all of the edges of the graph incident to $v$ are traversed by the circuit of maximal length, and $v$ is a vertex on the circuit of maximal length, then by Lemma B $\exists$ a second circuit in $(V, E)$ passing through $v$, which would not traverse any edge traversed by the circuit of maximal length. By Lemma C, however, we can concatenate the two circuits, obtaining a circuit of length strictly greater than the length of the circuit of maximal length $\Rightarrow \Leftarrow$ we conclude no vertex that belongs to the circuit of maximal length has the property that not all edges incident to it are traversed by the circuit of maximal length. Since $(V, E)$ is connected, by Lemma D, the circuit of maximal length must be Eulerian.
 		\item[qed]
 	\end{description}
 	Corollary 2 along with this theorem together gives us:
 	\begin{description}
 		\item[Theorem:] A non-trivial connected graph has an Eulerian circuit $\Leftrightarrow$ the degree of each of its vertices is even.
 		\item[Corollary:] Suppose a connected graph has exactly two vertices whose degree is odd. $\exists$ an Eulerian trail in the graph joining the two vertices with odd degrees.
-		\item[Proof:] We reduce this case to the previous one by embedding the graph $(V, E)$ with vertices $v, w$ that have odd degree into a graph $(V', E')$ s.t. $v' = v \cup \{u\}$ for $u \notin V$ and $E' = E \cup \{uv, uw\}$. $(V, E)$ is a subgraph of $(V' E')$ and $(V', E')$ is connected and each one of its vertices has even degree by construction. By the theorem we just proved, $(V', E')$ has an Eulerian circuit. We reorder the vertices so that the final two edges are the two added edges $wu$ and $uv$. We not delete the edges $wu$ and $uv$ to obtain an Eulerian trail in the original graph $(V, E)$ from $v$ to $w$.
+		\item[Proof:] We reduce this case to the previous one by embedding the graph $(V, E)$ with vertices $v, w$ that have odd degree into a graph $(V', E')$ s.t. $v' = v \cup \{u\}$ for $u \notin V$ and $E' = E \cup \{uv, uw\}$. $(V, E)$ is a subgraph of $(V' E')$ and $(V', E')$ is connected and each one of its vertices has even degree by construction. By the theorem we just proved, $(V', E')$ has an Eulerian circuit. We reorder the vertices so that the final two edges are the two added edges $wu$ and $uv$. We now delete the edges $wu$ and $uv$ to obtain an Eulerian trail in the original graph $(V, E)$ from $v$ to $w$.
 		\item[qed]
 	\end{description}
 	
@@ -2138,10 +2142,10 @@
 		Path $\Rightarrow$ we pass through a vertex at most once (no repeated vertices) \\
 		Hamiltonian $\Rightarrow$ we pass through every vertex.
 		\item[Definition:] A \underline{Hamiltonian circuit} in a graph is a simple circuit that passes through every vertex of the graph.
-		\item[Origin of the Terminology:] Named after William Roman Hamilton (1805-1865) who showed in 1856 that such a circuit exists in the graph consisting of the verices and edges of a dodecahedron (see page 88 in David Wilkins' notes for the picture of a Hamiltonian circuit on a dodecahedrom). Hamilton developed a game called Hamilton's puzzle of the icosian game in 1857 whom object was to find Hamiltonian circuits in the dodecahedrom (many solutions exist). This game was marketed in Europe as a pigboard with holes for each vertex of the dodecaherdrom. \\
-		\textbf{NB:} The dodecahedrom is a Platonic solid, and it turns out every Platonic solid has a Hamiltonian circuit. Recall that the Platonic solids are the tetrahedfrom (4 faces), the cube (6 faces), the octahedron (8 faces), the dodecahedron (12 faces), and the icosahedron (20 faces). Each of these is a regular graph.
+		\item[Origin of the Terminology:] Named after William Roman Hamilton (1805-1865) who showed in 1856 that such a circuit exists in the graph consisting of the verices and edges of a dodecahedron (see page 88 in David Wilkins' notes for the picture of a Hamiltonian circuit on a dodecahedron). Hamilton developed a game called Hamilton's puzzle of the icosian game in 1857 whom object was to find Hamiltonian circuits in the dodecahedrom (many solutions exist). This game was marketed in Europe as a pigboard with holes for each vertex of the dodecaherdrom. \\
+		\textbf{NB:} The dodecahedron is a Platonic solid, and it turns out every Platonic solid has a Hamiltonian circuit. Recall that the Platonic solids are the tetrahedron (4 faces), the cube (6 faces), the octahedron (8 faces), the dodecahedron (12 faces), and the icosahedron (20 faces). Each of these is a regular graph.
 		\item[Theorem:] Every complete graph $k_n$ for $n \geq 3$ has a Hamiltonian circuit.
-		\item[Proof:] Let $V = \{v_1, v_2, v_3, ... v_n\}$ be the set of vertices of $k_n$, then $v_1 v_2 v_3 ... v_n v_1$ is a Hamiltonian circuit. All edges in this circuit are part of $k_n$ because $k_n$ is complete.
+		\item[Proof:] Let $V = \{v_1, v_2, v_3, \dots v_n\}$ be the set of vertices of $k_n$, then $v_1 v_2 v_3 \dots v_n v_1$ is a Hamiltonian circuit. All edges in this circuit are part of $k_n$ because $k_n$ is complete.
 		\item[qed]
 	\end{description}
 	
@@ -2191,10 +2195,10 @@
 		\item[Proof:] Recall that when we studied circuits we proved a theorem that if $(V, E)$ is a graph s.t. $\forall v \in V$ deg $v \geq 2$ (\textbf{i.e.} $(V, E)$ has no isolated or pendant vertices), then $(V, E)$ contains at least one simple circuit. The graph $(V, E)$ is a forect, \textbf{i.e.} it contains no circuits $\Rightarrow \exists v \in V$ s.t. deg $v = 0$ or deg $v = 1$
 		\item[qed]
 		\item[Theorem:] A non-trivial tree contains at least one pendant vertex.
-		\item[Proof:] A non-trivial tree $(V, E)$ must contain at least 2 vertices. Assum $\exists v \in V$ s.t. deg $v = 0$,\textbf{i.e.} $v$ is isolated, then $v$ forms a connected component by itself, but then $(V, E)$ has at least 2 connected components as $\#(V) \geq 2 \Rightarrow \Leftarrow$ to the fact that a tree is by definition connected. Therefore, $\forall v \in V,$ deg $v \geq 1$, but by the previous theorem $\exists v \in V$ s.t. $0 \leq$ deg $v \leq 1 \Rightarrow ]iexts v \in V$ s.t. deg $v = 1$ (sine a tree is a forest).
+		\item[Proof:] A non-trivial tree $(V, E)$ must contain at least 2 vertices. Assum $\exists v \in V$ s.t. deg $v = 0$,\textbf{i.e.} $v$ is isolated, then $v$ forms a connected component by itself, but then $(V, E)$ has at least 2 connected components as $\#(V) \geq 2 \Rightarrow \Leftarrow$ to the fact that a tree is by definition connected. Therefore, $\forall v \in V,$ deg $v \geq 1$, but by the previous theorem $\exists v \in V$ s.t. $0 \leq$ deg $v \leq 1 \Rightarrow \exists v \in V$ s.t. deg $v = 1$ (since a tree is a forest).
 		\item[qed]
 		\item[Theorem:] Let $(V, E)$ be a tree, then $\# (E) = \# (V) - 1$, where $\#(E)$ is the number of edges of the tree and $\#(V)$ is the number of vertices.
-		\item[Proof:] Use strong induction of $\#(V)$.
+		\item[Proof:] Use strong induction on $\#(V)$.
 		\begin{description}
 			\item[Base Case:] $\#(V) = 1$. The graph is trivial $\Rightarrow \#(E) = 0$, so $0 = 1-1$ as needed.
 			\item[Inductive Step:] Suppose that every tree with $m$ vertices ($\# (V) = m$) has $m-1 = \#(v) -1 = \#(E)$ edges we seek to prove that if $(V, E)$ is a tree with $m+1$ vertices, then it has $m$ edges. \\
