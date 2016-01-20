@@ -843,7 +843,7 @@
 		\item[qed]
 		\item[Corollary 1] Let $A, B$ be finite sets such that $\#(A) = \#(B)$. Let $f: A \rightarrow B$ be a function. $f$ is injective $\Leftrightarrow f$ is bijective.
 		\item[Proof:]
-		\item $\Rightarrow$ Suppose $f:A \rightarrow B$ is injective. Since $A$ is finite, by the previous proposition, $f(A)$ has the same number of elements as $A$, but $f(A) \subseteq B$ and $B$ has the same number of elements as $A \Rightarrow \#(A) = \#(f(A)) = \#(B)$, which means $f(A) - B$, \textbf{i.e.} $f$ is also surjective $\Rightarrow f$ is bijective.
+		\item $\Rightarrow$ Suppose $f:A \rightarrow B$ is injective. Since $A$ is finite, by the previous proposition, $f(A)$ has the same number of elements as $A$, but $f(A) \subseteq B$ and $B$ has the same number of elements as $A \Rightarrow \#(A) = \#(f(A)) = \#(B)$, which means $f(A) = B$, \textbf{i.e.} $f$ is also surjective $\Rightarrow f$ is bijective.
 		\item $\Leftarrow f$ is bijective $\Leftarrow f$ is injective.
 		\item[qed]
 		\item[Corollary 2 (The Pigeonhole Principle)] Let $A, B$ be finite sets. If $\#(B) < \#(A)$, and let $f:A \rightarrow B$ be a function. $\exists a, a' \in A$ where $ a \neq a'. f(a) = f(a')$
@@ -954,7 +954,7 @@
 				\item[Q:] Where does the argument fail?
 				\item[A:] For $n=2, P(2)$ is false because there are no middle horses to compare to.
 			\end{description}
-			item[] \underline{The Grand Hotel Cigar Mystery}
+			\item[] \underline{The Grand Hotel Cigar Mystery}
 			\begin{description}
 				\item[] Recall Hilbert's hotel - the grand Hotel. Suppose that the Grand Hotel does not allow smoking and no cigars may be taken into the hotel. In spite of the rules, the guest in Room 1 goes to Room 2 to get a cigar. The guest in Room 2 goes to Room 3 to get 2 cigars (one for him and one for the person in room 1), etc. In other words, guest in Room N goes to Room N+1 to get N cigars. They will each get back to their rooms, smoke one cigar, and give the result to the person in Room N-2.
 				\item[Q:] Where is the fallacy?
@@ -988,7 +988,7 @@
 			\item $\mathbb{R}, -$ is not commutative since $\forall x, y \in \mathbb{R}, x-y \neq y-x$ in general. $x-y=y-x$ only if $x=y$
 			\item Let $Mn$ be the set of $n$ by $n$ matrices with entries in $\mathbb{R}$ and let $*$ be matrix multiplication. $\forall A, B \in Mn, A*B \in Mn$, so $*$ is a binary operation, but $AB \neq BA$ in general. Therefore $*$ is not commutative.
 		\end{enumerate}
-		\item[Definition:] A binary operation $*$ on a set $A$ is called \underline{associative} if $\forall x, y z (x*y)*z = x*(y*z)$
+		\item[Definition:] A binary operation $*$ on a set $A$ is called \underline{associative} if $\forall x, y, z, (x*y)*z = x*(y*z)$
 		\item[Examples:]
 		\begin{enumerate}
 			\item[]
@@ -1162,7 +1162,7 @@
 	\subsection{Groups}
 	A motion formally defined in the 1870's even though theorems about groups proven as early as a century before that.
 	\begin{description}
-		\item[Definition:] A group os a monoid in which every element is invertible. In other words, a group is a set $A$ endowed with a binary operation $*$ satisfying the following properties:
+		\item[Definition:] A group is a monoid in which every element is invertible. In other words, a group is a set $A$ endowed with a binary operation $*$ satisfying the following properties:
 		\begin{enumerate}
 			\item $*$ is associative, \textbf{i.e.} $\forall x, y, z \in A, (x*y)*z = x*(y*z)$
 			\item There exists an identity element $e \in A$, \textbf{i.e.} $\exists e \in A \: s.t. \: \forall a \in A, a*e = e*a = a$
