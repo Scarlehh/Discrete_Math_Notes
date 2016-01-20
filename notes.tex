@@ -1,4 +1,4 @@
- \documentclass[10pt]{article}
+\documentclass[10pt]{article}
 \usepackage{caption}
 \usepackage{multirow}
 \usepackage{amsfonts}
@@ -517,7 +517,7 @@
 			\begin{enumerate}
 				\item $\forall ABC \in \lambda, ABC \sim ABC$ so $\sim$ is reflexive
 				\item $ABC \sim A'B'C' \Rightarrow A'B'C' \sim ABC$ so $\sim$ is symmetric
-				\item $ABC \sim A'B'C'$ and $A'B'C' \sim A"B"C" \Rightarrow ABC \sim A"B"C"$, so $\sim$ is transitive
+				\item $ABC \sim A'B'C'$ and $A'B'C' \sim A''B''C'' \Rightarrow ABC \sim A''B''C''$, so $\sim$ is transitive
 				\item[Clearly] (a), (b), (c) use the fact that equality of angles is an equivalence relation.
 			\end{enumerate}
 		\end{enumerate}
@@ -636,7 +636,7 @@
 			\begin{enumerate}
 				\item $\forall B \in P(A), B\subseteq B \rightarrow$ reflexive.
 				\item $\forall B, C \in P(A), B \subseteq C \land C \subseteq B \implies B=C$ (recall the criterion for proving equality of sets) $\rightarrow$ anti-symmetric
-				\item $\forall B, C, D \in P(A)$ s.t. $B \subseteq C \land C \subseteq D \implies B \subseteq B \rightarrow$ transitive
+				\item $\forall B, C, D \in P(A)$ s.t. $B \subseteq C \land C \subseteq D \implies B \subseteq D \rightarrow$ transitive
 			\end{enumerate}
 		\end{enumerate}
 		\item The most important example of a partial order is example (2) "being a subset of".
@@ -829,7 +829,7 @@
 		\item[Theorem:] Let $f:A \rightarrow B$ be a function. $f^{-1}$ exists $\Leftrightarrow f:A \rightarrow B$ is bijective.
 		\item[Q:] How do we find the inverse function $f^{-1}$ given $f: A \rightarrow B$?
 		\item[A:] If $f(x)=y$, solve for $x$ as a function of $y$ since $f^{-1}(f(x))=f^{-1}(y)=x$ s $f^{-1} \circ f$ is the identity.
-		\item[Example:] $f(x)=2x+1=y$. Solce for $x$ in terms of $y$. \\
+		\item[Example:] $f(x)=2x+1=y$. Solve for $x$ in terms of $y$. \\
 		$f: \mathbb{R} \rightarrow \mathbb{R}$ \\
 		$2x = y-1 \hspace{10mm} x = \frac{y-1}{2}$
 	\end{description}
@@ -1249,7 +1249,7 @@
 	
 	\section{Formal Languages}
 	\begin{description}
-		\item[Task:] Use what we learned about structues in abstract algebra in order to make sense of formal languages and grammars. \\
+		\item[Task:] Use what we learned about structures in abstract algebra in order to make sense of formal languages and grammars. \\
 		Let $A$ be a finite set. When studying formal languages, we call $A$ an \underline{alphabet} and the elements of $A$ \underline{letters}.
 		\item[Examples:]
 		\begin{enumerate}
@@ -1268,7 +1268,7 @@
 			\item If $A =$ {letters of the English alphabet}, then $A^+$ consists of all non-empty strings of finite lengths of letters from the English alphabet. \\
 			It is useful to also have the empty for $\varepsilon$ in our set of strings. $\varepsilon$ has length 0. Define $A^0 = \{\varepsilon\}$ and then adjoin the empty word $\varepsilon$ to $A^+$. We get $A^* = \{\varepsilon\} \cup A^+ = A^0 \cup \underset{n=1}{\overset{\infty}{\cup}} A^n = \underset{n=0}{\overset{\infty}{\cup}} A^n$.
 		\end{enumerate}
-		\item[Notation:] We denote the length of a word $w$ by $\mid w \mid$. Next introduce an operation on $A^*$.
+		\item[Notation:] We denote the length of a word $w$ by $\mid w\mid$. Next introduce an operation on $A^*$.
 		\item[Definition:] Let $A$ be a finite set and let $w_1 \land w_2$ be words in $A^*$. $w_1 = a_1a_2\dots a_m \land w_2 = b_1b_2\dots b_n$. The \underline{concatenation} of $w_1 \land w_2$ is the word $w_1 \circ w_2$, where $w_1 \circ w_2 = a_1a_2\dots a_mb_1b_2\dots b_n$. Sometimes $w_1 \circ w_2$ is denoted as just $w_1w_2$. Note that $\mid w_1 \circ w_2 \mid = \mid w_1 \mid + \mid w_2 \mid$. \\
 		Concatenation of words is:
 		\begin{enumerate}
@@ -1282,19 +1282,19 @@
 			\item $a \circ b = ab \neq ba = b \circ a$.
 			\item[qed]
 		\end{description}
-		\item $A^*$ is closed under the operation of concatenation $\Rightarrow$ concatenation is a binary operation of $A^*$ as $\forall w_1, w_2 \in \AA^*, w_1 \circ w_2 \in A^*$.
+		\item $A^*$ is closed under the operation of concatenation $\Rightarrow$ concatenation is a binary operation of $A^*$ as $\forall w_1, w_2 \in A^*, w_1 \circ w_2 \in A^*$.
 		\item[Theorem] Let $A$ be a finite set. $(A^*, \circ)$ is a monoid with identity element $\varepsilon$.
 		\item[Proof:] Concatenation $\circ$ is an associative binary operation on $A^*$ as we showed above. Moreover, $\forall w \in A^*, \varepsilon \circ w = w \circ \varepsilon = w$, so $\varepsilon$ is the identity element of $A^*$.
 		\item[qed]
-		\item[Definition:] Let $A$ be a finite set. A \underline{language} over $A$ is a subset of $A^*$. A language $L$ over $A$ is called a \underline{formal language} is $\exists$ a finite set of rules of algorithm that generates exactly $L$, \textbf{i.e.} all words that belong to $L$ and no other words.
+		\item[Definition:] Let $A$ be a finite set. A \underline{language} over $A$ is a subset of $A^*$. A language $L$ over $A$ is called a \underline{formal language} if $\exists$ a finite set of rules of algorithm that generates exactly $L$, \textbf{i.e.} all words that belong to $L$ and no other words.
 		\item[Theorem:] Let $A$ be a finite set.
 		\begin{enumerate}
 			\item If $L_1$ and $L_2$ are languages over $A, L_1 \cup L_2$ is a language over $A$.
 			\item If $L_1$ and $L_2$ are languages over $A, L_1 \cap L_2$ is a language over $A$.
 			\item If $L_1$ and $L_2$ are languages over $A$, the concatenation of $L_1 \land L_2$ given by $L_1 \circ L_2 = \{w_1 \circ w_2 \in A^* \mid w_1 \in L_1 \land w_2 \in L_2\}$ is a language over $A$.
-			\item Let $L$ be a language over $A$. Define $L^1=L$ inductively for and $n\geq 1 \hspace{5mm} L^n = L \circ L^{n-1}. L^n$ is a language over $A$. Furthermore, $L^* = \{\varepsilon\} \cup L^! \cup L^2 \cup L^3 \cup \dots = \underset{n=0}{\overset{\infty}{\cup}} L^n$ is a language over $A$.
+			\item Let $L$ be a language over $A$. Define $L^1=L$ inductively for and $n\geq 1 \hspace{5mm} L^n = L \circ L^{n-1}$. $L^n$ is a language over $A$. Furthermore, $L^* = \{\varepsilon\} \cup L^1 \cup L^2 \cup L^3 \cup \dots = \underset{n=0}{\overset{\infty}{\cup}} L^n$ is a language over $A$.
 		\end{enumerate}
-		\item[Proof:] By definition, a language over $A$ is a subset of $A^*$. Therefore, if $L_1 \subseteq A^* \land L_2 \subseteq A^*$, then $L_1 \cup L_2 \subseteq A^* \land L_1 \cap L_2 \subseteq A^*. \forall w_1 \circ w_2 \in L_1 \circ L_2, w_1 \circ w_2 \in A^*$ becomes $w_1 \in A^n$ for some $n$ and $w_2 \in A^m$ for some $m$ so $w_1 \circ w_2 \in A^{m+n} \subseteq A^* = \underset{n=1}{\overset{\infty}{\cup}} A^n$.
+		\item[Proof:] By definition, a language over $A$ is a subset of $A^*$. Therefore, if $L_1 \subseteq A^* \land L_2 \subseteq A^*$, then $L_1 \cup L_2 \subseteq A^* \land L_1 \cap L_2 \subseteq A^*$. $\forall w_1 \circ w_2 \in L_1 \circ L_2, w_1 \circ w_2 \in A^*$ becomes $w_1 \in A^n$ for some $n$ and $w_2 \in A^m$ for some $m$ so $w_1 \circ w_2 \in A^{m+n} \subseteq A^* = \underset{n=1}{\overset{\infty}{\cup}} A^n$.
 		\item Applying the same reasoning inductively, we see that $L \subset A^* \Rightarrow L^* \subseteq A^*$ as $L^m \subseteq A^* \: \forall n \geq 0$.
 		\item[qed]
 		\item[Remark:] This theorem gives us a theoretic way of building languages, but we need a practical way. The practical way of building a language is through the notion of a grammar.
@@ -1302,72 +1302,72 @@
 		To generate a language we use:
 		\begin{enumerate}
 			\item $A$ the set, which is the alphabet of the language.
-			\item A start symbol $<$s$>$
+			\item A start symbol $\langle s\rangle $
 			\item A set of production rules.
 		\end{enumerate}
-		\item[Example:] $A = \{0, 1\}$; start symbol $<$s$>$; 2 production rules given by:
+		\item[Example:] $A = \{0, 1\}$; start symbol $\langle s\rangle $; 2 production rules given by:
 		\begin{enumerate}
-			\item $<$s$>$ $\rightarrow$ 0$<$s$>$1
-			\item $<$s$>$ $\rightarrow$ 01
+			\item $\langle s\rangle $ $\rightarrow$ 0$\langle s\rangle $1
+			\item $\langle s\rangle $ $\rightarrow$ 01
 		\end{enumerate}
-		Let's see what we generate: via rule 2 \hspace{5mm} $<$s$>$ $\rightarrow$ 01, so we get $<$s$>$ $\Rightarrow$ 01 \\
-		Via rule 1 \hspace{5mm} $<$s$>$ $\rightarrow$ 0$<$s$>$1, then via rule 2, 0$<$s$>$1 $\rightarrow$ 0011. We write the process as $<$s$>$ $\rightarrow$ 0$<$s$>$1 $\Rightarrow$ 0011. \\
-		Via rule 1, $<$s$>$ $\rightarrow$ 0$<$s$>$1, then via rule 1 again 0$<$s$>$1 $\rightarrow$ 00$<$s$>$11, then via rule 2, 00$<$s$>$11 $\rightarrow$ 000111. \\
-		We got $<$s$>$ $\Rightarrow$ 0$<$s$>$1 $\Rightarrow$ 00$<$s$>$11 $\Rightarrow$ 000111. \\
+		Let's see what we generate: via rule 2 \hspace{5mm} $\langle s\rangle $ $\rightarrow$ 01, so we get $\langle s\rangle $ $\Rightarrow$ 01 \\
+		Via rule 1 \hspace{5mm} $\langle s\rangle $ $\rightarrow$ 0$\langle s\rangle $1, then via rule 2, 0$\langle s\rangle $1 $\rightarrow$ 0011. We write the process as $\langle s\rangle $ $\rightarrow$ 0$\langle s\rangle $1 $\Rightarrow$ 0011. \\
+		Via rule 1, $\langle s\rangle $ $\rightarrow$ 0$\langle s\rangle $1, then via rule 1 again 0$\langle s\rangle $1 $\rightarrow$ 00$\langle s\rangle $11, then via rule 2, 00$\langle s\rangle $11 $\rightarrow$ 000111. \\
+		We got $\langle s\rangle $ $\Rightarrow$ 0$\langle s\rangle $1 $\Rightarrow$ 00$\langle s\rangle $11 $\Rightarrow$ 000111. \\
 		The language $L$ we generated thus consists of all strings of the form $0^m1^m$ ($m$ 0's followed by $m$ 1's) for all $m \geq 1, m \in \mathbb{N}$ \\
 		We saw 2 types of strings that appeared in this process of generating $L$:
 		\begin{enumerate}
 			\item \underline{terminals}, \textbf{i.e.} the elements of $A$
-			\item \underline{nonterminals}, \textbf{i.e.} strings that don't consist solely of 0's and 1's such as $<$s$>$, 0$<$s$>$1, 00$<$s$>$11, etc.
+			\item \underline{nonterminals}, \textbf{i.e.} strings that don't consist solely of 0's and 1's such as $\langle s\rangle $, 0$\langle s\rangle $1, 00$\langle s\rangle $11, etc.
 		\end{enumerate}
 		The production rules then have the form:
 		\begin{description}
 			\item nonterminal $\rightarrow$ word over the alphabet V = {terminals, non-terminals}
-			\item $<$T$>$ $\rightarrow$ w
+			\item $\langle T\rangle $ $\rightarrow$ w
 		\end{description}
-		In our notation, the set of nonterminals if $V \backslash A$, so $<$T$>\in V \backslash A \land w \in V^* - \underset{n=0}{\overset{\infty}{\cup}} V^n$. To the production rule $<$T$>\rightarrow w$. \\
-		We can associate the ordered pair ($<$T$>, w) \in (V \backslash A) \times V^*$, so the set of production rules, which we will denote by $P$, is a subset of the Cartesian product $(V\backslash A) \times V^*$. \\
+		In our notation, the set of nonterminals if $V \backslash A$, so $\langle T\rangle \in V \backslash A \land w \in V^* = \underset{n=0}{\overset{\infty}{\cup}} V^n$. To the production rule $\langle T\rangle \rightarrow w$. \\
+		We can associate the ordered pair ($\langle T\rangle , w) \in (V \backslash A) \times V^*$, so the set of production rules, which we will denote by $P$, is a subset of the Cartesian product $(V\backslash A) \times V^*$. \\
 		Grammers come in two flavours:
 		\begin{enumerate}
-			\item \underline{Context-free grammars} where we can replace \underline{any} occurrence of $<$T$>$ by $w$ if $<$T$>\rightarrow w$ is one of our production rules.
-			\item \underline{Context-sensitive grammars} only certain replacements of $<$T$>$ by $w$ are allowed, which are governed by the syntax of our language $L$.
+			\item \underline{Context-free grammars} where we can replace \underline{any} occurrence of $\langle T\rangle $ by $w$ if $\langle T\rangle \rightarrow w$ is one of our production rules.
+			\item \underline{Context-sensitive grammars} only certain replacements of $\langle T\rangle $ by $w$ are allowed, which are governed by the syntax of our language $L$.
 		\end{enumerate}
 		The example we have was of a context free grammar. We can now finally define context free grammars.
-		\item[Definition:] A \underline{context free grammar} $(V, A, <$s$>P)$ consists o a finite set $V$, a subset $A$ of $V$, an element $<$s$>$ of $V \backslash A$, and a finite subset $P$ of the Cartesian product $V\backslash A \times V^*$.
-		\item[Notation:] $(\underset{set\:of\:terminals\:and\:non\:terminals}{V}$, $\underset{set\:of\:terminals}{A}$, $\underset{start\:symbol}{{<}s{>}}$, $\underset{set\:of\:production\:rules}{P})$
-		\item[Example:] $A = \{0, 1\}$; start symbol $<$s$>$; 3 production rules given by:
+		\item[Definition:] A \underline{context free grammar} $(V, A, \langle s\rangle, P)$ consists of a finite set $V$, a subset $A$ of $V$, an element $\langle s \rangle$ of $V \backslash A$, and a finite subset $P$ of the Cartesian product $V\backslash A \times V^*$.
+		\item[Notation:] $(\underset{set\:of\:terminals\:and\:non\:terminals}{V}$, $\underset{set\:of\:terminals}{A}$, $\underset{start\:symbol}{\langle s\rangle }$, $\underset{set\:of\:production\:rules}{P})$
+		\item[Example:] $A = \{0, 1\}$; start symbol $\langle s\rangle $; 3 production rules given by:
 		\begin{enumerate}
-			\item $<$s$>\rightarrow$ 0$<$s$>$1
-			\item $<$s$>\rightarrow$ 01
-			\item $<$s$>\rightarrow$ 0011
+			\item $\langle s\rangle \rightarrow 0 \langle s \rangle 1$
+			\item $\langle s\rangle \rightarrow 01 $
+			\item $\langle s\rangle \rightarrow 0011$
 		\end{enumerate}
 		We notice here that the word 0011 can be generated in 2 ways in this context free grammar:
 		\begin{enumerate}
-			\item[By rule 3,] $<$s$>\rightarrow$ 0011 so $<$s$>\Rightarrow$ 0011
+			\item[By rule 3,] $\langle s\rangle \rightarrow$ 0011 so $\langle s\rangle \Rightarrow$ 0011
 			\item[] $\lor$
-			\item[By rule 1,] $<$s$>\rightarrow$ 0$<$s$>$1 and by rule 2, 0$<$s$>$1 $\rightarrow$ 0011. Therefore, $<$s$>\Rightarrow$ 0$<$s$>$1 $\Rightarrow$ 0011.
+			\item[By rule 1,] $\langle s\rangle \rightarrow$ 0$\langle s\rangle $1 and by rule 2, 0$\langle s\rangle $1 $\rightarrow$ 0011. Therefore, $\langle s\rangle \Rightarrow$ 0$\langle s\rangle 1 \Rightarrow 0011$.
 		\end{enumerate}
 		\item[Definition:] A grammar is called \underline{ambiguous} if it generates the same string in more than one way. \\
 		Obviously, we prefer to have unambiguous grammars, else we waste computer operations. \\
 		Next, we need to spell out how words \underline{relate} to each other in the production of our language via the grammar:
-		\item[Definition:] Let $w'$ and $w"$ be words over the alphabet $V$ = {terminals, non-terminals}. We say that \underline{$w'$ directly yields $w"$} if $\exists$ words $u \land v$ over the alphabet $V$ and a production rule $<$T$>\rightarrow w$ of the grammar s.t. $w' = u<$T$>\land w" = uwv$, where either or both of the words $u$ and $v$ may be the empty word. \\
-		In other words, $w'$ directly yields $w" \Leftrightarrow \exists$ production rule $<$T$>\rightarrow w$ in the grammar s.t. $w"$ may be obtained from $w'$ by replacing a simple occurrence of the nonterminal $<$T$>$ within the word $w'$ by the word $w$.
-		\item[Notation:] $w'$ directly yields $w"$ is denoted by $w' \Rightarrow w"$
-		\item[Definition:] Let $w' \land w"$ be words over the alphabet $V$. We say that $w'$ yields $w"$ if either $w'= w"$ or else $\exists$ words $w_0, w_1, \dots w_n$ over the alphabet $V$ s.t. $w_0=w', w_n = w", w_{i-1} \Rightarrow w_i$ for all $i, 1 \leq i \leq n$. In other words, $w_0 \Rightarrow w_1 \Rightarrow w_2 \Rightarrow \dots \Rightarrow w_n-1 \Rightarrow w_n$
-		\item[Notation:] $w'$ yields $w"$ is denotes by $w' \overset{*}{\Rightarrow} w"$.
-		\item[Definition:] Let $(V, A, <$s$>, P)$ be a context free grammar. The \underline{language} generated by this grammar is the subset $L$ or $A^*$ defined by $L = \{w \in A^* \mid <$s$>\overset{*}{\Rightarrow} w\}$ \\
-		In other words, th language $L$ generated by a context free grammar $(V, A, <$s$>, P)$ consists of the set of all finite strings consisting entirely of terminals that may be obtained from the start symbol $<$s$>$ by applying a finite sequence of production rules of the grammar where the application of one production rule causes \underline{one and only one nonterminal} to be replaced by the string in $V^*$ corresponding of the right hand side of the production rule.
+		\item[Definition:] Let $w'$ and $w''$ be words over the alphabet $V$ = {terminals, non-terminals}. We say that \underline{$w'$ directly yields $w''$} if $\exists$ words $u \land v$ over the alphabet $V$ and a production rule $\langle T\rangle \rightarrow w$ of the grammar s.t. $w' = u\langle T\rangle \land w'' = uwv$, where either or both of the words $u$ and $v$ may be the empty word. \\
+		In other words, $w'$ directly yields $w'' \Leftrightarrow \exists$ production rule $\langle T\rangle \rightarrow w$ in the grammar s.t. $w''$ may be obtained from $w'$ by replacing a simple occurrence of the nonterminal $\langle T\rangle $ within the word $w'$ by the word $w$.
+		\item[Notation:] $w'$ directly yields $w''$ is denoted by $w' \Rightarrow w''$
+		\item[Definition:] Let $w' \land w''$ be words over the alphabet $V$. We say that $w'$ yields $w''$ if either $w'= w''$ or else $\exists$ words $w_0, w_1, \dots w_n$ over the alphabet $V$ s.t. $w_0=w', w_n = w'', w_{i-1} \Rightarrow w_i$ for all $i, 1 \leq i \leq n$. In other words, $w_0 \Rightarrow w_1 \Rightarrow w_2 \Rightarrow \dots \Rightarrow w_n-1 \Rightarrow w_n$
+		\item[Notation:] $w'$ yields $w''$ is denotes by $w' \overset{*}{\Rightarrow} w''$.
+		\item[Definition:] Let $(V, A, \langle s\rangle , P)$ be a context free grammar. The \underline{language} generated by this grammar is the subset $L$ or $A^*$ defined by $L = \{w \in A^* \mid \langle s\rangle \overset{*}{\Rightarrow} w\}$ \\
+		In other words, th language $L$ generated by a context free grammar $(V, A, \langle s\rangle , P)$ consists of the set of all finite strings consisting entirely of terminals that may be obtained from the start symbol $\langle s\rangle $ by applying a finite sequence of production rules of the grammar where the application of one production rule causes \underline{one and only one nonterminal} to be replaced by the string in $V^*$ corresponding of the right hand side of the production rule.
 	\end{description}
 	
 	\subsection{Phrase Structure Grammars}
 	\begin{description}
-		\item[Definition:] A phrase structure grammar $(V, A <$s$>, P)$ consists of a finite set $V$, a subset $A$ of $V$, an element $<$s$>$ of $V \backslash A$, and a finite subset $P$ of $(V^* \backslash A^*) \times V^*$ \\
+		\item[Definition:] A phrase structure grammar $(V, A, \langle s\rangle , P)$ consists of a finite set $V$, a subset $A$ of $V$, an element $\langle s\rangle $ of $V \backslash A$, and a finite subset $P$ of $(V^* \backslash A^*) \times V^*$ \\
 		In a context free grammar, the set of production rules $P \subset (V \backslash A) \times V^*$. \\
 		In a phrase structure grammar, $P \subset (V^* \backslash A^*) \times V^*$. In other words, a production rule in a phrase structure grammar $r \rightarrow w$ has a left hand side $n$ that may contain more than one nonterminal. It is required to contain \underline{at least one} nonterminal. \\
-		For example, if $A \{0, 1\}$ and $<$s$>$ is the start symbol in a phrase grammar grammar, 0$<$s$>$0$<$s$>$0 $\rightarrow$ 00010 would be an acceptable production rule in a phrase structure grammar but not in a context free grammar. \\
-		The notions $w' \Rightarrow w"$ ($w'$ directly yields $w"$) and $w' \overset{*}{\Rightarrow} w"$ ($w'$ yields $w"$) are defined the same way as for context free grammars except that our production rules may, of course, be more general as we saw in the example above.
-		\item[Definition:] Lt $(V, A <$s$>, P)$ be a phrase structure grammar. The language generated by this grammar is the subset $L$ or $A^*$ defined by $L \{w \in A^* \mid <$s $>\overset{*}{\Rightarrow} w \}$
-		\item[Remark:] The term phrase structure grammars was introduced by Noam Chowsky.
+		For example, if $A = \{0, 1\}$ and $\langle s\rangle $ is the start symbol in a phrase grammar grammar, 0$\langle s\rangle $0$\langle s\rangle $0 $\rightarrow$ 00010 would be an acceptable production rule in a phrase structure grammar but not in a context free grammar. \\
+		The notions $w' \Rightarrow w''$ ($w'$ directly yields $w''$) and $w' \overset{*}{\Rightarrow} w''$ ($w'$ yields $w''$) are defined the same way as for context free grammars except that our production rules may, of course, be more general as we saw in the example above.
+		\item[Definition:] Let $(V, A, \langle s\rangle , P)$ be a phrase structure grammar. The language generated by this grammar is the subset $L$ or $A^*$ defined by $L \{w \in A^* \mid \langle s \rangle \overset{*}{\Rightarrow} w \}$
+		\item[Remark:] The term phrase structure grammars was introduced by Noam Chomsky.
 		\item[Definition:] A lamguage $L$ generated by a context-free grammar is called a \underline{context-free language}.
 	\end{description}
 	We now want to understand a particularly important subclass of context free languages called regular languages.
@@ -1377,29 +1377,29 @@
 		\item[Task:] Understand when a language is regular and how regular languages are produced. Understand basics of automata theory.
 		\item[History:] The term \underline{regular languages} was introduced by Stephen Kleene in 1951. A more descriptive name is \underline{finite-state languages} as we will see that a language is regular $\Leftrightarrow$ it can be recognised by a finite state acceptor, which is a type of finite state machine. \\
 		The definition of a regular language is very abstract, though. First, describe what operations the collection of regular languages is closed under: \\
-		Let $A$ be a finite set, and let $A*$ be the set of all words over the alphabet $A$. The regular language over the alphabet $A$ consitute the smallest collection $C$ of subsets of $A*$ satisfying that:
+		Let $A$ be a finite set, and let $A^*$ be the set of all words over the alphabet $A$. The regular language over the alphabet $A$ constitutes the smallest collection $C$ of subsets of $A^*$ satisfying that:
 		\begin{enumerate}
-			\item All finite subsets of $A*$ belong to $C$.
-			\item $C$ is closed under the Kleene start operation (if $M \subseteq A*$ is inside $C, \textbf{i.e.} M \subseteq C$, then $M* \subseteq C$)
-			\item $C$ is closed under concatenation (if $M \subseteq A*, N \subseteq A*$ satisfy that $M \subseteq C \land N \subseteq C$, then $M \circ N \subseteq C$)
-			\item $C$ is closed under union (if $M \subseteq A* \land N \subseteq A*$ satisfy that $M \subseteq C \land N \subseteq C$, then $M \cup N \subseteq C$)
+			\item All finite subsets of $A^*$ belong to $C$.
+			\item $C$ is closed under the Kleene start operation (if $M \subseteq A^*$ is inside $C$, \textbf{i.e.} $M \subseteq C$, then $M^* \subseteq C$)
+			\item $C$ is closed under concatenation (if $M \subseteq A^*, N \subseteq A^*$ satisfy that $M \subseteq C \land N \subseteq C$, then $M \circ N \subseteq C$)
+			\item $C$ is closed under union (if $M \subseteq A^* \land N \subseteq A^*$ satisfy that $M \subseteq C \land N \subseteq C$, then $M \cup N \subseteq C$)
 		\end{enumerate}
-		\item[Definition:] Let $A$ be a finite set, and let $A*$ be the set of words over the alphabet $A$. A subset $L$ of $A*$ is called a \underline{regular language} over the alphabet $A$ is $L = L_m$ for some finite sequence $L_1, L_2,\dots, L_m$ os subsets of $A*$ with the property that $\forall i, 1 \leq i \leq m, L_i$ satisfies one of the following:
+		\item[Definition:] Let $A$ be a finite set, and let $A^*$ be the set of words over the alphabet $A$. A subset $L$ of $A^*$ is called a \underline{regular language} over the alphabet $A$ if $L = L_m$ for some finite sequence $L_1, L_2,\dots, L_m$ of subsets of $A^*$ with the property that $\forall i, 1 \leq i \leq m, L_i$ satisfies one of the following:
 		\begin{enumerate}
 			\item $L_i$ is a finite set
-			\item $L_i = L_j*$ for some $j, 1 \leq j \leq i$ (the Klenne star operation applied to one of the previous $L_j's$)
-			\item $L_i = L_j \circ L_k$ for some $j, k$ such that $1 \leq j, k < i$ ($L_i$ is a concatenation of previous $L_j's$)
-			\item $L_i = L_j \cup L_k$ for some $j, k$ such that $1 \leq k, j < i$ ($L_i$ is a union of previous $L_j's$)
+			\item $L_i = L_j^*$ for some $j, 1 \leq j \leq i$ (the Klenne star operation applied to one of the previous $L_j's$)
+			\item $L_i = L_j \circ L_k$ for some $j, k$ such that $1 \leq j, k < i$ ($L_i$ is a concatenation of previous $L_j$'s)
+			\item $L_i = L_j \cup L_k$ for some $j, k$ such that $1 \leq k, j < i$ ($L_i$ is a union of previous $L_j$'s)
 		\end{enumerate}
-		\item[Example 1:] Let $A = \{0, 1\}$. Let $L = \{0^M1^n \mid m, n \in \mathbb{N} \hspace{5mm} m \geq 0, n \geq 0 \}$ \\
-		$L$ is a regular language. Note that $L$ consists of all strings of first 0's, then 1's or the empty string $\varepsilon. 0^m1^n$ stands for $m$ 0's followed by $n$ 1's, \textbf{i.e.} $0^m \circ 1^n$. Let us examine $L' = \{0^m \mid m \in \mathbb{N}, m \geq 0 \}$ and $L" = \{1^n \mid n \in \mathbb{N}, n \geq 0 \}$
-		\item[Q:] Can we obtain them via operatons listed among 1-4?
-		\item[A:] Yes! Let $M = \{ 0 \} \hspace{10mm} M \subseteq A \subseteq A*$ and $M* = L^1 = \{0^m \mid m \in \mathbb{N} \hspace{5mm} m \geq 0 \}$. Let $N = \{1\} \hspace{5mm} N \subseteq A \subseteq A*$ and $N* = L" = \{1^n \mid n \in \mathbb{N}, n \geq 0 \}$. In other words, we can do $L_1 = \{0\}, L_2 = \{1\}, L_3 = L_1*, l_4 = L_2*, L_5 = L_4 \circ L_5 = L$. Therefore, $L$ is a regular language.
+		\item[Example 1:] Let $A = \{0, 1\}$. Let $L = \{0^m 1^n \mid m, n \in \mathbb{N} \hspace{5mm} m \geq 0, n \geq 0 \}$ \\
+		$L$ is a regular language. Note that $L$ consists of all strings of first 0's, then 1's or the empty string $\varepsilon$. $0^m1^n$ stands for $m$ 0's followed by $n$ 1's, \textbf{i.e.} $0^m \circ 1^n$. Let us examine $L' = \{0^m \mid m \in \mathbb{N}, m \geq 0 \}$ and $L'' = \{1^n \mid n \in \mathbb{N}, n \geq 0 \}$
+		\item[Q:] Can we obtain them via operatons listed among 1 -- 4?
+		\item[A:] Yes! Let $M = \{ 0 \} \hspace{10mm} M \subseteq A \subseteq A^*$ and $M^* = L^1 = \{0^m \mid m \in \mathbb{N} \hspace{5mm} m \geq 0 \}$. Let $N = \{1\} \hspace{5mm} N \subseteq A \subseteq A^*$ and $N^* = L'' = \{1^n \mid n \in \mathbb{N}, n \geq 0 \}$. In other words, we can do $L_1 = \{0\}$, $L_2 = \{1\}$, $L_3 = L_1^*$, $l_4 = L_2^*$, $L_5 = L_4 \circ L_5 = L$. Therefore, $L$ is a regular language.
 		\item[Example 2] Let $A = \{0, 1\}$. Let $L = \{0^m1^m \mid m \in \mathbb{N}, m \geq 1 \}$. $L$ is the language we used as an eample earlier. It turns out $L$ is \underline{NOT} regular. This language consists of strings of 0's followed by an equal number of strings of 1's. For a machine to decide that the string $0^m1^m$ is  inside the language is must store the number of 1's, as it examines the number of 0's or vice versa. The number of strings of the type $0^m1^m$ is not finite, however, so a finite-state machine cannot recognise this language. Heuristically, regular languages correspond to problems that can be solved with finite memory, \textbf{i.e.} we only need to remember one of finitely many things. By contrast, nonregular languages correspond to problems that cannot be solved with finite memory.
 		\item[Theorem:] The collection of regular languages $L$ is also closed under the following two operations:
 		\begin{enumerate}
-			\item Intersection, \textbf{i.e.} if $L', L"$ are regular languages (\textbf{i.e.} $L' \cup L" \in C$) then their intersection $L' \cap L"$ is a regular language.
-			\item Complement, \textbf{i.e.} if $L$ is a regular language (\textbf{i.e.} $L \in C$), then $A* \backslash L$ is a regular language ($A* \backslash L \in C$).
+			\item Intersection, \textbf{i.e.} if $L', L''$ are regular languages (\textbf{i.e.} $L' \cup L'' \in C$) then their intersection $L' \cap L''$ is a regular language.
+			\item Complement, \textbf{i.e.} if $L$ is a regular language (\textbf{i.e.} $L \in C$), then $A* \backslash L$ is a regular language ($A^* \backslash L \in C$).
 		\end{enumerate}
 		\item[Remark:] These two properties did not come into the definition of a regular language, but they are true and often quite useful.
 	\end{description}
@@ -1408,7 +1408,7 @@
 	\begin{description}
 		\item[Definition:] An \underline{automation} is a mathematical model of a computing device. \\
 		Plural of automation is \underline{automata}.
-		\item[Basic idea:] Reason about compatability without having to worry about the complexity of actual implementation. \\
+		\item[Basic idea:] Reason about computability without having to worry about the complexity of actual implementation. \\
 		It is most reasonable to consider at the beginning just finite states automata, \textbf{i.e.} machines with a finite number of internal states. The data entered discretely, and each datum causes the machine to either remain in the same internal state or else make the transition to some other state determined solely by 2 pieces of information:
 		\begin{enumerate}
 			\item The current state
@@ -1432,7 +1432,7 @@
 		\end{enumerate}
 		It turns out that knowing $S, F, i, t, A$ satisfies a finite state acceptor completely.
 		\item[Definition:] A finite state acceptor $(S, A, i, t, F)$ consists of a finite set $S$ of states, a finite set $A$ that is the input alphabet, a starting state $i \in S$, a transition mapping $t: S \times A \rightarrow S$, and a set $F$ of finishing states, where $F \subseteq S$.
-		\item[Definition:] Let $(S, A, i, t, F)$ be a finite state acceptor, and let $A*$ denote the set of words over the input alphabet $A$. A word $a_1, a_2\dots a_n$ of length $n$ over the alphabet $A$ is said to be \underline{recognised} or \underline{accepted} by the finite state acceptor if $\exists s_0, s_1, \dots, s_n \in S$ states s.t. $s_0 = i$ (the initial state), $s_n \in F$, and $s_i = t(s_{i-1}, a_i) \forall i \hspace{5mm} 1 \leq i \leq n$.
+		\item[Definition:] Let $(S, A, i, t, F)$ be a finite state acceptor, and let $A^*$ denote the set of words over the input alphabet $A$. A word $a_1, a_2\dots a_n$ of length $n$ over the alphabet $A$ is said to be \underline{recognised} or \underline{accepted} by the finite state acceptor if $\exists s_0, s_1, \dots, s_n \in S$ states s.t. $s_0 = i$ (the initial state), $s_n \in F$, and $s_i = t(s_{i-1}, a_i) \forall i \hspace{5mm} 1 \leq i \leq n$.
 		\item[Definition:] Let $(S, A, i, t, F)$ be a finite state acceptor. A language $L$ over the alphabet $A$ is said to be \underline{recognised} or \underline{accepted} by the finite state acceptor. \\
 		In the definition of a finite state acceptor, $t$ is the transition mapping, which may or may not be a function (hence the careful terminology). This is because finite state acceptors come in 2 flavours:
 		\begin{enumerate}
@@ -1464,7 +1464,7 @@
 				\draw (1.5, 0) circle [radius=0.5];
 				\draw (1.5, 0) circle [radius=0.3] node{$s_1$};
 				\draw[->] (1.5, 0.5)  arc(180:-70:10pt);
-				\draw (2.5, 0.5) node{1};
+				\draw (2.5, 0.5) node{0};
 				
 				% Bottom left
 				\draw (-0.5, -2) circle [radius=0.5] node{$s_3$};
@@ -1514,40 +1514,40 @@
 		\end{table}
 		~\\
 		Now that we really understand what a finite state acceptor is, we can develop a criterion for recognised regular languages called the \underline{Myhill-Nerode theorem} based on an equivalence relation we can set up on words in our language over the alphabet $A$.
-		\item[Definition:] Let $x, y \in L$, a language over the alphabet $A$. We call $x$ and $y$ equivalent over $L$ denoted by $x \equiv_L y$ if $\forall w \in A*, xw \in L \Leftrightarrow yx \in L$.
+		\item[Definition:] Let $x, y \in L$, a language over the alphabet $A$. We call $x$ and $y$ equivalent over $L$ denoted by $x \equiv_L y$ if $\forall w \in A^*, xw \in L \Leftrightarrow yw \in L$.
 		\item[Note:] $xw$ means the concatenation $x \circ w$, and $yw$ is the concatenation $y \circ w$.
 		\item[Idea:] If $x \equiv_L y$, then $x$ and $y$ place our finite state acceptor into the \underline{same state} $s$.
 		\item[Notation:] Let $L/N$ be the set of equivalence classes determined by the equivalence relation $\equiv_L$.
-		\item[The Myhill-Nerode Theorem:] Let $L$ be a language over the alphabet $A$. If the set $L/N$ ofequivalence classes in $L$ is infinite, then $L$ is not a regular language.
-		\item[Stretch of Proof:] All element of one equivalence class in $L/N$ place our automation into the same state $s$. Elements of distinct equivalence classes place the automation into distinct state, \textbf{i.e.} if $[x], [y] \in L/N$ and $[x] \neq [y]$, then all elements of $[x]$ place the automation into some state $s$, while all elements of $[y]$ place the automation into some state $s'$, with $s \neq s' \Rightarrow$ an automation that can recognise $L$ has \underline{as many} states at the number of equivalence classes in $L/N$, but $L/N$ is \underline{NOT} finite $\Rightarrow L$ cannot be recognised by a finite state automation $\Rightarrow L$ is not regular by the theorem above.
+		\item[The Myhill-Nerode Theorem:] Let $L$ be a language over the alphabet $A$. If the set $L/N$ of equivalence classes in $L$ is infinite, then $L$ is not a regular language.
+		\item[Sketch of Proof:] All element of one equivalence class in $L/N$ place our automation into the same state $s$. Elements of distinct equivalence classes place the automation into distinct state, \textbf{i.e.} if $[x], [y] \in L/N$ and $[x] \neq [y]$, then all elements of $[x]$ place the automation into some state $s$, while all elements of $[y]$ place the automation into some state $s'$, with $s \neq s' \Rightarrow$ an automation that can recognise $L$ has \underline{as many} states at the number of equivalence classes in $L/N$, but $L/N$ is \underline{NOT} finite $\Rightarrow L$ cannot be recognised by a finite state automation $\Rightarrow L$ is not regular by the theorem above.
 		\item[qed]
 	\end{description}
 	
 	\section{Regular Grammars}
 	\begin{description}
 		\item[Task:] Understand what is the form of the production rules of a grammar that generates a regular language.
-		\item[Recall:] that a context-free grammar is given by $(V, A {<}s{>}, P)$ where every production rule $<$T$> \rightarrow w$ in $P$ causes \underline{one and only one} nonterminal to be replaced by a string in $V*$.
-		\item[Definition:] A context-free grammar $(V, A {<}s{>}, P)$ is called a \underline{regular grammar} is every production rule in $P$ is of one of the three forms:
+		\item[Recall] that a context-free grammar is given by $(V, A, \langle s\rangle , P)$ where every production rule $\langle T\rangle  \rightarrow w$ in $P$ causes \underline{one and only one} nonterminal to be replaced by a string in $V^*$.
+		\item[Definition:] A context-free grammar $(V, A, \langle s\rangle , P)$ is called a \underline{regular grammar} is every production rule in $P$ is of one of the three forms:
 		\begin{enumerate}
-			\item[(i)] $<$A$> \rightarrow$ b$<$B$>$
-			\item[(ii)] $<$A$> \rightarrow$ b
-			\item[(iii)] $<$A$> \rightarrow \varepsilon$
+			\item[(i)] $\langle A\rangle  \rightarrow$ b$\langle B\rangle $
+			\item[(ii)] $\langle A\rangle  \rightarrow$ b
+			\item[(iii)] $\langle A\rangle  \rightarrow \varepsilon$
 		\end{enumerate}
-		where $<$A$>$ and $<$B$>$ are nonterminals, $b$ is a terminal, and $\varepsilon$ is the empty word. A regular grammar is said to be in normal form if all its production rules are of types (i) and (iii).
-		\item[Remark:] In the literature, you often see this definition labelled \underline{left-regular grammar} as opposed to \underline{right-regular grammar}, where the production rules of types 1 have the form $<$A$> \rightarrow <$B$>$b, (\textbf{i.e.} the termminal is one the right of the nonterminal). This distinction is not really important as long as we stick to one type throughout since both \underline{left regular grammars} and \underline{right regular grammars} generate regular languages.
+		where $\langle A\rangle $ and $\langle B\rangle $ are nonterminals, $b$ is a terminal, and $\varepsilon$ is the empty word. A regular grammar is said to be in normal form if all its production rules are of types (i) and (iii).
+		\item[Remark:] In the literature, you often see this definition labelled \underline{left-regular grammar} as opposed to \underline{right-regular grammar}, where the production rules of types 1 have the form $\langle A\rangle  \rightarrow \langle B\rangle $b, (\textbf{i.e.} the terminal is one the right of the nonterminal). This distinction is not really important as long as we stick to one type throughout since both \underline{left regular grammars} and \underline{right regular grammars} generate regular languages.
 		\item[Lemma:] Any language generated by a regular grammar may be generated by a regular grammar in normal form.
-		\item[Proof:] Let $<$A$> \rightarrow$b be a rule of type (ii). Replace it by two rules: $<$A$> \rightarrow$b$<$F$>$ and $<$F$> \rightarrow \varepsilon$, where $<$F$>$ s a new nonterminal. Add $<$F$>$ to the set $V$. We do the same for every rule of type (ii) obtaining a bigger set $V$, but now our production rules are only of type (i) and (iii) and we are generating the same language.
+		\item[Proof:] Let $\langle A\rangle  \rightarrow$b be a rule of type (ii). Replace it by two rules: $\langle A\rangle  \rightarrow$b$\langle F\rangle $ and $\langle F\rangle  \rightarrow \varepsilon$, where $\langle F\rangle $ s a new nonterminal. Add $\langle F\rangle $ to the set $V$. We do the same for every rule of type (ii) obtaining a bigger set $V$, but now our production rules are only of type (i) and (iii) and we are generating the same language.
 		\item[qed]
 		\item[Example:] Recall the regular language $L = \{0^m1^n \mid m, n \in \mathbb{N}, m \geq 0, n \geq 0 \}$. We can generate it from the regular grammar in normal gorm given by production rules:
 		\begin{enumerate}
-			\item $<$s$> \rightarrow$ 0$<$A$>$
-			\item $<$A$> \rightarrow$ 0$<$A$>$
-			\item $<$A$> \rightarrow \varepsilon$
-			\item $<$s$> \rightarrow \varepsilon$
-			\item $<$A$> \rightarrow$ 1$<$B$>$
-			\item $<$B$> \rightarrow$ 1$<$B$>$
-			\item $<$s$> \rightarrow$ 1 $<$B$>$
-			\item $<$B$> \rightarrow \varepsilon$
+			\item $\langle s\rangle  \rightarrow 0\langle A\rangle $
+			\item $\langle A\rangle  \rightarrow 0\langle A\rangle $
+			\item $\langle A\rangle  \rightarrow \varepsilon$
+			\item $\langle s\rangle  \rightarrow \varepsilon$
+			\item $\langle A\rangle  \rightarrow 1\langle B\rangle $
+			\item $\langle B\rangle  \rightarrow 1\langle B\rangle $
+			\item $\langle s\rangle  \rightarrow 1\langle B\rangle $
+			\item $\langle B\rangle  \rightarrow \varepsilon$
 		\end{enumerate}
 		Rules (1), (2), (5), (6), (7) are of type (i), where rules (3), (4) and (8) are of types (iii). \\
 		(1) and (3) gives 0. (1), (2) applied $m-1$ times and (3) gives $0^m$ for $m \geq 2$. \\
@@ -1557,11 +1557,11 @@
 		(1), (2) applied $m-1$ times, (5), (6) applied $n-1$ times, and (8) gives $0^m1^n$ for $m \geq 2, n \geq 2$. \\
 		Rule (4) gives the empty word $\varepsilon = 0^01^0$.
 		\item[Q:] Why does a regular grammar yield a regular language, \textbf{i.e.} one recognised by a finite state acceptor?
-		\item[A:] Not obvious from the definition, \underline{but} we can construct the finite state acceptor from the regular grammar as follows: our regular grammar is given by $(V, A, {<}s{>}, P)$.  \underline{Want} a finite state acceptor $(S, A, i, t, F)$. Immediately, we see the alphabet $A$ is the same and $i=<$s$>$. This gives us the idea of associating to every nonterminal symbol in $B \backslash A$ a state. $<$s$> \in V \backslash A$, so that's good. Next we ask:
+		\item[A:] Not obvious from the definition, \underline{but} we can construct the finite state acceptor from the regular grammar as follows: our regular grammar is given by $(V, A, \langle s\rangle , P)$.  \underline{Want} a finite state acceptor $(S, A, i, t, F)$. Immediately, we see the alphabet $A$ is the same and $i=\langle s\rangle $. This gives us the idea of associating to every nonterminal symbol in $B \backslash A$ a state. $\langle s\rangle  \in V \backslash A$, so that's good. Next we ask:
 		\item[Q:] Is it sufficient for $S = V \backslash A$?
 		\item[A:] No! Our set $F$ of finishing/accepting states should be nonempty. So we add an element $\{f\}$ to $V \backslash A$, where our acceptor will end up when a word in our language. Thus, $S = (V \backslash A) \cup \{f\}$ and $F \{f\}$. $F \subseteq S$ as needed.
 		\item[Q:] How do we define $t$?
-		\item[A:] Use the production rules in $P$! For every rule of type (i), which is of the form $<$A$> \rightarrow$ b$<$B$>$ set $t(<$A$>$,b$) = <$B$>$. This works out well because our nonterminals $<$A$>$ and $<$B$>$ are states of the acceptor and the terminal $b \in A$ for $t$ takes an element of $S \times A$ to an element of $S$ as needed. Now look at production rules of type (ii), $<$A$> \rightarrow b$ and of types (iii), $<$A$> \rightarrow \varepsilon$. Those are applied when we \underline{finish} constructing a word $w$ in our language $L$, \textbf{i.e.} at the very last step, so our acceptor should end up in the finishing state $f$ whenever a production rule of type (ii) or (iii) is applied. Write a production rule of type (ii) or (iii) as $<$A$> \rightarrow w$, then we can set $t(<$A$>, w) = f$. We have finished constructing $t$ as well. Technically, $t:S \times (A \cup \{ \varepsilon \}) \rightarrow S$ instead of $t:S \times A \rightarrow S$, but we can easily fix the transition function t by combining the last two transitions for each accepted word.
+		\item[A:] Use the production rules in $P$! For every rule of type (i), which is of the form $\langle A\rangle  \rightarrow$ b$\langle B\rangle $ set $t(\langle A\rangle $,b$) = \langle B\rangle $. This works out well because our nonterminals $\langle A\rangle $ and $\langle B\rangle $ are states of the acceptor and the terminal $b \in A$ for $t$ takes an element of $S \times A$ to an element of $S$ as needed. Now look at production rules of type (ii), $\langle A\rangle  \rightarrow b$ and of types (iii), $\langle A\rangle  \rightarrow \varepsilon$. Those are applied when we \underline{finish} constructing a word $w$ in our language $L$, \textbf{i.e.} at the very last step, so our acceptor should end up in the finishing state $f$ whenever a production rule of type (ii) or (iii) is applied. Write a production rule of type (ii) or (iii) as $\langle A\rangle  \rightarrow w$, then we can set $t(\langle A\rangle , w) = f$. We have finished constructing $t$ as well. Technically, $t:S \times (A \cup \{ \varepsilon \}) \rightarrow S$ instead of $t:S \times A \rightarrow S$, but we can easily fix the transition function t by combining the last two transitions for each accepted word.
 		\item[Remark:] The same general principals as we used above allow us to go from a finite state acceptor to a regular grammar. This gives us the following theorem:
 		\item[Theorem:] A language $L$ is regular $\Leftrightarrow L$ is recognised by a finite state acceptor $\Leftrightarrow L$ is generated by a regular grammar.
 	\end{description}
@@ -1809,7 +1809,7 @@
 		\item 2 triangle subgraphs of the star of David: \\
 		\begin{tabular}{ll}
 				$V' = \{a, c, e\}$ & $E' = \{ac, ce, ae\}$ \\
-				$V" = \{b, f, d\}$ & $E" = \{bf, fd, bd\}$
+				$V'' = \{b, f, d\}$ & $E'' = \{bf, fd, bd\}$
 		\end{tabular}
 	\end{description}
 	
@@ -1853,7 +1853,7 @@
 		deg $h$ = 3 \\
 		\item[Definition:] A vertex of degree 0 is called an \underline{isolated} vertex.
 		\item[Definition:] A vertex of degree 1 is called a \underline{pendent} vertex.
-		\item[Theorem:] Let $(V, E)$ be a graph. Then $\sum_{v \in V}$deg $v = Z\#(E)$, where $\sum_{v \in V}$deg $v$ is the sum of the degrees of all the vertices of the graph, and $\#(E)$ is the number of edges of the graph.
+		\item[Theorem:] Let $(V, E)$ be a graph. Then $\sum_{v \in V}$deg $v = 2\#(E)$, where $\sum_{v \in V}$deg $v$ is the sum of the degrees of all the vertices of the graph, and $\#(E)$ is the number of edges of the graph.
 		\item[Proof:] $\sum_{v \in V}$deg $v$ is the sum of all the entries in the adjacency matrix. Every edge $vv' \in E$ contributes 2 to the sum $\sum_{v \in V}$deg $v$, 1 for the vertex $v$ and 1 for the vertex $v' \Rightarrow$ each edge must be counted twice, so $\sum_{v \in V}$deg $v = 2 \#(E)$.
 		\item[qed]
 		\item[Corollary:] $\sum_{v \in V}$deg $v$ is an even integer.
@@ -1897,6 +1897,7 @@
 		\item[Definition:] A walk $v_0 v_1 v_2 \dots v_n$ in a graph is said to \underline{traverse} the edges $v_{i-1} v_i$ and to \underline{pass through} the vertices $v_0, v_1, \dots, v_n$. Length of walk $= \#$ of edges traversed $\rightarrow$ the smallest possible number is two edges. As a result, we have the following definition:
 		\item[Definition:] A walk that consists of a single vertex $v \in V$ and has length two is called \underline{trivial}.
 		\item[Definition:] Let $(V, E)$ be a graph. A \underline{trail} $v_0 v_1 v_2 \dots v_n$ of length $n$ in the graph from some vertex $a$ to some vertex $b$ is a walk of length $n$ from $a$ to $b$ with the property that edges $v_{i-1} v_i$ are distinct for $i-1, 2, \dots , n$. In other words, a trail is a walk in the graph, which traverses edges of the graph at most once.
+		\item[Definition:] Let $(V, E)$ be a graph. A \underline{path} $v_0 v_1 v_2 \dots v_n$ of length $n$ in the graph from some vertex $a$ to some vertex $b$ is a walk of length $n$ from $a$ to $b$ with the property that vertices $v_0, v_1 \dots v_n$ are distinct. In other words, a path in a graph is a walk in the graph, which passes through the vertices of the graph at most once.
 		\item[Definition:] A walk, trail or path is a graph is called \underline{trivial} if it is a walk of length two consist of a single vertex $v \in V$; otherwise, the walk, trail, or path is called \underline{non-trivial}.
 		\item[Example:] ~\\
 		\begin{enumerate}
@@ -1995,13 +1996,9 @@
 		\item[Transitive:] If $a \sim b$ and $b \sim c$, for $a, b, c \in V$, there $\exists$ walk $a v_1 v_2 \dots v_{n-1} b$ from $a$ to $b$ and $\exists$ walk $b w_1 w_2 \dots w_{m-1} c$ from $b$ to $c$. We put these two walks together (concatenate them) to yield the walk $a v_1 v_2 \dots v_{n-1} b w_1 w_2 \dots w_{m-1} c$ from $a$ to $c$. Therefore $a \sim c$.
 		\item[qed]
 	\end{description}
-	The equivalence relation $\sim$ on $V$ partitions it into dsjoint subsets $v_1, v_2, \dots
-	
-	v_p$, where
+	The equivalence relation $\sim$ on $V$ partitions it into dsjoint subsets $v_1, v_2, \dots v_p$, where
 	\begin{enumerate}
-		\item $v_1 \cup v_2 \cup \dots
-		
-		\cup v_p = V$
+		\item $v_1 \cup v_2 \cup \dots \cup v_p = V$
 		\item $v_i \cap v_j = \emptyset$ if $i \neq j$
 		\item Two vertices $a, b \in v_i \Leftrightarrow a \sim b$, \textbf{i.e.} $\exists$ walk in $(V, E)$ from $a$ to $b$
 	\end{enumerate}
@@ -2036,10 +2033,6 @@
 		\end{enumerate}
 		\item[Theorem:] If $(V, E)$ has no isolated or pendant vertices, \textbf{i.e.} $\forall v \in V$ deg $v \geq$ 2, then $(V, E)$ contains at least one simple circuit.
 		\item[Proof:] Consider all paths $(V, E)$. The maximum length of a path is $\#(V) - 1$ since a path of length $p$ passed through $p+1$ vertices. Take a path $v_0 v_1 \dots v_m$ is $(V, E)$ of maximum length, \textbf{i.e.} any other path in $(V, E)$ has length $\leq m = $ length of $v_0 v_1 \dots v_m$. Now consider the vertex $v_m$. deg $v_m \geq$ 2 by assumption. We know $v_{m-1}$ is adjacent to $v_m$ since the edge $v_{m-1} v_m$ is part of the path $v_0 v_1 \dots v_m$, but deg $v_m \geq $ 2 means $\exists w \in V$ s.t. $ww_m \in E$. If $w \neq v_i$ for $0 \leq i \leq m-2$, then $v_0 v_1 \dots v_m w$ is a path in $(V, E)$ longer than $v_0 v_1 \dots v_m \Rightarrow \Leftarrow$ to the act that $v_0 v_1 \dots v_m$ was chosen of maximal length. Therefore, $w = v_i$ for some $0 \leq i \leq m-2$, but then $v_i v_{i+1} \dots v_m v_i$ is a simple circuit in the graph.
-		\item[qed]
-		\item[Theorem:] Let $(V, E)$ be an undirected graph and let $u, v \in V$ be vertices s.t. $u \neq v$ and $\exists$ at least two distinct paths in $(V, E)$ from $u$ to $v$. Then the graph contains at least one.
-		\item[Theorem:] If $(V, E)$ has bo isolated or pendent vertices, \textbf{i.e.} $\forall v \in V$ deg $v \geq$ 2, then $(V, E)$ contains at least one simple circuit.
-		\item[Proof:] Consider all paths in $(V, E)$. The maximum length of a path is $\#(V)-1$ since a path of length $p$ passes through $p+1$ vertices. Take a path $v_0 v_1 \dots v_m$ in $(V, E)$ of maximum length, \textbf{i.e.} any other path in $(V, E)$ has length $\leq m =$ length of $v_0 v_1 \dots v_m$. Now consider the vertex $v_m$. def $v_m \geq $ 2 by assumption. We know $v_{m-1}$ is adjacent to $v_m$ since the edge $v_{m-1} v_m$ is part of the path $v_0 v_1 \dots v_m$, but def $v_m \geq$ 2 means $\exists w \in V$ s.t. $ww_m \in E$. If $w \neq v_i$ for $0 \leq i \leq m-2$, then $v_0 v_1 \dots v_m w$ is a path in $(V, E)$ longer than $v_0 v_1 \dots v_m \Rightarrow \Leftarrow$ to the fact that $v_0 v_1 \dots v_m$ was chosen of maximal length. Therefore, $w = v_i$ for some $0 \leq i \leq m-2$, but then $v_i v_{i+i}\dots v_m v_i$ is a simple circuit in the graph.
 		\item[qed]
 		\item[Theorem:] Let $(V, E)$ be an undirected graph and let $u, v \in V$ be vertices s.t. $u \neq v$ and $\exists$ at least two distinct paths in $(V, E)$ from $u$ to $v$. Then the graph contains at least one simple circuit.
 		\item[Proof:] Let $a_0 a_1 a_2 \dots a_m$ and $b_0 b_1 \dots b_n$ be the two distinct paths in the graph between $u$ and $v$, \textbf{i.e.} $a_0 = b_0 = u$ and $a_m = b_m = v$. Let $m \leq n$. Since the paths are distinct $\exists i$ with $0 \leq i \leq m$ s.t. $a_1 \neq b_i$. Choose the smallest $i$ for which $a_i \neq b_i$, \textbf{i.e.} $a_0 = b_0, a_1 = b_1, \dots, a_{i-1} = b_{i-1}$, but $a_i \neq b_i$. We have thus eliminated the redundencies at the beginning of the paths. We now need to eliminate redundencies at the other end of the paths. We know $a_m = b_m$ so $a_j \in \{b_m \mid i-1 < k \leq n \}$ is certainly satisfied for $j=m$, but we want to choose the \underline{smallest} index for which this condition is satisfied. Let this index be $p \Rightarrow a_p \in \{b_k \mid i-1 < k \leq n \}$, \textbf{i.e.} $a_p = b_s$ for some $s$ s.t. $i-1 < s \leq n$. Since $p$ is the smallest index satisfying $a_p \in \{b_k \mid i-1 < k \leq n \}, a_i, a_{i+1}, \dots, a_{p-1} \notin \{b_k \mid i-1 < k \leq n \} \Rightarrow \underset{indices \: running \: in \: increasing \: order}{\underbrace{a_{i-1} a_i \dots a_p}} (= b_s) \underset{indices \: running \: in \: decreasing \: order}{\underbrace{b_{s-1}\dots b_i}} a_{i-1} (=b_{i-1})$ is a simple circuit in $(V, E) \Rightarrow (V, E)$ has at least one simple circuit.
