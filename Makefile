@@ -1,2 +1,3 @@
 all:
-	pdflatex *.tex
+	pdflatex notes.tex
+	pdflatex notes.tex
