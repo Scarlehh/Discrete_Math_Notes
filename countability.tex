@@ -1,0 +1,64 @@
+\section{Countability of Sets}
+	\begin{description}
+		\item[Task:] Understand what it means for a set to be countable, countably infinite and uncountably infinite. Show that the set of all languages over a finite alphabet is uncountably infinite, wheras the set ofa ll regular languages over a finite alphabet is countably infinite.
+	\end{description}
+
+	We want to understand sizes of sets.
+	In the unit on functions last term, when we looked at functions defined on finite sets, we wrote down a set A with m elements as $A = \{a_1, \dots, a_n\}$.
+	This notation \underline{mimics the process of counting:} $a_1$ is the first element of $A$, $a_2$ is the second element of $A$, and so on up to $a_n$ is the $n^th$ element of $A$.
+	In other words, another way of saying $A$ in a set of $n$ elements is that there exists a bijective function $f: A \rightarrow \{1, 2, \dots, n\}$.
+
+	\begin{description}
+		\item[Definition:] A set $A$ has $n$ elements $\leftrightarrow \exists f: A \rightarrow J_n$ a bijection.
+		\item[NB:] This definition works $\forall n \geq 1, n \in \mathbb{N}^\ast$
+		\item[Notation:] $\exists f: A \rightarrow J_n$ a bijection is denoted as $A \sim J_n$.
+			More generally, $A \sim B$ means $\exists f: A \rightarrow B$ a bijection, and it is a relation on sets.
+			In fact, it is an equivalence relation (check!). $[J_n]$ is the equivalence class of all sets $A$ of size $n$, i.e. $\#(A) = n$.
+	\end{description}
+
+	\begin{description}
+		\item[Definition:] A set $A$ is \underline{finite} if $A \sim J_n$ for some $n \in \mathbb{N}^\ast$ or $A = \emptyset$.
+		\item[Definition:] A set $A$ is \underline{infinite} if $A$ is not finite.
+		\item[Examples:] $\mathbb{N, Q, R,}$ etc.
+	\end{description}
+
+	To understand sizes of infinite sets, generalize the construction above. Let $J = \mathbb{N}^\ast = \{1, 2, \dots \}$
+
+	\begin{description}
+		\item[Definition:] A set $A$ is \underline{uncountably infinite} if $A$ is neither finite nor countably infinite.
+			In fact, we often treat together the cases $A$ is finite or $A$ is countably infinite since in both of these cases the counting mechanism that is so familiar to us works.
+			Therefore, we have the following definition:
+		\item[Definition:] A set $A$ is \underline{countable} if $A$ is finite ($A \sim J_n$ or $A = \emptyset$) or $A$ is countably infinite ($A \sim J$).
+	\end{description}
+	There is a difference in the terminology regarding countability between CS sources (textbooks, articles, etc.) and maths sources.
+	This is the dictionary:
+	\centerline{
+		\begin{tabular}{|c|c|}
+			\hline
+			CS & Maths	\\
+			\hline
+			countable & at most countable	\\
+			\hline
+			countably infinite & countable \\
+			\hline
+			uncountably infinite & uncountable \\
+			\hline
+		\end{tabular}
+	}
+	It's best to double check which terminology a source is using.
+
+	\begin{description}
+		\item[Goal:] Characterize $[\mathbb{N}]$, the equivalence class of countably infinite set, and $[\mathbb{R}]$, the equivalence class of uncountably infinite sets the same size as $\mathbb{R}$.
+		\item[Bad news:] Both $[\mathbb{N}]$ and $[\mathbb{R}]$ consist of ininite sets.
+		\item[Good news:] We only care about these two equivalence classes.
+		\item[NB:] There are uncountably infinite sets of size bigger than $[\mathbb{R}]$ that can be obtained from the power set construction, but it is unlikely you will see them in your CS coursework.
+	\end{description}
+
+	To characterize $[\mathbb{N}]$, we need to recall the notion of a sequence:
+
+	\begin{description}
+		\item[Definition:] A \underline{sequence} is a set of elements $\{x_1, x_2, \dots\}$ indexed by $J$, i.e. $\exists f: \rightarrow \{x_1, x_2, \dots\}$ s.t. $f(n) = x_n \forall n \in J$.
+	\end{description}
+
+	Recall that sequences and their limits are used to define various notions in calculus (differentiation, integration, etc.).
+	Also, calculators use sequences in order to compute with various rational and irrational numbers.
