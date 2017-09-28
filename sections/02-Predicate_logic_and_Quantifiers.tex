@@ -1,0 +1,42 @@
+\documentclass[../main.tex]
+		
+		\begin{document}
+			\begin{description}
+		\item[Task:] Understand enough predicate logic to make sense of quantified statements.
+		\item In predicate logic, propositions depend on variable x, y, z, so their truth value may change depending on which values these variables assume: $P(x), Q(x, y), R(x, y, z)$
+	\end{description}
+	
+	\subsection{Introduce quantifiers}
+	\subsubsection{$\exists$ existential quantifier}
+	\begin{description}
+		\item[Syntax:] $\exists xP(x)$
+		\item[Definition:] $\exists xP(x)$ is true if $P(x)$ is true or some value of $x$; it is false otherwise.
+	\end{description}
+	
+	\subsubsection{$\forall$ universal quantifier}
+	\begin{description}
+		\item[Syntax:] $\forall xP(x)$
+		\item[Definition:] $\forall xP(x)$ is true if $P(x)$ is true for all allowable values of $x$. It is false otherwise.
+	\end{description}
+	
+	\subsubsection{$\exists!$ for one and only one}
+	\begin{description}
+		\item[Syntax:] $\exists! xP(x)$
+		\item[Definition:] $\exists! xP(x)$ is true if $P(x)$ is true for exactly one value of $x$ and false for all often values of $x$; otherwise, $\exists! xP(x)$ is false.
+	\end{description}
+	
+	\subsection{Alternation of Quantifiers}
+	\begin{tabular}{lr}
+		$\forall x\exists y\forall z$ & $P(x, y, z)$ \\
+	\end{tabular}
+	~\\
+	\textbf{NB:} The order \underline{cannot} be exchanged as it might modify the truth values of the statement (think of examples with two quantifiers).
+	
+	\subsection{Negation of Quantifiers}
+	\begin{tabular}{rcl}
+		$\lnot(\exists xP(x))$ & $\leftrightarrow$ & $\forall x\lnot P(x)$ \\
+		$\lnot(\forall xP(x))$ & $\leftrightarrow$ & $\exists x\lnot P(x)$ \\
+	\end{tabular}
+	
+
+\end{document}

@@ -1,0 +1,63 @@
+\documentclass[../main.tex]
+		
+		\begin{document}
+			\begin{description}
+		\item[Task:] Understand enough set theory to make sense of other mathematical objects in abstract algebra, graph theory, etc. Set theory started around 1870's $\rightarrow$ late development in mathematics but now taught early in one's maths education due to Bourbaki school.
+		\item[Definition:] A set is a collection of objects. $x\in A$ means the element $X$ is in the set $A$ (\textbf{i.e.} belongs to $A$).
+		\item[Examples:] 
+		\begin{enumerate}
+			\item[]
+			\item All students in a class.
+			\item $\mathbb{N}$ the set of natural numbers starting at 0.
+			\begin{enumerate}
+				\item [$\mathbb{N}$] is defined via the following two axioms:
+				\item 0 $\in \mathbb{N}$
+				\item if $x \in \mathbb{N}$ then $x+1 \in \mathbb{N}$ ($x \in \mathbb{N} \rightarrow X+A \in \mathbb{N}$)
+			\end{enumerate}
+			\item $\mathbb{R}$ set of real numbers also introduced axiomatically
+			\begin{enumerate}
+				\item[$\mathbb{R}$] the set of real numbers.
+				\item Additive closure: $\forall x, y \exists z (x+y=z)$
+				\item Multiplicative closure: $\forall x, y, \exists z (x \times y=z)$
+				\item Additive associativity: $x+(y+z)=(x+y)+z$
+				\item Multiplicative associativity: $x \times (y \times z) = (x \times y) \times z$
+				\item Additive commutativity: $x+y=y+x$
+				\item Multiplicative commutativity: $x \times y = y \times x$
+				\item Distributivity: $x \times (y+z) = (x \times y) + (x \times z)$ and $(y+z) \times x = (y \times x) + (z \times x)$
+				\item Additive identity: There is a number, denoted 0, such that or all $x, x+0=x$
+				\item Multiplicative identity: There is a number, denoted 1, such that for all $x, x \times 1 = 1 \times x = x$
+				\item Additive inverses: For every $x$ there is a number, denoted $-x$, such that $x+(-x)=0$
+				\item Multiplicative inverses: For every nonzero $x$ there is a number, denoted $x$, such that $x \times x^{-1} = x^{-1} \times x = 1$
+				\item $0 \neq 1$
+				\item Irreflexivity of $<: \sim (x<x)$
+				\item Transitivity of <: If $x<y$ and $y<z$, then $x<z$
+				\item Trichotomy: Either $x<y, y<x,$ or $x=y$
+				\item If $x<y$, then $x+y<y+z$
+				\item If $x<y$ and $0<z$, then $x \times z < y \times z$ and $z \times x < z \times y$
+				\item Completeness: If a nonempty set of real numbers has an upper bound, then it has a \textit{least} upper bound.
+			\end{enumerate}
+			\item $\emptyset$ is the empty set (The set with no elements).
+		\end{enumerate}
+		\item[Definition:] Let A, B be sets. A=b if and only if all elements of A are elements of B and all elements of B are elements of A,\\i.e. $A=b \leftrightarrow [\forall x (x \in A \rightarrow x \in B)] \cap [\forall y (y \in B \rightarrow y \in A)]$
+	\end{description}
+		
+	\subsection{Two Ways to Describe Sets}
+	\begin{enumerate}
+		\item The enumeration/roster method: list all elements of the set.\\ \textbf{NB:} order is \underline{irrelevant}.\\ $A=\{0, 1, 2, 3, 4, 5\}=\{5, 0, 2, 3, 1, 4\}$
+		\item The formulaic/set builder method: give a formula that generates all elements of the set.\\ $A=\{x \in \mathbb{N} \mid 0 \leq x \land x \leq 5\} = \{0, 1, 2, 3, 4, 5\} = \{x \in \mathbb{N} : 0 \leq x \land x \leq 5 \}$
+	\end{enumerate}
+	Using $\mathbb{N}$ and the set-builder method, we can define:
+		
+	$\mathbb{Z} = \{m-n \mid \forall m, n \in \mathbb{N} \}$
+		
+	\hspace{5mm} $n=0$ in any natural numbers $\Rightarrow$ we generate all of $\mathbb{N}$
+		
+	\hspace{5mm} $m=0$ in any natural number $\Rightarrow$ we generator all negative integers
+		
+	$\mathbb{Q} = \{\frac{p}{q} \mid p, q \in \mathbb{Z} \land q \neq 0 \}$
+	\begin{description}
+		\item[Definition:] A set $A$ is called finite if it has a finite number of elements; otherwise it is called infinite.
+	\end{description}
+		
+
+\end{document}

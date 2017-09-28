@@ -1,0 +1,38 @@
+\documentclass[../main.tex]
+		
+		\begin{document}
+			\begin{description}
+		\item[Task:] Divide a graph into subgraphs that are isolated from each other.
+	\end{description}
+	Let $(V, E)$ be an undirected graph. We define a relation $\sim$ on the set of vertices $V$, where $a, b \in V$ satisfy $a \sim b$ iff $\exists$ walk in the graph from $a$ to $b$.
+	\begin{description}
+		\item[Lemma:] Let $(V, E)$ be an undirected graph. The relation $a \sim b$ or $a, b \in V$, which holds iff $\exists$ walk in the graph between $a$ and $b$ is an equivalence relation.
+		\item[Proof:] We must show $\sim$ is reflexive, symmetric, and transitive.
+		\item[Reflexive:] $\forall v \in V, v \sim v$ since the trivial walk is a walk from $v$ to itself.
+		\item[Symmetric:] If $a \sim b$ for $a, b \in V$, then $\exists$ walk $v_0 v_1 \dots v_n$ where $v_0 = a$ and $v_n = b$. This walk can be reversed to $v_n v_{n-1} \dots v_1 v_0$, which now goes from $v_n = b$ to $v_0 = a$. Therefore, $b \sim b$ as needed.
+		\item[Transitive:] If $a \sim b$ and $b \sim c$, for $a, b, c \in V$, there $\exists$ walk $a v_1 v_2 \dots v_{n-1} b$ from $a$ to $b$ and $\exists$ walk $b w_1 w_2 \dots w_{m-1} c$ from $b$ to $c$. We put these two walks together (concatenate them) to yield the walk $a v_1 v_2 \dots v_{n-1} b w_1 w_2 \dots w_{m-1} c$ from $a$ to $c$. Therefore $a \sim c$.
+		\item[qed]
+	\end{description}
+	The equivalence relation $\sim$ on $V$ partitions it into dsjoint subsets $v_1, v_2, \dots v_p$, where
+	\begin{enumerate}
+		\item $v_1 \cup v_2 \cup \dots \cup v_p = V$
+		\item $v_i \cap v_j = \emptyset$ if $i \neq j$
+		\item Two vertices $a, b \in v_i \Leftrightarrow a \sim b$, \textbf{i.e.} $\exists$ walk in $(V, E)$ from $a$ to $b$
+	\end{enumerate}
+	Note that an edge is a walk of length 1, so if $a, b \in V$ satisfy that $\exists ab \in E$, then $a$ and $b$ belong to the same $v_i$. As a result, we can partition the set of edges as follows:
+	\[E_i \{ab \in E \mid a, b \in v_i \}\]
+	Clearly, $E_1 \cup E_2 \cup \dots \cup E_p = E \land E_i \cap E_j = \emptyset$ is $i \neq j$. Furthermore, $(V_1, E_1), (V_2, E_2), \dots, (V_p, E_p)$ are subgraphs of $(V, E)$, and these subgraphs are disjoint since $v_i \cap v_j = \emptyset$ and $E_i \cap E_j = \emptyset$ is $i \neq j$. The subgraphs $(V_i, E_i)$ are called the \underline{components} (or \underline{connected components}) of the graph $(V, E)$.
+	\begin{description}
+		\item[Lemma:] The vertices and edges of any walk in an undirected graph are all contained in a single component of that graph.
+		\item[Proof:] Let $v_0 v_1 \dots v_n$ be a walk in a graph $(V, E)$, then $v_0 v_1 \dots v_r$ is a walk in $(V, E) \forall r \hspace{5mm} 1 \leq r \leq n \Rightarrow v_0 \sim v_r \forall r \hspace{5mm} 1 \leq r \leq n \Rightarrow v_r$ belongs to the same component of the graph as $v_0$. The same is true for all the edges $v_{i-1}v_i$ for $1 \leq i \leq n$
+		\item[qed]
+		\item[Lemma:] Each component of an undirected graph is connected.
+		\item[Proof:] Let $(V, E)$ be a graph and let $(V_1, E_i)$ be any component of $(V, E). \forall u, v \in V_i$, by definition $\exists$ walk in $(V, E)$ between $u$ and $v$. By previous lemma, however, all vertices and edges of this walk are in $(V_i, E_i) \Rightarrow$ the walk between $u$ and $v$ is a walk in $(V_i, E_i)$, but this assertion is true $\forall u, v \in V_i \Rightarrow (V_i, E_i)$ is connected.
+		\item[qed]
+	\end{description}
+	
+	\subsection{Moral of the story}
+	Any undirected graph can be represented as a disjoint union of connected subgraphs, namely its components $\Rightarrow$ the study of undirected graphs reduces to the study of connected graphs, as components don't share either vertices or edges.
+	
+
+\end{document}

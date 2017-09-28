@@ -1,0 +1,157 @@
+\documentclass[../main.tex]
+		
+		\begin{document}
+			\begin{description}
+		\item[Task:] Understand how to represent sets by Venn diagrams. Understand set union, intersection, complement and difference.
+		\item[Definition:] Let $A, B$ be sets. $A$ is a \underline{subset} of $B$. If all elements of $A$ are elements of $B$, \textbf{i.e.} $\forall x(x \in A \rightarrow x \in B)$. We denote that $A$ is a subset of $B$ by $A \subseteq B$
+		\item[Example:] $\mathbb{N} \subseteq \mathbb{Z}$
+		\item[Definition:] Let $A, B$ be sets. $A$ is a \underline{proper} subset of $B$ if $A \subseteq B \land A \neq B$, \textbf{i.e.} $A \subseteq B \land \exists x \in B s.t. x \notin A$. \\ A proper subset is always a subset, but a subset is not always a proper subset.
+		\item[Notation:] $A \subset B$
+		\item[Example:] $\mathbb{N} \subset \mathbb{Z}$ since $\exists -1 \in \mathbb{N}$ \\ \textbf{NB:} $\forall A$ a set $\emptyset \subseteq A$
+		\item[Recall:] $B \subseteq C$ means $\forall x(x \in B \rightarrow x \in C)$, but $\emptyset$ has no elements so in $\emptyset \subseteq A$ the quantifier $\forall$ operates on a domain with no elements. Clearly, we need to give meaning to $\exists$ and $\forall$ on empty sets.
+	\end{description}
+	
+	\begin{tabular}{cc}
+		\underline{Boolean Convention} \\
+		$\forall$ is true on the empty set & \multirow{2}{6cm}{\LARGE\} \normalsize Consistent with common sense} \\
+		$\exists$ is false on the empty set
+	\end{tabular}
+	
+	\begin{description}
+		\item[Definition:] Let $A, B$ be two sets. The \underline{union} $A \cup B = \{x \mid x \in A \lor x \in B \}$
+		\item[Definition:] Let $A, B$ be two sets. The \underline{intersection} $A \cap B = \{x \mid x \in A \land x \in B \}$
+		\item[Definition:] Let $A, B$ be sets. $A$ and $B$ are called \underline{disjoint} is $A \cap B = \emptyset$
+		\item[Definition] Let $A, B$ be two sets. $A-B = A \backslash B = \{a \mid x \in A \land x \notin B \}$
+		\item[Examples:]
+		\begin{tabular}{ll}
+			$A = \{1, 2, 5\}$ & $B = \{1, 3, 6\}$ \\
+			$A \cup B = \{1, 2, 3, 5, 6\}$ & $A \cap B = \{1\}$ \\
+			$A \backslash B = \{2, 5\}$ & $B \backslash A = \{3, 6\}$ \\
+		\end{tabular}
+		\item[Definition:] Let $A, U$ be sets s.t. $A \subseteq U$. The \underline{complement} of $A$ in $U$ = $U \backslash A = A^C = \{x \mid x \in U \land x \notin A \}$
+		\item[Remark:] The notation $A^C$ is unambiguous only if the universe U is clearly defined or understood.
+	\end{description}
+	
+	\subsection{Venn Diagrams}
+	Schematic representation of set operations. \\
+
+	\begin{figure}[h]
+		\centering
+		\def \setu{(0, 0)rectangle(4.5, 3)}
+		\def \seta{(1.5, 1.5)circle(1)}
+		\def \setb{(3, 1.5)circle(1)}
+		\begin{tikzpicture}
+			
+			\begin{scope}
+				\draw \seta node{$A$};
+				\draw \setb node{$B$};
+				\draw \setu;
+			\end{scope}
+			
+			\begin{scope}[shift={(5cm, 0cm)}, even odd rule]
+				\draw \seta node{$A$};
+				\draw \setb node{$B$};
+				\draw \setu (2.25, -0.5) node{$A^C$};
+				\clip \seta \setu;
+				\filldraw[red, fill opacity=0.5] \setu;
+			\end{scope}
+			
+			\begin{scope}[shift={(0cm, -4cm)}]
+				\draw \seta node{$A$};
+				\draw \setb node{$B$};
+				\draw \setu (2.25, -0.5) node{$A \cap B$};
+				\clip \seta;
+				\filldraw[red, fill opacity=0.5] \setb;
+			\end{scope}
+			
+			\begin{scope}[shift={(5cm, -4cm)}]
+				\draw \seta node{$A$};
+				\draw \setb node{$B$};
+				\draw \setu (2.25, -0.5) node{$A \cup B$};
+				\filldraw[red, fill opacity=0.5] \seta \setb;
+			\end{scope}
+
+			\begin{scope}[shift={(0cm, -8cm)}, even odd rule]
+				\draw \seta node{$A$};
+				\draw \setb node{$B$};
+				\draw \setu (2.25, -0.5) node{$A \backslash B$};
+				\clip \seta \setb;
+				\filldraw[red, fill opacity=0.5] \seta;
+			\end{scope}
+			
+			\begin{scope}[shift={(5cm, -8cm)}, even odd rule]
+				\draw \seta node{$A$};
+				\draw \setb node{$B$};
+				\draw \setu (2.25, -0.5) node{$B \backslash A$};
+				\clip \seta \setb;
+				\filldraw[red, fill opacity=0.5] \setb;
+			\end{scope}
+		\end{tikzpicture}
+	\end{figure}
+
+	\newpage
+	\subsection{Properties of Set Operations}
+	\begin{table}[h!]
+		\centering
+		\caption*{Correspondence between Logic and Set Theory}
+		\begin{tabular}{|c|c|}
+			\cline{1-2}
+			Logical Connective & Set operation \\ \cline{1-2}
+			$\land$ & intersection $\cap$ \\ \cline{1-2}
+			$\lor$ & union $\cup$ \\ \cline{1-2}
+			$\lnot$ & complement $(~)^C$ \\ \cline{1-2}
+		\end{tabular}
+	\end{table}
+	~\\
+	As a result, various properties of set operations become obvious:
+	\begin{itemize}
+		\item Commutativity
+		\begin{itemize}
+			\item $A \cap B = B \cap A$
+			\item $A \cup B = B \cup A$
+		\end{itemize}
+		\item Associativity
+		\begin{itemize}
+			\item $(A \cup B) \cup C = A \cup (B \cup C)$
+			\item $(A \cap B) \cap C = A \cap (B \cap C)$
+		\end{itemize}
+		\item Distributivity
+		\begin{itemize}
+			\item $A \cap (B \cup C) = (A \cap B) \cup (A \cap C)$
+			\item $A \cup (B \cap C) = (A \cup B) \cap (A \cup B)$
+		\end{itemize}
+		\item De Morgan Laws in Set Theory
+		\begin{itemize}
+			\item $(A \cap B)^C = A^C \cup B^C$
+			\item $(A \cup B)^C = A^C \cap B^C$
+		\end{itemize}
+		\item Involutivity of the Complement
+		\begin{itemize}
+			\item $(A^C)^C = A$
+		\end{itemize}
+		\item[\textbf{NB:}] An involution is a map such that applying it twice gives the identity. Familiar examples: reflecting across the x-axis, the y-axis, or the origin in the plane.
+		\item Transitivity of Inclusion
+		\begin{itemize}
+			\item $A \subseteq B \land B \subseteq C \rightarrow A \subseteq C$
+		\end{itemize}
+		\item Criterion for proving equality of sets
+		\begin{itemize}
+			\item $A=B \leftrightarrow A \subseteq C \land B \subseteq A$
+		\end{itemize}
+		\item Criterion for proving non-equality of sets
+		\begin{itemize}
+			\item $A \neq B \leftrightarrow (A \backslash B) \cup (B \backslash A) \neq 0$
+		\end{itemize}
+	\end{itemize}
+	
+	\subsection{Example Proof in Set Theory}
+	\begin{description}
+		\item[Proposition:] $\forall A, B$ sets. $(A \cap B) \cup (A \backslash B) = A$
+		\item[Proof:] Use the criterion for proving equality of sets from above, \textbf{i.e.} inclusion in both directions.
+		\item \underline{Show $(A \cap B) \cup (A \backslash B) \subseteq A$:} $\forall x \in (A \cap B) \cup (A \backslash B), x \in (A \cap B)$ or $x \in A \backslash B$. If $x \in (A \cap B)$ then clearly $x \in A$ as $A \cap B \subseteq A$ by definition. If $x \in A \backslash B$, then by definition $x \in A$ and $x \notin B$ so definitely $x \in A$. In both cases, $x \in A$ as needed.
+		\item \underline{Show $A \subseteq (A \cap B) \cup (A \backslash B)$:} $\forall x \in A$, we have two possibilities, namely $x \in B$ or $x \notin B$. If $x \in B$, then $x \in A$ and $x \in B$, so $x \in A \cap B$. If $x \notin B$, then $x \in A$ and $x \notin B$, so $x \in A \backslash B$. In both cases, $x \in (A \cap B)$ or $x \in (A \backslash B)$ so $x \in (A \cap B) \cup (A \backslash B)$ as needed.
+		\item \textbf{qed}
+	\end{description}
+	
+
+\end{document}

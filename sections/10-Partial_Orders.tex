@@ -1,0 +1,31 @@
+\documentclass[../main.tex]
+		
+		\begin{document}
+			\begin{description}
+		\item[Task:] Understand another type of relation with special properties.
+		\item[Definition:] Let $A$ be a set. A relation $R$ on $A$ is called anti-symmetric if $\forall x, y \in A$ s.t. $xRy \land yRx$, then $x=y$.
+		\item[Definition:] A \underline{partial order} is a relation on a set $A$ that is reflexive, anti-symmetric, and transitive.
+		\item[Examples:]
+		\begin{enumerate}
+			\item[]
+			\item $A = \mathbb{R} \hspace{10mm} \leq$ "less than or equal to" is a partial order
+			\begin{enumerate}
+				\item $\forall x \in \mathbb{R} x \leq x \rightarrow$ reflexive
+				\item $\forall x, y \in \mathbb{R}$ s.t. $x \leq y \land y \leq x \implies x=y \rightarrow$ anti-symmetric
+				\item $\forall x, y, z \in \mathbb{R}$ s.t. $x \leq y \land y \leq z \implies x \leq z \rightarrow$ transitive \\
+				Same conclusion if $A = \mathbb{Z} \lor A \mathbb{N}$
+			\end{enumerate}
+			\item $A$ is a set. Consider $P(A)$, the power set of $A$. The relation $\subseteq$ "being a subset of" is a partial order.
+			\begin{enumerate}
+				\item $\forall B \in P(A), B\subseteq B \rightarrow$ reflexive.
+				\item $\forall B, C \in P(A), B \subseteq C \land C \subseteq B \implies B=C$ (recall the criterion for proving equality of sets) $\rightarrow$ anti-symmetric
+				\item $\forall B, C, D \in P(A)$ s.t. $B \subseteq C \land C \subseteq D \implies B \subseteq D \rightarrow$ transitive
+			\end{enumerate}
+		\end{enumerate}
+		\item The most important example of a partial order is example (2) "being a subset of".
+		\item[Q:] Why is "being a subset of" a partial order as opposed to a total order?
+		\item[A:] There might exist products $B, C$ of $A$ s.t. neither $B \subseteq C$ nor $C \subseteq B$ holds, \textbf{i.e.} where $B \land C$ are not related via inclusion.
+	\end{description}
+	
+
+\end{document}

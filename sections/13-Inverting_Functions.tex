@@ -1,0 +1,47 @@
+\documentclass[../main.tex]
+		
+		\begin{document}
+			\begin{description}
+		\item[Task:] Figure out which properties a function has to satisfy so that its action can be undone, \textbf{i.e.} when we can define an inverse to the original function.
+	\end{description}
+	Given $f: A \rightarrow B$, want $f^{-1}: B \rightarrow A$ s.t. $f^{-1} \circ f: A \rightarrow A$ is the identity $f^{-1} \circ f(x) = f^{-1}(f(x)) = x$ \\
+	$A \overset{f}{\rightarrow} B \overset{f^{-1}}{\rightarrow} A$ \\
+	It turns out $f$ has to satisfy two properties for $f^{-1}$ to exist.
+	\begin{enumerate}
+		\item Injective
+		\item Surjective
+	\end{enumerate}
+	\begin{description}
+		\item[Definition:] A function $f: A \rightarrow B$ is called \underline{injective} or an injection (sometimes called one to one) if $f(x)=f(y) \Rightarrow x=y$
+		\item[Examples:] ~\\
+		$\sin{x}: [0, \frac{\pi}{2}] \rightarrow \mathbb{R}$ is injective \\
+		$\sin{x}: \mathbb{R} \rightarrow \mathbb{R}$ is not injective because $\sin{x} = \sin{\pi} = 0$
+		\item[Definition:] A function $f: A \rightarrow B$ is called \underline{surjective} or a surjection (sometimes called onto) if $\forall z \in B \exists x \in A$ s.t. $f(x) = z$.
+		\item[Remark:] $f$ assigns a value to each element of $A$ by its definition as a function, but it is not required to cover all of $B$. $f$ is surjective if its range is all of $B$.
+		\item[Examples:] ~\\
+		$\sin{x}: \mathbb{R} \rightarrow [-1, 1]$ is surjective \\
+		$\sin{x}: \mathbb{R} \rightarrow \mathbb{R}$ is not surjective since $\nexists x \in \mathbb{R}$ s.t. $\sin{x} = 2$. We know $| \sin{x} | \leq 1 \forall x \in \mathbb{R}$
+		\item[Definition:] A function $f:A \rightarrow B$ is called \underline{bijective} or a bijection if $f$ is \underline{both} injective and surjective.
+		\item[Example:] $f: \mathbb{R} \rightarrow \mathbb{R} \hspace{10mm} f(x) = 2x+1$ is bijective.
+		\begin{itemize}
+			\item Check injectivity $f(x_1) = f(x_2) \Rightarrow 2x_1 + 1 = 2x_2 + 1 \Leftrightarrow 2x_1 = 2x_2 \Leftrightarrow x_1 = x_2$ as needed.
+			\item Check surjectivity $\forall z \in \mathbb{R}. f(x) = z$ means $2x+1=z$. \\
+			Solve for $x$: $2x=z-1 \Rightarrow x = \frac{z-1}{2} \in \mathbb{R} \Rightarrow f$ is surjective.
+		\end{itemize}
+		\item[Remark:] All bijective functions have inverses because we can define the inverse of a bijection and it will be a function:
+		\begin{itemize}
+			\item Surjectivity ensures $f^{-1}$ assigns an element to every element of $B$ (its domain).
+			\item Injectivity ensures $f^{-1}$ assigns to each elements of $B$ \underline{one and only one} elements of $A$.
+		\end{itemize}
+		\item[Conclusion:] $f:A \rightarrow B$ bijective $\Rightarrow f^{-1}$ exists, \textbf{i.e.} $f^{-1} $ is a function. It turns out (reverse the arguments above) that $f^{-1}$ exists $\Rightarrow f:A \rightarrow B$ is bijective. \\
+		Altogether we get the following theorem:
+		\item[Theorem:] Let $f:A \rightarrow B$ be a function. $f^{-1}$ exists $\Leftrightarrow f:A \rightarrow B$ is bijective.
+		\item[Q:] How do we find the inverse function $f^{-1}$ given $f: A \rightarrow B$?
+		\item[A:] If $f(x)=y$, solve for $x$ as a function of $y$ since $f^{-1}(f(x))=f^{-1}(y)=x$ s $f^{-1} \circ f$ is the identity.
+		\item[Example:] $f(x)=2x+1=y$. Solve for $x$ in terms of $y$. \\
+		$f: \mathbb{R} \rightarrow \mathbb{R}$ \\
+		$2x = y-1 \hspace{10mm} x = \frac{y-1}{2}$
+	\end{description}
+	
+
+\end{document}

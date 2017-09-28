@@ -1,0 +1,95 @@
+\documentclass[../main.tex]
+		
+		\begin{document}
+			\begin{description}
+		\item[Task:] Understand how to construct a proof using mathematical induction.
+	\end{description}
+	$\mathbb{N} = \{0, 1, 2, \dots\}$ set of natural numbers. \\
+	Recall that $\mathbb{N}$ is constructed using 2 axioms:
+	\begin{enumerate}
+		\item $0 \in \mathbb{N}$
+		\item If $n \in \mathbb{N}$, then $n+1 \in \mathbb{N}$
+	\end{enumerate}
+	
+	\begin{description}
+		\item[Remarks:]
+		\begin{enumerate}
+			\item[]
+			\item This is exactly the process of counting.
+			\item If we start at $1$, then we construct $\mathbb{N}* = \{1, 2, 3, 4, \dots\} = \mathbb{N} \backslash \{0\}$
+		\end{enumerate}
+		\item via the axioms
+		\begin{enumerate}
+			\item $1 \in \mathbb{N}*$
+			\item if $n \in \mathbb{N}*$, then $n+1 \in \mathbb{N}*$
+		\end{enumerate}
+		\item $\mathbb{N}$ or $\mathbb{N}*$ is used for mathematical induction.
+	\end{description}
+	
+	\subsection{Mathematical Induction Consists of Two Steps:}
+	\begin{description}
+		\item[Step 1] Prove statements $P(1)$ called \underline{the base case}.
+		\item[Step 2] For any $n$, assume $P(n)$ and prove $P(n+1)$. This is called \underline{the inductive step}. In other words, step 2 proves the statement $\forall n P(n) \rightarrow P(n+1)$
+		\item[Remark:] Step 2 is not just an implication but infinitely many! In logic notation, we have:
+		\item[Step 1] $P(1)$
+		\item[Step 2] $\forall n (P(n) \rightarrow P(n+1))$ \\
+		Therefore, $\forall n P(n)$ \\
+		Let's see how the argument proceeds:
+		\begin{enumerate}
+			\item $P(1)$ \hspace{10mm} Step 1 (base case)
+			\item $P(1) \rightarrow P(2)$ \hspace{10mm} by Step 2 with $n=1$
+			\item $P(2)$ \hspace{10mm} by 1 \& 2
+			\item $P(2) \rightarrow P(3)$ \hspace{10mm} by Step 2 with $n=2$
+			\item $P(3)$ \hspace{10mm} by 3 \& 4
+			\item $P(3) \rightarrow P(4)$ \hspace{10mm} by Step 2 with $n=3$
+			\item $P(4)$ \hspace{10mm} by 5 \& 6 \\
+			\vdots
+			\item $P(n)$ for any $n$. \\
+			This is like a row of dominos: knocking over the first one in a row makes all the others fall. Another idea is climbing a ladder.
+		\end{enumerate}
+		\item[Examples:]
+		\begin{enumerate}
+			\item[]
+			\item Prove $1+3+5+\dots+(2n-1) = n^2$ by induction.
+			\begin{description}
+				\item[Base Case:] Verify statement for $n=1$
+				\item When $n=1$, $2n-1 = 2 \times 1 - 1 = 1^2$
+				\item[Inductive Step:] Assume $P(n)$, \textbf{i.e.} $1+3+5+\dots+(2n-1)=n^2$ and seek to prove $P(n+1)$, \textbf{i.e.} the statement $1+3+5\dots+(2n-1+2(n+1)-1) = (n+1)^2$
+				\item We start with LHS: $1+ \underset{n^2}{\underbrace{3+5+\dots+(2n-1)}}+(2(n+1)-1)=n^2+2n+2-1=n^2+2n+1=(n+1)^2$
+			\end{description}
+			\item Prove $1+2+3+ +n= \frac{n(n+1)}{2}$ by induction.
+			\begin{description}
+				\item [Base Case:] Verify statement for $n=1$
+				\item When $n=1, 1= \frac{1\times (1+1)}{2}=\frac{1 \times 2}{2} = 1$
+				\item[Inductive Step:] Assume $P(n)$, \textbf{i.e.} $1+2+3+\dots+n=\frac{n\times (n+1)}{2}$ and seek to prove $1+2+3+\dots+n= \frac{(n+1)(n+2)}{2}$
+				\item $\underset{\frac{n(n+1)}{2}}{\underbrace{1+2+3+\dots+n}}+n+1 = \frac{n(n+1)}{2} + n + 1 = (n+1)(\frac{n}{2} + 1)=(n+1)\frac{n+2}{2} = \frac{(n+1)(n+2)}{2}$ as needed.
+			\end{description}
+		\end{enumerate}
+		\item[Remarks:]
+		\begin{enumerate}
+			\item[]
+			\item For some argument by induction, it might be necessary to assume not just $P(n)$ at the inductive step but also $P(1), P(2), \dots, P(n-1)$. This is called \underline{strong induction}.
+			\begin{description}
+				\item[Base Case:] Prove $P(1)$
+				\item[Inductive Step:] Assume $P(a), P(2), \dots, P(n)$ and prove $P(n+1)$.
+			\end{description}
+			\item[] An example of result requiring the use of strong induction is the \underline{Fundamental Theorem of Arithmetic}: $\forall n \in \mathbb{N}, n \geq 2, n$ can be expressed as a product of one or more prime numbers.
+			\item One has to be careful with argument involving induction. Here is an illustration why:
+			\item[] \underline{Polya's argument that all horses are the same colour:}
+			\begin{description}
+				\item[Base Case:] $P(1)$ There is only one horse, sot hat has a colour.\item[Inductive Step] Assume any $n$ horses are the same colour.
+				\item Consider a group of $n+1$ horses. Exclude the first horse and look at the other $n$. All of these are the same colour by our assumption. Now exclude the last horse. The remaining $n$ horses are the same colour by our assumption. Therefore, the first horse, the horses in the middle, and the last horse are all of the same colour. We have established the inductive step.
+				\item[Q:] Where does the argument fail?
+				\item[A:] For $n=2, P(2)$ is false because there are no middle horses to compare to.
+			\end{description}
+			\item[] \underline{The Grand Hotel Cigar Mystery}
+			\begin{description}
+				\item[] Recall Hilbert's hotel - the grand Hotel. Suppose that the Grand Hotel does not allow smoking and no cigars may be taken into the hotel. In spite of the rules, the guest in Room 1 goes to Room 2 to get a cigar. The guest in Room 2 goes to Room 3 to get 2 cigars (one for him and one for the person in room 1), etc. In other words, guest in Room N goes to Room N+1 to get N cigars. They will each get back to their rooms, smoke one cigar, and give the result to the person in Room N-2.
+				\item[Q:] Where is the fallacy?
+				\item[A:] This is an induction argument without a base case. No cigars are allowed in the hotel so no guests have cigars. An induction cannot get off the ground without a base case.
+			\end{description}
+		\end{enumerate}
+	\end{description}
+	
+
+\end{document}

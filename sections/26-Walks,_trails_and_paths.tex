@@ -1,0 +1,47 @@
+\documentclass[../main.tex]
+		
+		\begin{document}
+			\begin{description}
+		\item[Task:] Make rigorous the notion of traversing parts of a graph in order to understand its structure better.
+		\item[Definition:] Let $(V, E)$ be a graph. A \underline{walk} $v_0 v_1 v_2 \dots v_n$ of length $n$ in the graph from vertex $a$ to vertex $b$ is determined by a finite sequence $v_0, v_1, v_1, \dots, v_n$ of vertices of the graph s.t. $v_0 = a, v_n = b$ and $v_{i-1} v_i$ is an edge of the graph for $i=1, 2, \dots, n$.
+		\item[Definition:] A walk $v_0 v_1 v_2 \dots v_n$ in a graph is said to \underline{traverse} the edges $v_{i-1} v_i$ and to \underline{pass through} the vertices $v_0, v_1, \dots, v_n$. Length of walk $= \#$ of edges traversed $\rightarrow$ the smallest possible number is two edges. As a result, we have the following definition:
+		\item[Definition:] A walk that consists of a single vertex $v \in V$ and has length two is called \underline{trivial}.
+		\item[Definition:] Let $(V, E)$ be a graph. A \underline{trail} $v_0 v_1 v_2 \dots v_n$ of length $n$ in the graph from some vertex $a$ to some vertex $b$ is a walk of length $n$ from $a$ to $b$ with the property that edges $v_{i-1} v_i$ are distinct for $i-1, 2, \dots , n$. In other words, a trail is a walk in the graph, which traverses edges of the graph at most once.
+		\item[Definition:] Let $(V, E)$ be a graph. A \underline{path} $v_0 v_1 v_2 \dots v_n$ of length $n$ in the graph from some vertex $a$ to some vertex $b$ is a walk of length $n$ from $a$ to $b$ with the property that vertices $v_0, v_1 \dots v_n$ are distinct. In other words, a path in a graph is a walk in the graph, which passes through the vertices of the graph at most once.
+		\item[Definition:] A walk, trail or path is a graph is called \underline{trivial} if it is a walk of length two consist of a single vertex $v \in V$; otherwise, the walk, trail, or path is called \underline{non-trivial}.
+		\item[Example:] ~\\
+		\begin{enumerate}
+			\item $h$ is a trivial walk/trail/path
+			\item $defd$ is a trail, but not a path because we pass through the vertex $d$ twice.
+			\item $def$ is a path
+			\item $gfdefdc$ is a walk but not a trail of a path
+		\end{enumerate}
+		\begin{figure}[h!]
+			\centering
+			\begin{tikzpicture}
+			\coordinate (G) at (0, -1);
+			\coordinate (F) at (3, -3.5);
+			\coordinate (E) at (1, -3);
+			\coordinate (D) at (1, -5);
+			\coordinate (A) at (-2, -3.5);
+			\coordinate (H) at (-1, -3.2);
+			\coordinate (B) at (-0.5, -6.2);
+			\coordinate (C) at (2.7, -7);
+			
+			\draw (G) -- (F) -- (D) -- (C) -- (B) -- (A) -- (G);
+			\draw (D) -- (E) -- (F);
+			
+			\draw[fill=black] (A) circle[radius=0.5mm] node[left]{A};
+			\draw[fill=black] (B) circle[radius=0.5mm] node[below left]{B};
+			\draw[fill=black] (C) circle[radius=0.5mm] node[right]{C};
+			\draw[fill=black] (D) circle[radius=0.5mm] node[left]{D};
+			\draw[fill=black] (E) circle[radius=0.5mm] node[above]{E};
+			\draw[fill=black] (F) circle[radius=0.5mm] node[right]{F};
+			\draw[fill=black] (G) circle[radius=0.5mm] node[above]{G};
+			\draw[fill=black] (H) circle[radius=0.5mm] node[above]{H};
+			\end{tikzpicture}
+		\end{figure}
+	\end{description}
+	
+
+\end{document}

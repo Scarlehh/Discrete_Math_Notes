@@ -1,0 +1,128 @@
+\documentclass[../main.tex]
+		
+		\begin{document}
+			\begin{description}
+		\item[Task:] Understand binary operators, semigroups, monoids, and groups as well as their properties.
+	\end{description}
+	
+	\subsection{Binary Operations}
+	\begin{description}
+		\item[Definition:] Let $A$ be a set. A \underline{binary operation} $*$ on $A$ is an operation applied to any two elements $x, y \in A$ that yields on elements $x*y$ in $A$. In other words, $*$ us a binary operation on $A$ if $\forall x, y \in A, x*y \in A$.
+		\item[Examples:]
+		\begin{enumerate}
+			\item[]
+			\item $\mathbb{R}, +$ addition on $\mathbb{R}: \forall x, y \in \mathbb{R}, x+y \in \mathbb{R}$
+			\item $\mathbb{R}, -$ subtraction on $\mathbb{R}: \forall x, y \in \mathbb{R}, x-y \in \mathbb{R}$
+			\item $\mathbb{R}, \times$ multiplication on $\mathbb{R}: \forall x, y \in \mathbb{R}, x \times y \in \mathbb{R}$
+			\item $\mathbb{R}, /$, division on $\mathbb{R}$ is \underline{NOT} a binary operation because $\forall x \in \mathbb{R} \exists o \in \mathbb{R}$ s.t. $\frac{x}{o}$ is undefined (not an element of $\mathbb{R}$)
+		\end{enumerate}
+		\item[Definition:] A binary operation $*$ on a set $A$ is called \underline{commutative} if $\forall x, y \in A, x*y=y*x$
+		\item[Examples:]
+		\begin{enumerate}
+			\item[]
+			\item $\mathbb{R}, +$ is commutative since $\forall x, y \in \mathbb{R}, x+y=y+x$
+			\item $\mathbb{R}, \times$ is commutative since $\forall x, y \in \mathbb{R}, x \times y = y \times x$
+			\item $\mathbb{R}, -$ is not commutative since $\forall x, y \in \mathbb{R}, x-y \neq y-x$ in general. $x-y=y-x$ only if $x=y$
+			\item Let $Mn$ be the set of $n$ by $n$ matrices with entries in $\mathbb{R}$ and let $*$ be matrix multiplication. $\forall A, B \in Mn, A*B \in Mn$, so $*$ is a binary operation, but $AB \neq BA$ in general. Therefore $*$ is not commutative.
+		\end{enumerate}
+		\item[Definition:] A binary operation $*$ on a set $A$ is called \underline{associative} if $\forall x, y, z, (x*y)*z = x*(y*z)$
+		\item[Examples:]
+		\begin{enumerate}
+			\item[]
+			\item $\mathbb{R}, +$ is associative since $\forall x, y, z \in \mathbb{R}, (x+y)+z=x+(y+z)$
+			\item $\mathbb{R}, \times$ is associative since $\forall x, y, z \in \mathbb{R}, (x \times y) \times z = x \times (y \times z)$
+			\item Intersection $\cap$ on sets is associative since $\forall A, B, C$ sets $(A \cap B) \cap C = A \cap (B \cap C)$.
+			\item Union $\cup$ on sets is associative since $\forall A, B, C$ sets $(A \cup B) \cup C = A \cup (B \cup C)$
+			\item $\mathbb{R}, -$ is not associative since $(1-3)-5 = -2-5 =-7$ but $1-(3-5)=1-(-2)=1+2=3$
+		\end{enumerate}
+		\item[Remark:] When we are dealing with associative binary operations we can drop the parentheses, \textbf{i.e.} $(x*y)*z$ can be written $x*y*z$.
+	\end{description}
+	
+	\subsection{Semigroups}
+	\begin{description}
+		\item[Definition:] A \underline{semigroup} is a set endowed with an associative binary operation. We denote the semigroup $(A, *)$
+		\item[Examples:]
+		\begin{enumerate}
+			\item[]
+			\item $(\mathbb{R}, +)$ and $(\mathbb{R}, -)$ are semigroups.
+			\item Let $A$ be a set and let $P(A)$ be its power set. $(P(A), \cap)$ and $(P(A), \cup)$ are both semigorups.
+			\item $(Mn, *)$, the set of $n\times n$ matrices with entries in $\mathbb{R}$ with the operation of matrix multiplication (which is associative $\rightarrow$ a bit gory to prove) forms a semigroup.
+			\item[] Since $*$ is associative on a semigroup, we can define $a^n:$\\
+			$a^1 = a$ \\
+			$a^2 = a*a$\\
+			$a^3 = a*a*a$\\
+			\vdots \\
+			Recursively, $a^1=1$ and $a^n=a*a^{n-1}, \forall n > 1$
+			\item[\textbf{NB:}] In $(\mathbb{R}, \times), \forall a \in \mathbb{R}, a^n = \underset{n\: times}{\underbrace{a \times a \times \dots \times a}}$, whereas in $(\mathbb{R}, +), \forall a \in \mathbb{R}, a^n = \underset{n\: times}{\underbrace{a + a + \dots + a}}=na$. Be careful what $*$ stands for!
+		\end{enumerate}
+		\item[Theorem:] Let $(A, *)$ be a semigroup. $\forall a \in A, a^m * a^n = a^{m+n}, \forall m, n \in \mathbb{N*}$.
+		\begin{description}
+			\item[Proof:] By induction on $m$.
+			\item[Base Case:] $m=1 \hspace{10mm} a^1*a^n= a*a^n =a*{1+n}$
+			\item[Inductive Step:] Assume the result is true for $m=p$, \textbf{i.e.} $a^p*a^n = a^{p+n}$ and seek to prove that $a^{p+1}*a^n=a^{p+1+n}$
+			\item $a^p+1*a^n = (a*a^p)*a^n = a*(a^p*a*n) = a*a^{p+n} =a^{p+1+n}$
+		\end{description}
+		\item[Theorem:] Let$(A, *)$ be a semigroup. $\forall a \in A, (a^m)^n = a^{mn}, \forall m, n \in \mathbb{N}*$
+		\begin{description}
+			\item[Proof:] By induction on $n$.
+			\item[Base Case:] $n=1 \hspace{10mm} (a^m)^1 = a^m = a^{m \times 1}$
+			\item[Inductive Step:] Assume the result if true for $n=p$, \textbf{i.e.} $(a^m)^p = a^{mp}$ and seek to prove that $(a^m)^{p+1}=a^{m(p+1)}$
+			\item $(a^m)^{p+1} = (a^m)^p * a^m = a^{mp} * a^m = a^{mp+m} = a^{m(p+1)}$
+		\end{description}
+	\end{description}
+	
+	\subsubsection{General Associative Law}
+	Let $(A, *)$ be a semigroup. $\forall a_1, \dots, a_s \in A, a_1 * a_2 * \dots * a_s$ has the same value regardless of how the product is bracketed.
+	\begin{description}
+		\item[Proof] Use associativity of $*$.
+		\item[qed]
+		\item[NB:] Unless $(A, *)$ has a commutative binary operation, $a_1 * a_2 * \dots * a_s$ does depend on the \underline{ORDER} in which the $a_j's$ appearin $a_1 * a_2 * \dots * a_s$
+	\end{description}
+	
+	\subsubsection{Identity Elements}
+	\begin{description}
+		\item[Definition:] Let $(A, *)$ be a semigroup. An element $e \in A$ is called an identity element for the binary operation $*$ if $e*x = x*e = x, \forall x \in A$.
+		\item[Examples:]
+		\begin{enumerate}
+			\item[]
+			\item $(\mathbb{R}, +)$ has 0 as the identity element.
+			\item $(\mathbb{R}, \times)$ has 1 as the identity element.
+			\item Given a set $A, (P(A), \cup)$ has $\emptyset$ (the empty set) as its identity elements, whereas $(P(A), \cap)$ has $A$ as its identity element.
+			\item $(Mn, *)$ has $In$, the identity matrix as its identity element.
+		\end{enumerate}
+		\item[Theorem] A binary operation on a set cannot have more than one identity elements, \textbf{i.e.} if an identity element exists, then it is unique.
+		\begin{description}
+			\item[Proof:] Assume not (proof by contradiction). Let $e$ and $e'$ both be identity elements for a binary operation on a set $A$. $e=e*e'=e'$
+			\item[qed]
+		\end{description}
+	\end{description}
+	
+	\subsection{Monoids}
+	\begin{description}
+		\item[Definition:] A \underline{monoid} is a set $A$ endowed with an associative binary operation $*$ that has an identity element $e$. In other words, a monoid is a semigroup $(A, *)$ where $*$ has an identity element $e$.
+		\item[Definition:] A monoid $(A, *)$ is called \underline{commutative} (or \underline{Abelian}) if the binary operation $*$ is commutative.
+		\item[Example:]
+		\begin{enumerate}
+			\item[]
+			\item $(\mathbb{R}, +)$ is a commutative monoid with $e=o$.
+			\item $(\mathbb{R}, \times)$ is a commutative monoid with $e=1$.
+			\item Given a set $A$, $(P(A), \cup)$ is a commutative monoid with $e = \emptyset$.
+			\item $(M,n *)$ is a monoid since $e=In$, but it is not commutative since matrix multiplication is not commutative.
+			\item $(\mathbb{N}, +)$ is a commutative monoid with $e=o$, whereas $(\mathbb{N}*, +)$ is merely a semigroup (recall $\mathbb{N}* = \mathbb{N} \backslash\{0\}$)
+		\end{enumerate}
+		\item[Theorem:] Let $(A, *)$ be a monoid and let $a \in A$. Then $a^m * a^n = a^{m+n}, \forall m, n \in \mathbb{N}$
+		\begin{description}
+			\item[Remark:] Recall that we proved this theorem for semigroups if $m, n \in \mathbb{N}*$. We now need to extend that result.
+			\item[Proof:] A monoid is a semigroup $\implies \forall a \in A, a^m * a^n = a^{m+n}$ whenever $m, n \in \mathbb{N}*$, \textbf{i.e.} $m > 0$ and $n > 0$. Now let $m = 0$. $a^m * a^n = a^0 * a^n = e * a^n = a^n = a^{0+n}$ \\
+			If $n=0, a^m * a^n = a^m * a^0 = a^m* e = a^m = a^{m+0}$
+			\item[qed]
+		\end{description}
+		\item[Theorem:] Let $A, *)$ be a monoid, $\forall a \in A \forall m, n \in \mathbb{N}, (a^m)^n = a^{mn}$
+		\begin{description}
+			\item[Remark:] Once again, we had this result for semigroups when $m>0$ and $n > 0$
+			\item[Proof:] By the remark, we only need to prove the result when $m=0$ or $n=0$. If $m=0, (a^0)^n = (e)^n = e = a^0 = a^{0\times n}$. If $n=0$ then $(a^m)^0 = e = a^0 = a^{0 \times m}$
+		\end{description}
+	\end{description}
+	
+
+\end{document}

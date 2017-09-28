@@ -1,0 +1,42 @@
+\documentclass[../main.tex]
+		
+		\begin{document}
+			\begin{description}
+		\item[Task:] Derive conclusions about a function given the number of elements of the domain and codomain if finite; understand the pigeonhole principle.
+		\item[Proposition:] Let $A, B$ be sets and let $f:A \rightarrow B$ be a function. Assume $A$ is finite. Then $f$ is injective $\Leftrightarrow f(A)$ has the same number of elements as $A$.
+		\item[Proof:]
+		\item $A$ is finite so we can write it as $A = \{a_1, a_2, \dots, a_p\}$ for some $p$. Then $f(A) = \{f(a_1), f(a_2), \dots, f(a_p)\} \subseteq B$. A priori, some $f(a_i)$ might be the same as some $f(a_j)$. However, $f$ injective $\Leftrightarrow f(a_i) \neq f(a_j)$ whenever $i \neq j \Leftrightarrow f(A)$ has example $p$ elements just like $A$.
+		\item[qed]
+		\item[Corollary 1] Let $A, B$ be finite sets such that $\#(A) = \#(B)$. Let $f: A \rightarrow B$ be a function. $f$ is injective $\Leftrightarrow f$ is bijective.
+		\item[Proof:]
+		\item $\Rightarrow$ Suppose $f:A \rightarrow B$ is injective. Since $A$ is finite, by the previous proposition, $f(A)$ has the same number of elements as $A$, but $f(A) \subseteq B$ and $B$ has the same number of elements as $A \Rightarrow \#(A) = \#(f(A)) = \#(B)$, which means $f(A) = B$, \textbf{i.e.} $f$ is also surjective $\Rightarrow f$ is bijective.
+		\item $\Leftarrow f$ is bijective $\Leftarrow f$ is injective.
+		\item[qed]
+		\item[Corollary 2 (The Pigeonhole Principle)] Let $A, B$ be finite sets. If $\#(B) < \#(A)$, and let $f:A \rightarrow B$ be a function. $\exists a, a' \in A$ where $ a \neq a'. f(a) = f(a')$
+		\item[Remark:] The name pigeonhole principle is due to Paul Erd\"{o}s and Richard Rado. Before is was known as the principle of the drawers of Dirichlet. It has a simple statement, but it's a very powerful result in both mathematics and computer science.
+		\item[Proof:] Since $f(A) \subseteq B$ and $\#(B) < \#(A), f(A)$ cannot hve as many elements as $A$, so by the proposition, $f$ cannot be injective, \textbf{i.e.} $\exists a, a' \in A$ where $a \neq a'$ (\textbf{i.e.} distinct elements) s.t. $f(a) = f(a')$
+		\item[qed]
+		\item[Examples:]
+		\begin{enumerate}
+			\item[]
+			\item You have 8 friends. At least two of them were born the same day of the week. \#(days of the week) $= 7 < 8$.
+			\item A family of five fives each other presents for Christmas. There are 12 presents under the tree. We conclude at least one person for three presents or more.
+			\item In a list of 30 words in English, at least two will begin with the same letter. \#(Letter in the English alphabet) = 26 < 30.
+		\end{enumerate}
+	\end{description}
+	
+	\subsection{Behaviour of Functions on Infinite Sets}
+	Let $A$ be a set and $f:A \rightarrow A$ be a function. If $A$ is finite , the corollary 1 tells us $f$ injective $\Leftrightarrow f$ bijective. What if $A$ is not finite?
+	
+	\subsubsection{Hilbert's Hotel problem (jazzier name: Hilbert's paradox of the Grand Hotel)}
+	A fully occupied hotel with infinitely many rooms can always accommodate an additional guest as follows: The person in Room 1 removes to Room 2. The person in Room 2 moves to Room 3 and so on, \textbf{i.e.} if the rooms at $x_1, x_2, x_3\dots$ define the function $f(x_1)=x_2, f(x_2)=x_3, \dots, f(x_m) = x_{m+1}$.
+	
+	\begin{description}
+		\item[Claim:] As defined $f$ is injective but not surjective (hence not bijective!). Let $H = \{x_1, x_2,\dots\}$ the hotel consisting of infinitely many rooms. $f: H \rightarrow H$ is given by $f(x_n) = f(x_{n+1})$. $f(H) = H \backslash \{x_1\}$. We cn use this idea to prove:
+		\item[Proposition:] A set $A$ is finite $\Leftrightarrow \forall f:A \rightarrow A$ an injective function is also bijective.
+		\item[Proof:] If the set $X$ is finite then it follows immediately that every injective function $f:X \rightarrow X$ is bijective. \\
+		Suppose that the set $X$ is infinite. Then there exists some infinite sequence $x_1, x_2, x_3, \dots$ of distinct elements of $X$ (where an element of $X$ occurs at most once in this list). Then there exists a function $f:X \rightarrow X$ defined such that $f(x_n) = x_{n+1}$ for all positive integers of $n$, and $f(x) = x$ for all elements of $x$ of $X$. If $x$ is not a member of the infinite sequence $x_1, x_2, x_3, \dots$ then the only elements of $X$ that gets mapped to $x$ is the element $x$ itself; if $x = x_n$, where $x>1$, then the only element of $X$ gets mapped to $x$. It follows that the function $f$ is injective. However it is not surjective, since $x_1$ does not belong to the range of the function. This function $f$ is thus an example of a function from the set $X$ to itself which is injective but not bijective.
+	\end{description}
+	
+
+\end{document}

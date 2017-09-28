@@ -1,0 +1,18 @@
+\documentclass[../main.tex]
+		
+		\begin{document}
+			\begin{description}
+		\item[Task:] Look at paths and circuits that pass through every vertex of a graph.
+		\item[Definition:] A \underline{Hamiltonian path} in a graph is a path that passed exactly once through every vertex of a graph. \\
+		Path $\Rightarrow$ we pass through a vertex at most once (no repeated vertices) \\
+		Hamiltonian $\Rightarrow$ we pass through every vertex.
+		\item[Definition:] A \underline{Hamiltonian circuit} in a graph is a simple circuit that passes through every vertex of the graph.
+		\item[Origin of the Terminology:] Named after William Roman Hamilton (1805-1865) who showed in 1856 that such a circuit exists in the graph consisting of the verices and edges of a dodecahedron (see page 88 in David Wilkins' notes for the picture of a Hamiltonian circuit on a dodecahedron). Hamilton developed a game called Hamilton's puzzle of the icosian game in 1857 whom object was to find Hamiltonian circuits in the dodecahedrom (many solutions exist). This game was marketed in Europe as a pigboard with holes for each vertex of the dodecaherdrom. \\
+		\textbf{NB:} The dodecahedron is a Platonic solid, and it turns out every Platonic solid has a Hamiltonian circuit. Recall that the Platonic solids are the tetrahedron (4 faces), the cube (6 faces), the octahedron (8 faces), the dodecahedron (12 faces), and the icosahedron (20 faces). Each of these is a regular graph.
+		\item[Theorem:] Every complete graph $k_n$ for $n \geq 3$ has a Hamiltonian circuit.
+		\item[Proof:] Let $V = \{v_1, v_2, v_3, \dots v_n\}$ be the set of vertices of $k_n$, then $v_1 v_2 v_3 \dots v_n v_1$ is a Hamiltonian circuit. All edges in this circuit are part of $k_n$ because $k_n$ is complete.
+		\item[qed]
+	\end{description}
+	
+
+\end{document}

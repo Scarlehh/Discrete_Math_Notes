@@ -1,0 +1,32 @@
+\documentclass[../main.tex]
+		
+		\begin{document}
+			\begin{description}
+		\item[Task:] Understand what the power set of a set $A$ is.
+		\item[Definition:] Let $A$ be a set. The power set of $A$ denoted $P(A)$ is the collection of all the subsets of $A$.
+		\item[Recall:] $\emptyset \subseteq A$. It is also clear from the definition of a subset that $A \subseteq A$.
+		\item[Examples:]
+		\begin{enumerate}
+			\item[]
+			\item $A=\{0, 1\}$ \\
+			$P(A) = \{\emptyset, \{0\}, \{1\}, \{0, 1\} \}$
+			\item $A=\{a, b, c\}$ \\
+			$P(A) = \{\emptyset, \{a\}, \{b\}, \{c\}, \{a, b\}, \{a, c\}, \{b, c\}, \{a, b, c\} \}$
+			\item $A = \emptyset$ \\
+			$P(A) = \{\emptyset\}$ \\
+			$P(P(A)) = \{\emptyset, \{\emptyset\} \}$
+			\item [\textbf{NB:}] $\emptyset$ and $\{\emptyset\}$ are different objects. $\emptyset$ has no elements, whereas $\{\emptyset\}$ has one element.
+		\end{enumerate}
+		\item[Remark:] $P(A)$ and $A$ are viewed as living in separate worlds to avoid phenomena like Russell' paradox.
+		\item[Q:] If $A$ has $n$ elements, how many elements does $P(A)$ have?
+		\item[A:] $2^n$
+		\item[Theorem:] Let $A$ be a set with $n$ elements, then $P(A)$ contains $2^n$ elements.
+		\item[Proof:] Based on the on/off switch idea.
+		\item $\forall x \in A$, we have two choices: either we include $x$ in the subset or we don't (on vs off switch). $A$ has $n$ elements $\Rightarrow$ we have $2^n$ subsets of $A$.
+		\item \textbf{qed}
+		\item [Alternate Proof:] Using mathematical induction. \\
+		\textbf{NB:} It is an axiom of set theory (in the ZFC standard system) that every set has a power set, which implies no set consisting of all possible sets could limit, else what would its power set be?
+	\end{description}
+	
+
+\end{document}
