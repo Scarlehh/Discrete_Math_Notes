@@ -21,7 +21,14 @@ local currSection = {
 local sections = {}
 
 function makeSubfile(section)
-	local filename = string.format("%02d", section.id) .. "-" .. string.gsub(currSection.name, " ", "_")
+	for i = 0, currSection.name:len() do
+		if currSection.name:sub(i,i) == " " then
+			local nextChar = currSection.name:sub(i+1,i+1)
+			currSection.name = currSection.name:gsub(" " .. nextChar, " " .. nextChar:upper())
+		end
+	end
+
+	local filename = string.format("%02d", section.id) .. "-" .. string.gsub(currSection.name, " ", "")
 	table.insert(sections, filename)
 	local sectionFile = io.open("sections/"..filename..".tex", "w")
 	sectionFile:write(currSection.tex)
@@ -39,7 +46,7 @@ for i, line in next, lines do
 		currSection.tex = [[\documentclass[../main.tex]
 		
 		\begin{document}
-		]]
+		]] .. line .. "\n"
 	elseif (line:match(endOfFile)) then
 		currSection.tex = currSection.tex .. "\n\\end{document}"
 		makeSubfile(currSection)
@@ -78,7 +85,7 @@ local mainTex = [[
 for _, section in next, sections do
 	mainTex = mainTex .. "\\subfile{sections/" .. section .. "}\n"
 end
-mainTex = mainTex .. "\\end{document"
+mainTex = mainTex .. "\\end{document}"
 
 local filename = "main.tex"
 local mainFile = io.open(filename, "w+")

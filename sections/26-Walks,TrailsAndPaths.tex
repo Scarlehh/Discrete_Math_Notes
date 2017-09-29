@@ -1,7 +1,8 @@
 \documentclass[../main.tex]
 		
 		\begin{document}
-			\begin{description}
+			\section{Walks, trails and paths}
+	\begin{description}
 		\item[Task:] Make rigorous the notion of traversing parts of a graph in order to understand its structure better.
 		\item[Definition:] Let $(V, E)$ be a graph. A \underline{walk} $v_0 v_1 v_2 \dots v_n$ of length $n$ in the graph from vertex $a$ to vertex $b$ is determined by a finite sequence $v_0, v_1, v_1, \dots, v_n$ of vertices of the graph s.t. $v_0 = a, v_n = b$ and $v_{i-1} v_i$ is an edge of the graph for $i=1, 2, \dots, n$.
 		\item[Definition:] A walk $v_0 v_1 v_2 \dots v_n$ in a graph is said to \underline{traverse} the edges $v_{i-1} v_i$ and to \underline{pass through} the vertices $v_0, v_1, \dots, v_n$. Length of walk $= \#$ of edges traversed $\rightarrow$ the smallest possible number is two edges. As a result, we have the following definition:
