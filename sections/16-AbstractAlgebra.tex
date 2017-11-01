@@ -1,11 +1,11 @@
 \documentclass[../main.tex]
-		
+
 		\begin{document}
 			\section{Abstract Algebra}
 	\begin{description}
 		\item[Task:] Understand binary operators, semigroups, monoids, and groups as well as their properties.
 	\end{description}
-	
+
 	\subsection{Binary Operations}
 	\begin{description}
 		\item[Definition:] Let $A$ be a set. A \underline{binary operation} $*$ on $A$ is an operation applied to any two elements $x, y \in A$ that yields on elements $x*y$ in $A$. In other words, $*$ us a binary operation on $A$ if $\forall x, y \in A, x*y \in A$.
@@ -38,7 +38,7 @@
 		\end{enumerate}
 		\item[Remark:] When we are dealing with associative binary operations we can drop the parentheses, \textbf{i.e.} $(x*y)*z$ can be written $x*y*z$.
 	\end{description}
-	
+
 	\subsection{Semigroups}
 	\begin{description}
 		\item[Definition:] A \underline{semigroup} is a set endowed with an associative binary operation. We denote the semigroup $(A, *)$
@@ -71,15 +71,15 @@
 			\item $(a^m)^{p+1} = (a^m)^p * a^m = a^{mp} * a^m = a^{mp+m} = a^{m(p+1)}$
 		\end{description}
 	\end{description}
-	
+
 	\subsubsection{General Associative Law}
 	Let $(A, *)$ be a semigroup. $\forall a_1, \dots, a_s \in A, a_1 * a_2 * \dots * a_s$ has the same value regardless of how the product is bracketed.
 	\begin{description}
 		\item[Proof] Use associativity of $*$.
 		\item[qed]
-		\item[NB:] Unless $(A, *)$ has a commutative binary operation, $a_1 * a_2 * \dots * a_s$ does depend on the \underline{ORDER} in which the $a_j's$ appearin $a_1 * a_2 * \dots * a_s$
+		\item[NB:] Unless $(A, *)$ has a commutative binary operation, $a_1 * a_2 * \dots * a_s$ does depend on the \underline{ORDER} in which the $a_j's$ appear in $a_1 * a_2 * \dots * a_s$
 	\end{description}
-	
+
 	\subsubsection{Identity Elements}
 	\begin{description}
 		\item[Definition:] Let $(A, *)$ be a semigroup. An element $e \in A$ is called an identity element for the binary operation $*$ if $e*x = x*e = x, \forall x \in A$.
@@ -97,7 +97,7 @@
 			\item[qed]
 		\end{description}
 	\end{description}
-	
+
 	\subsection{Monoids}
 	\begin{description}
 		\item[Definition:] A \underline{monoid} is a set $A$ endowed with an associative binary operation $*$ that has an identity element $e$. In other words, a monoid is a semigroup $(A, *)$ where $*$ has an identity element $e$.
@@ -124,6 +124,6 @@
 			\item[Proof:] By the remark, we only need to prove the result when $m=0$ or $n=0$. If $m=0, (a^0)^n = (e)^n = e = a^0 = a^{0\times n}$. If $n=0$ then $(a^m)^0 = e = a^0 = a^{0 \times m}$
 		\end{description}
 	\end{description}
-	
+
 
 \end{document}
